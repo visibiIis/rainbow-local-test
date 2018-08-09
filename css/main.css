@@ -859,7 +859,7 @@ margin-bottom: 3.020833vw;
     position: relative;
 
 }
-#userQuestion label:after, 
+#userQuestion label:first-child:after, #userQuestion label:first-child + label:after,
 .userLogin label:first-child:after, .userLogin label:first-child + label:after,
 .userRegistr label:first-child:after, .userRegistr label:first-child + label:after,
 .userRegistr label:first-child +label + label:after, .callback-form label:after {
@@ -962,9 +962,7 @@ line-height: 4.26;
 
 
 
-#userQuestion input.invalidInput, .userLogin  input.invalidInput, 
-.userRegistr  input.invalidInput, .callback-form input.invalidInput, 
-.subscribe-form input.invalidInput, .user-form input.invalidInput {
+#userQuestion input.invalidInput, .userLogin  input.invalidInput, .userRegistr  input.invalidInput, .callback-form input.invalidInput, .subscribe-form input.invalidInput, .user-form input.invalidInput {
     border-color: #d25647 !important;
     position: relative;
     z-index: 10;
@@ -2171,7 +2169,6 @@ margin: 0;
   .news-and-blog-articles div.news-and-blog-article:nth-child(5n) {
     margin-left: 0;
   }
-
   .news-and-blog-article{
     width: 19.791666vw;
     box-shadow: 0 0 15.5px 0.5px rgba(0, 0, 0, 0.1);
@@ -4708,7 +4705,6 @@ text-decoration: none;
   padding-top: 4.6875vw;
   /*padding-bottom: 100px;*/
   padding-bottom: 5.208333vw;
-  background: #ffffff;
 }
 .contacts-cont > div {
   width: 50%;
@@ -4901,7 +4897,7 @@ text-decoration: none;
 }
 
 
-#userQuestion > [role="form"] {
+#userQuestion {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -5026,7 +5022,7 @@ font-size: .78125vw;
 }
 
 
-#userQuestion label:after {
+#userQuestion label:first-child:after, #userQuestion label:first-child + label:after {
     line-height: 4.5;
 }
 
@@ -5310,7 +5306,7 @@ margin-top: 10px;
   .course-desc {
     background-color: #f8f9fb;
         /*padding-left: 420px;*/
-    padding-left: 12.5434375vw;
+    padding-left: 21.875vw;
     /*padding-right: 15px;*/
     padding-right: .78125vw;
     box-sizing: border-box;

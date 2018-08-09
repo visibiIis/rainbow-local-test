@@ -1,9 +1,58 @@
 <?php
-  /**
-   * Главная страница (index.php)
-   * @package WordPress
-   * @subpackage your-clean-template-3
-   */
+/**
+ * Главная страница (index.php)
+ * @package WordPress
+ * @subpackage your-clean-template-3
+ */
+
+if (isset($_POST['reg-email'])) {
+  if($_POST['password'] !== $_POST['password_repeat']) {
+    echo '<script> alert("Пароли не совпадают")</script>';
+  }
+  else {
+
+    $username = explode('@', $_POST['reg-email'])[0];
+    $password = $_POST['password'];
+    $email = $_POST['reg-email'];
+
+    $user = wp_create_user($username, $password, $email);
+
+    if(is_wp_error($user)) {
+     echo '<script> alert("'. $user->get_error_message() .'") </script>';
+    }
+    else {
+      echo '<script> alert("Успешная регистрация")</script>';
+      update_user_meta( $user, 'user_login', $username);
+      update_user_meta( $user, 'user_email', $email);
+      wp_authenticate( $username, $password );
+      //header('Location: /account');
+    }
+  }
+}
+
+if (isset($_POST['login-email'])) {
+  $username = $_POST['login-email'];
+  $password = $_POST['login-password'];
+
+  $credentials = [
+    'user_login'    => $username,
+    'user_password' => $password,
+    'remember'      => $_POST['rememberMe'],
+  ];
+
+  $user = wp_signon($credentials);
+
+  if(is_wp_error($user)) {
+     echo '<script> alert("'. $user->get_error_message() .'") </script>';
+    }
+    else {
+      echo '<script> alert("Успешная авторизация")</script>';
+      wp_authenticate( $username, $password );
+      //header('Location: /account');
+    }
+}
+
+
 get_header(); // подключаем header.php ?> 
 
   <section class="main-photoslider">
@@ -20,7 +69,7 @@ get_header(); // подключаем header.php ?>
         if(have_posts()){ while(have_posts()){ the_post();
           ?>
       <h3 class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s"><?php the_field('title'); ?></h3>
-      <?php the_content(); ?>
+      <p class="  wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s"><?php the_content(); ?></p>
       <p class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s"><?php the_field('slogan'); ?></p>
       <?php
         }}
@@ -126,7 +175,7 @@ get_header(); // подключаем header.php ?>
         </a>
         <div>
           <div class="article-date-bar">
-            <span class="article-date"><?= get_the_date('j F Y'); ?></span> 
+            <span class="article-date"><?php the_date('d F Y'); ?></span> 
             <span class="article-reading-time">
               Читать <?= read_speed(get_the_content(), [' минута', ' минуты', ' минут']); ?>
             </span>
@@ -147,8 +196,8 @@ get_header(); // подключаем header.php ?>
     </div>
     <a href="#" class="news-and-blog-show-more mobile">Другие новости</a>   
   </section>
-  
-  <section class="school-relevance">
+
+  <section  class="school-relevance">
     <h3>Актуальность нашей школы</h3>
     <div class="school-relevance-grid">
       <div class="school-relevance-desc">
@@ -186,7 +235,12 @@ get_header(); // подключаем header.php ?>
     <h3 class="">Приходи на первое ознакомительное занятие и убедись в этом лично!</h3>
     <div class="">Оставить заявку на обучение очень просто</div>
     <form action="#" class="">
-      <?= do_shortcode('[contact-form-7 id="83" title="Форма обратной связи (1-ый тип)"]'); ?>
+      <label for="#"><input type="text" name="clientName" required placeholder="Введите Ваше имя"></label>
+      <label for="#"><input type="email" name="clientEmail" required placeholder="Введите ваш email"></label>
+      <label for="#"><input  type="tel" required name="clientTel" placeholder="Ваш номер телефона +38(0**) *** ** **"></label>
+      <textarea name="clientMsg" placeholder="Сообщение"></textarea>
+      <input type="submit" value="Отправить заявку на обучение">
+      <a href="#">Или запишитесь на бесплатный пробный урок</a>
     </form>
   </section>
   

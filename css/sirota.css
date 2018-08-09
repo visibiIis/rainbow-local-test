@@ -243,16 +243,10 @@
     border: 3px solid #f8f7f8;
     position: relative;
     box-sizing: border-box;
-    background: white;
+
     /*padding: 45px 50px  80px 65px;*/
     padding: 2.34375vw 2.6041666vw 4.1666vw 3.38541666vw ;
-    cursor: pointer;
 }
-
-.courses-page-courses-cont .course:hover {
-    box-shadow: 0px 0px 1.04166666667vw .10416666666vw rgb(0, 0, 0, .08);
-}
-
 .courses-page-courses-cont .course .module-group {
     top: -3px;
 }
@@ -261,9 +255,21 @@
     /*margin-left: 28px;*/
     margin-left: 1.458333vw;
 }
-.courses-page-courses-cont .course:nth-child(n+3) {
+.courses-page-courses-cont .course:nth-child(n + 3) {
     /*margin-top: 35px;*/
     margin-top: 1.82291666vw;
+}
+.course {
+	/*width: 30vw;
+	border: 3px solid #f7f7f7;
+	display: inline-block;
+	padding: 45px 60px 40px;
+    padding: 2.34375vw 3.125vw 2.08333vw;
+    box-shadow: 0 0 19.6px 0.4px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    height: 21.875vw;
+    box-sizing: border-box;
+    position: relative;*/
 }
 
 /*end course styles*/
@@ -283,17 +289,25 @@
 }
 
 .not-found-page {
-	background:  rgba(254,255,254,1);
-    background:  -moz-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
-    background:  -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(254,255,254,1)), color-stop(100%, rgba(226,232,235,1)));
-    background:  -webkit-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
-    background:  -o-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
-    background:  -ms-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
-    background:  radial-gradient(ellipse at center, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	/*background: rgba(226,232,236,0.63);
+	background: -moz-linear-gradient(left, rgba(226,232,236,0.63) 0%, rgba(226,232,236,1) 0%, rgba(226,232,236,1) 9%, rgba(243,249,252,1) 23%, rgba(243,249,252,1) 76%, rgba(226,232,236,1) 90%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(226,232,236,0.63)), color-stop(0%, rgba(226,232,236,1)), color-stop(9%, rgba(226,232,236,1)), color-stop(23%, rgba(243,249,252,1)), color-stop(76%, rgba(243,249,252,1)), color-stop(90%, rgba(226,232,236,1)));
+	background: -webkit-linear-gradient(left, rgba(226,232,236,0.63) 0%, rgba(226,232,236,1) 0%, rgba(226,232,236,1) 9%, rgba(243,249,252,1) 23%, rgba(243,249,252,1) 76%, rgba(226,232,236,1) 90%);
+	background: -o-linear-gradient(left, rgba(226,232,236,0.63) 0%, rgba(226,232,236,1) 0%, rgba(226,232,236,1) 9%, rgba(243,249,252,1) 23%, rgba(243,249,252,1) 76%, rgba(226,232,236,1) 90%);
+	background: -ms-linear-gradient(left, rgba(226,232,236,0.63) 0%, rgba(226,232,236,1) 0%, rgba(226,232,236,1) 9%, rgba(243,249,252,1) 23%, rgba(243,249,252,1) 76%, rgba(226,232,236,1) 90%);
+	background: linear-gradient(to right, rgba(226,232,236,0.63) 0%, rgba(226,232,236,1) 0%, rgba(226,232,236,1) 9%, rgba(243,249,252,1) 23%, rgba(243,249,252,1) 76%, rgba(226,232,236,1) 90%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e8ec', endColorstr='#e2e8ec', GradientType=1 );*/
+    background: url(../resources/img/404/404Boy.svg), rgba(254,255,254,1);
+    background: url(../resources/img/404/404Boy.svg), -moz-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+    background: url(../resources/img/404/404Boy.svg), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(254,255,254,1)), color-stop(100%, rgba(226,232,235,1)));
+    background: url(../resources/img/404/404Boy.svg), -webkit-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+    background: url(../resources/img/404/404Boy.svg), -o-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+    background: url(../resources/img/404/404Boy.svg), -ms-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+    background: url(../resources/img/404/404Boy.svg), radial-gradient(ellipse at center, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefffe', endColorstr='#e2e8eb', GradientType=1 );    
     height: 100vh;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 18.90625vw 19.9479166667vw, 100%;
     background-position: center bottom;
 }
 
@@ -308,29 +322,13 @@
     margin: 0;
 }
 
-.not-found-home-link + span {
-    content: '';
-    display: block;
-    width: 18.90625vw;
-    height: 19.9479166667vw;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    background-image: url(../resources/img/404/404Boy.svg);
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    background-size: cover;
-    z-index: 1;
-}
-
-.not-found-home-link:hover + span,
-.not-found-home-link:focus + span {
-    background-image: url(../resources/img/404/404BoyHover.svg);
-    width: 13.28125vw;
-    height: 19.9479166667vw;
-}
+/*.not-found-text {
+	display: inline-block;
+	font-size: 2.34vw;
+	line-height: 37px;
+	color: rgb(0,0,0);
+	text-align: center;
+}*/
 
 .not-found-text {
     /*font-size: 30px;*/
@@ -342,6 +340,24 @@
     /*margin: -3px auto 0;*/
     margin: -.15625vw auto 0;
 }
+
+/*
+.Ой__кажется_вы_не_туда_зашли__Но_мы_можем_верну {
+  font-size: 29.767px;
+  font-family: "FuturaPT";
+  color: rgb( 0, 0, 0 );
+  line-height: 1.233;
+  text-align: center;
+  -moz-transform: matrix( 1.00067446245342,0,0,1.00783427542009,0,0);
+  -webkit-transform: matrix( 1.00067446245342,0,0,1.00783427542009,0,0);
+  -ms-transform: matrix( 1.00067446245342,0,0,1.00783427542009,0,0);
+  position: absolute;
+  left: 463.037px;
+  top: 342.916px;
+  z-index: 15;
+}
+
+*/
 
 .not-found-home-link {
     display: block;
@@ -374,92 +390,92 @@
 
 .del-avatar-window-sure, 
 .del-avatar-window-deleted {
-	width: 35.15625vw;
-	height: 10.4166666667vw;
-	background-color: #fff;
-	border-radius: 1.145833333vw;
-	box-shadow: 0 0 1.145833333vw rgba(0,0,0,0.08);
-	position: fixed;
-	left: 0;
-	top: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-	text-align: center;
-	z-index: 10000000
-}
+		width: 35.15625vw;
+		height: 10.4166666667vw;
+		background-color: #fff;
+		border-radius: 1.145833333vw;
+    	box-shadow: 0 0 1.145833333vw rgba(0,0,0,0.08);
+    	position: fixed;
+    	left: 0;
+    	top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    	text-align: center;
+    	z-index: 10000000
+	}
 
-.del-avatar-buttons {
-	margin: 1.40625vw auto;
-	width: 25vw;
-}
+	.del-avatar-buttons {
+		margin: 1.40625vw auto;
+		width: 25vw;
+	}
 
-.del-avatar-button {
-	display: inline-block;
-	width: 11.25vw;
-	height: 2.76041666667vw;
-	border: .15416666666vw solid #af1f1f;
-	border-radius: 1.51041666667vw;
-	background: #fff;
-	color: #000;
-	font-size: 1.04166666667vw;
-	line-height: 2.76041666667vw;
-	font-weight: bold;
-	text-align: center;
-	text-transform: uppercase;
-	text-decoration: none;
-	float: left;
-}
+	.del-avatar-button {
+		display: inline-block;
+		width: 11.25vw;
+		height: 2.76041666667vw;
+		border: .15416666666vw solid #af1f1f;
+		border-radius: 1.51041666667vw;
+		background: #fff;
+		color: #000;
+		font-size: 1.04166666667vw;
+		line-height: 2.76041666667vw;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+		float: left;
+	}
 
-.del-avatar-button:hover, 
-.del-avatar-button:focus  {
-    background: #af1f1f;
-    color: #fff;
-    cursor: pointer;
-}
+	.del-avatar-button:hover, 
+	.del-avatar-button:focus  {
+	    background: #af1f1f;
+	    color: #fff;
+	    cursor: pointer;
+ 	 }
 
-.del-avatar-cancel {
-	display: inline-block;
-	width: 11.25vw;
-	height: 2.76041666667vw;
-	border: .15416666666vw solid #9fa7b0;
-	border-radius: 1.51041666667vw;
-	background: #fff;
-	color: #000;
-	font-size: 1.04166666667vw;
-	line-height: 2.76041666667vw;
-	font-weight: bold;
-	text-align: center;
-	text-transform: uppercase;
-	text-decoration: none;
-	float: right;
-}
+ 	 .del-avatar-cancel {
+		display: inline-block;
+		width: 11.25vw;
+		height: 2.76041666667vw;
+		border: .15416666666vw solid #9fa7b0;
+		border-radius: 1.51041666667vw;
+		background: #fff;
+		color: #000;
+		font-size: 1.04166666667vw;
+		line-height: 2.76041666667vw;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+		float: right;
+	}
 
-.del-avatar-cancel:hover, 
-.del-avatar-cancel:focus  {
-    border-color: #5891dd;
-    cursor: pointer;
-}
+	.del-avatar-cancel:hover, 
+	.del-avatar-cancel:focus  {
+	    border-color: #5891dd;
+	    cursor: pointer;
+ 	 }
 
-.del-avatar-text {
-	color: #000;
-	font-size: 1.02890625vw;
-	margin: 3.38541666667vw 0 0 0;
-	font-weight: bold;
-	text-align: center;
-	text-transform: uppercase;
-	text-decoration: none;
-}
+ 	 .del-avatar-text {
+		color: #000;
+		font-size: 1.02890625vw;
+		margin: 3.38541666667vw 0 0 0;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+ 	 }
 
-.del-avatar-deleted {
-	color: #000;
-	font-size: 1.25vw;
-	line-height: 10.4166666667vw;
-	font-weight: bold;
-	text-align: center;
-	text-transform: uppercase;
-	text-decoration: none;
-}
+ 	 .del-avatar-deleted {
+		color: #000;
+		font-size: 1.25vw;
+		line-height: 10.4166666667vw;
+		font-weight: bold;
+		text-align: center;
+		text-transform: uppercase;
+		text-decoration: none;
+ 	 }
 
 
 @media all and (max-width: 1024px) and (min-width: 501px) {
@@ -525,6 +541,25 @@
      /*font-size: 19px;*/
      font-size: 2.21354166667vw;
      line-height: 5.20833333333vw;
+	}
+
+	.not-found-page {
+		/*background-size: 57.5vw 62.8125vw, 100%; */
+		background: url(../resources/img/404/404Boy-tablet.svg), rgba(254,255,254,1);
+	    background: url(../resources/img/404/404Boy-tablet.svg), -moz-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background: url(../resources/img/404/404Boy-tablet.svg), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(254,255,254,1)), color-stop(100%, rgba(226,232,235,1)));
+	    background: url(../resources/img/404/404Boy-tablet.svg), -webkit-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background: url(../resources/img/404/404Boy-tablet.svg), -o-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background: url(../resources/img/404/404Boy-tablet.svg), -ms-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background: url(../resources/img/404/404Boy-tablet.svg), radial-gradient(ellipse at center, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background-repeat: no-repeat;
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefffe', endColorstr='#e2e8eb', GradientType=1 );    
+    	height: 100vh;
+    	background-position: center bottom;
+
+        /*background-size: 185px 200px, 100%;*/
+        background-size: 26.5625vw 28.125vw, 100%;
+        /*1vwmax = 4.8px*/
 	}
 
 	.wrapper {
@@ -1492,6 +1527,25 @@
         text-transform: uppercase;      
 
 
+	}
+
+	.not-found-page {
+		/*background-size: 57.5vw 62.8125vw, 100%; */
+		background: url(../resources/img/404/404Boy-phone.svg), rgba(254,255,254,1);
+	    background: url(../resources/img/404/404Boy-phone.svg), -moz-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background: url(../resources/img/404/404Boy-phone.svg), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(254,255,254,1)), color-stop(100%, rgba(226,232,235,1)));
+	    background: url(../resources/img/404/404Boy-phone.svg), -webkit-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background: url(../resources/img/404/404Boy-phone.svg), -o-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background: url(../resources/img/404/404Boy-phone.svg), -ms-radial-gradient(center, ellipse cover, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background: url(../resources/img/404/404Boy-phone.svg), radial-gradient(ellipse at center, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%);
+	    background-repeat: no-repeat;
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefffe', endColorstr='#e2e8eb', GradientType=1 );    
+    	height: 100vh;
+    	background-position: center bottom;
+
+        /*background-size: 185px 200px, 100%;*/
+        background-size: 57.5vw 60.625vw, 100%;
+        /*1vwmax = 4.8px*/
 	}
 
 	/*profile*/

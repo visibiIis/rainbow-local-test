@@ -44,7 +44,10 @@ get_header(); // подключаем header.php ?>
             <a href="#"><span>Часто задаваемые вопросы здесь</span></a>
         </div>
         <form action="#" id="userQuestion">
-          <?= do_shortcode('[contact-form-7 id="159" title="Форма обратной связи (2-ой тип)"]'); ?>
+          <label for="#"><input type="text" name="userQName" required="" placeholder="Введите Ваше имя"></label>
+          <label for="#"><input type="email" name="userQEmail" required="" placeholder="Введите ваш email"></label>
+          <textarea name="userQMsg" placeholder="Сообщение"></textarea>
+          <input type="submit" value="Отправить сообщение">
         </form>
     </div>
 </section>

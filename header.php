@@ -15,7 +15,7 @@
   <?php wp_head(); // необходимо для работы плагинов и функционала ?>
 </head>
 <body>
-  <?php $query = new WP_Query(['p' => 111]) ?>
+  <?php $query = new WP_Query(['p' => 88]) ?>
     <?php while( $query->have_posts() ){ $query->the_post();?>
 
     <header class="header">
@@ -81,11 +81,11 @@
               	<?php get_search_form(); ?>
               </div>
           </div>
-          <a class="user-cabinet-trigger">
+          <a class="user-cabinet-trigger" <?php echo is_user_logged_in() ? 'href="/account"' : '' ?> >
             <svg viewBox="0 0 31.5 42.5">
                <!-- <style type="text/css">
                     .st0{fill:none;stroke:#000000;stroke-width:1.9412;stroke-miterlimit:10;}
-                    g .st0:hover stroke: red;
+                    g .st0:hover {stroke: red;}
                 </style>-->
                 <g>
                     <circle  cx="15.7" cy="11.9" r="10.3"/>
@@ -103,6 +103,7 @@
              <!-- <div> +38 (066) 123 45 67</div> -->
           </div>
           <div class="lang-bar">
+          	<?php echo do_shortcode('[google-translator]'); ?>
               <a href="#" class="current-lang">Рус</a> | <a href="#">Укр</a>
           </div>
       </div>

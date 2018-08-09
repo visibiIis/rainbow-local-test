@@ -13,15 +13,14 @@
     <title>Упс</title>
 	<?php wp_head()?>
 </head>
-<body style="padding: 0;">
+<body>
     <section class="not-found-page"> 
     <div class="not-found-wrapper">
         <h2>404</h2>
         <div class="not-found-text">Ой, кажется, вы не туда зашли. Но мы можем вернуть вас назад:)</div>
         <!--<span class="not-found-text">Ой, кажется, вы не туда зашли </span>
         <span class="not-found-text">Но мы можем вернуть вас назад:)</span>-->
-        <a href='<?= site_url(); ?>' class="not-found-home-link">Вернуться на главную</a>
-        <span></span>
+        <a href="#" class="not-found-home-link">Вернуться на главную</a>
         <!-- <div class="not-found-img"></div> -->
     </div>
     </section>
@@ -36,14 +35,4 @@
 	<script src="<?php bloginfo('template_directory'); ?>/libs/forAnimation/wow.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 

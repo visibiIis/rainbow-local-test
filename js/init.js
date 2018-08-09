@@ -17,10 +17,10 @@ jQuery(document).ready(function() {
 
 if (window.innerWidth <= 320)
 {
-	jQuery('.calendar-win').find('h2').text('Расписание');
+	$('.calendar-win').find('h2').text('Расписание');
 
-	jQuery('.calendar-win').find('.calendar-slider').empty();
-	jQuery('.calendar-win').find('.calendar-slider').append('<div class="calendar-slider-slide"><table><tr><th>Понедельник</th><th>Вторник</th></tr><tr><td></td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Среда</th><th>Четверг</th></tr><tr><td></td><td></td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Пятница</th><th>Суббота</th></tr><tr><td></td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Воскресенье</th></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr></table></div>');
+	$('.calendar-win').find('.calendar-slider').empty();
+	$('.calendar-win').find('.calendar-slider').append('<div class="calendar-slider-slide"><table><tr><th>Понедельник</th><th>Вторник</th></tr><tr><td></td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Среда</th><th>Четверг</th></tr><tr><td></td><td></td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Пятница</th><th>Суббота</th></tr><tr><td></td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Воскресенье</th></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr></table></div>');
 }
 
 // изменение дней нидели в календаре для планшетов (Даниил Б)
@@ -28,18 +28,18 @@ if (window.innerWidth <= 320)
 if (window.innerWidth <= 1024 && window.innerWidth < 320) 
 {
 	console.log('priv 768');
-	var sliders = jQuery('.calendar-win').find('.calendar-slider-slide'),
+	var sliders = $('.calendar-win').find('.calendar-slider-slide'),
 		sliderIndex = 0;
 
 	for (sliderIndex; sliderIndex < sliders.length; ++sliderIndex)
 	{
-	  jQuery(sliders[sliderIndex]).find('th:eq(0)').text('ПН');
-	  jQuery(sliders[sliderIndex]).find('th:eq(1)').text('ВТ');
-	  jQuery(sliders[sliderIndex]).find('th:eq(2)').text('СР');
-	  jQuery(sliders[sliderIndex]).find('th:eq(3)').text('ЧТ');
-	  jQuery(sliders[sliderIndex]).find('th:eq(4)').text('ПТ');
-	  jQuery(sliders[sliderIndex]).find('th:eq(5)').text('СБ');
-	  jQuery(sliders[sliderIndex]).find('th:eq(6)').text('ВС');
+	  $(sliders[sliderIndex]).find('th:eq(0)').text('ПН');
+	  $(sliders[sliderIndex]).find('th:eq(1)').text('ВТ');
+	  $(sliders[sliderIndex]).find('th:eq(2)').text('СР');
+	  $(sliders[sliderIndex]).find('th:eq(3)').text('ЧТ');
+	  $(sliders[sliderIndex]).find('th:eq(4)').text('ПТ');
+	  $(sliders[sliderIndex]).find('th:eq(5)').text('СБ');
+	  $(sliders[sliderIndex]).find('th:eq(6)').text('ВС');
 	}
 }
 
@@ -97,7 +97,7 @@ jQuery('.password-reset-form').find('[type="password"]').blur(function() { // П
 
 }).end().submit(function (e) { // проверяем значения полей и отправляем форму с паролями
 
-  e.preventDefault();
+  //e.preventDefault();
    var emptyInput = false;
   jQuery(this).find('[type="password"]').each(function() {
    
@@ -113,14 +113,16 @@ jQuery('.password-reset-form').find('[type="password"]').blur(function() { // П
       alert('Пароли не совпадают!');
       return false;
     } else {
-      alert('отправка');
+      //alert('отправка');
       jQuery('.password-reset').fadeOut(function() {
 
         //показываем окно "пароль изменен"
-        jQuery('.ok-button').find('button').click(function() {
+        /*jQuery('.ok-button').find('button').click(function() {
           jQuery('.ok-button, .modal-win-shadow:visible').fadeOut();
         });
+
         jQuery('.ok-button').fadeIn(400);
+        */
       });
       
      // когда будет бекенд - настроить аякс отправку формы
@@ -303,11 +305,13 @@ jQuery('.password-reset-form').find('[type="password"]').blur(function() { // П
 
 
 // скрипты для личного квбинета
-    jQuery('.user-cabinet-trigger').click(function(e){
-        e.preventDefault();
-        jQuery('.user-login-win').fadeIn(800);
-        // return false;
-    });
+    if (!($("#is_logged_in").length > 0)){
+        jQuery('.user-cabinet-trigger').click(function(e){
+            e.preventDefault();
+            jQuery('.user-login-win').fadeIn(800);
+            // return false;
+        });
+    }
 
 
     jQuery('.user-login-and-registr-form.desktop .registrLink').click(function(e) {
@@ -385,10 +389,6 @@ jQuery('.mobile-nav-menu-close').click(function() {
     jQuery('.mobile-nav-menu').fadeOut();
 });
 
-// jQuery('.search-cont .search-form input:eq(1)').click(function()
-// {
-//     window.location.href = "/rainbow-back/searchresults";
-// });
 
 // скрипты для календаря
     jQuery('.calendar-trigger').click(function(e){
@@ -489,7 +489,7 @@ jQuery('.article-favorite-status').click(function(){
 /*паралакс*/
 
 jQuery('.school-relevance').parallax({
-    imageSrc: 'http://localhost/rainbow-back/wp-content/uploads/2018/07/relevance-bg.jpg',
+    imageSrc: '<?php bloginfo("template_directory") ?>/resources/img/main-page/relevance/relevance-bg.jpg',
     positionY: 'top'
     // positionY: '-1000px'
 
@@ -505,34 +505,36 @@ jQuery('.school-relevance').parallax({
 
 // emailvalid
 jQuery('[type="email"]').blur(function() {
-    if(jQuery(this).val() != '') {
+    if($(this).val() != '') {
         // if()
 
-        var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}jQuery/i;
+        var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
 
 
-        if(pattern.test(jQuery(this).val())){
-                        // jQuery(this).css({'border' : '1px solid #569b44'});
-                        // jQuery('#valid').text('Верно');
+        if(pattern.test($(this).val())){
+                        // $(this).css({'border' : '1px solid #569b44'});
+                        // $('#valid').text('Верно');
                         jQuery(this).attr('placeholder', 'Введите ваш email');
                     } else {
-                        jQuery(this).addClass('invalidInput');
+                        $(this).addClass('invalidInput');
                         if(jQuery(this).next('.emailError').length > 0){
                             jQuery('.emailError').fadeIn();    
                         }else {
                             jQuery(this).after('<div style="display:none" class="emailError">Неверно введен Email!<div>');
                             jQuery('.emailError').fadeIn();
                         }
-                        // jQuery('#valid').text('Не верно');
+                        // $('#valid').text('Не верно');
                     }
     } else {
         jQuery(this).addClass('invalidInput').attr('placeholder', 'Вы не ввели email');
     }
 });
 
-jQuery('form:not(.search-form) form:not(.module-search-form)').submit(function(e){
+jQuery('form').submit(function(e){
+    //e.preventDefault();
 
-    e.preventDefault();
+
+
 
     if (jQuery(this).find('.invalidInput').length == 0) {
         //отправляем
@@ -556,31 +558,38 @@ jQuery('form:not(.search-form) form:not(.module-search-form)').submit(function(e
         });
     }
     
-});
+})
+
+
+
+
 
 
 
 
 jQuery('[type="tel"]').blur( function() {
 
-        if(jQuery(this).val() == '') {
+        if($(this).val() == '') {
                 jQuery(this).addClass('invalidInput').attr('placeholder', 'Вы не ввели номер телефона!');
         } else {
             jQuery(this).attr('placeholder', 'Ваш номер телефона +38(0**) *** ** **');
         }
 });
 
+
 jQuery('[type="password"]').blur( function() {
-   if(jQuery(this).val() == '') {
+   if($(this).val() == '') {
     jQuery(this).addClass('invalidInput');
    } 
 });
 
 jQuery('[name="clientName"], [name="userQName"]').blur( function() {
-   if(jQuery(this).val() == '') {
+   if($(this).val() == '') {
     jQuery(this).addClass('invalidInput');
    } 
 });
+
+
 
 jQuery('input').focus(function () {
     if (jQuery(this).hasClass('invalidInput')) {
@@ -606,6 +615,11 @@ jQuery('.favorite-count div + div').click(function(){
     }
 });
 
+
+
+
+
+
 jQuery('.win-callback-init-link').click(function(e) {
     e.preventDefault();
     if (jQuery('.modal-win-shadow').length == 0) {
@@ -619,7 +633,7 @@ jQuery('.win-callback-init-link').click(function(e) {
 
 
 jQuery('.win-callback-close').click(function() {
-  jQuery('.win-callback, .modal-win-shadow:visible').fadeOut();
+    jQuery('.win-callback, .modal-win-shadow:visible').fadeOut();
 })
 
 
@@ -792,11 +806,12 @@ jQuery('.blog-menu-trigger').click(function() {
 });
 
 jQuery('.news-and-blog-category-menu').find('a').click(function(e) {
-  e.preventDefault();
+  //e.preventDefault();
   jQuery('a').removeClass('current-cat');
   var changeCatText = jQuery(this).text();
   jQuery('.blog-menu-trigger span, .news-and-blog h3').text(changeCatText);
   jQuery(this).addClass('current-cat');
+  //jQuery('.news-and-blog-article').remove();
   jQuery('.news-and-blog-category-menu').fadeOut(function() {
         jQuery(this).removeClass('opened');
       });
@@ -851,19 +866,19 @@ jQuery('.del-avatar-window-sure').find('.closeCross, .del-avatar-cancel').click(
 
 // profile menu
 
-if(!jQuery('.user-form').hasClass('unactive'))
+if(!$('.user-form').hasClass('unactive'))
 {
-  jQuery('.profile-category-list .profile-category-userData').addClass('active-profile-category');
+  $('.profile-category-list .profile-category-userData').addClass('active-profile-category');
 }
 
-if(!jQuery('.profile-news-and-blog').hasClass('unactive'))
+if(!$('.profile-news-and-blog').hasClass('unactive'))
 {
-  jQuery('.profile-category-list .profile-category-favoriteCourses').addClass('active-profile-category');
+  $('.profile-category-list .profile-category-favoriteCourses').addClass('active-profile-category');
 }
 
-if(!jQuery('.main-profile-modules').hasClass('unactive'))
+if(!$('.main-profile-modules').hasClass('unactive'))
 {
-  jQuery('.profile-category-list .profile-category-favoriteArticles').addClass('active-profile-category');
+  $('.profile-category-list .profile-category-favoriteArticles').addClass('active-profile-category');
 }
 
 // переключение между страницами профиля (Данил С, Данил Б, Роман К)
@@ -876,9 +891,9 @@ jQuery('.profile-category-menu').find('a').click(function(e) {
     case 'Избранные статьи':
       jQuery('.profile-news-and-blog').removeClass('unactive');
       jQuery('.wrapper').attr('class', 'wrapper-unactive');
-      jQuery('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
-      jQuery('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
-      jQuery('.profile-category-list .profile-category-favoriteArticles').addClass('active-profile-category');
+      $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteArticles').addClass('active-profile-category');
       if (window.screen.width <= 1024) {
         if (window.innerWidth <= 1024) {
           jQuery('.user-form').css('display', 'none');
@@ -893,9 +908,9 @@ jQuery('.profile-category-menu').find('a').click(function(e) {
     case 'Личные данные':
       jQuery('.user-form-section').removeClass('unactive')
       jQuery('.wrapper-unactive').attr('class', 'wrapper');
-      jQuery('.profile-category-list .profile-category-userData').addClass('active-profile-category');
-      jQuery('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
-      jQuery('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
+      $('.profile-category-list .profile-category-userData').addClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
       if (window.screen.width <= 1024) {
         if (window.innerWidth <= 1024) {
           jQuery('.user-form').css('display', 'flex');
@@ -910,9 +925,9 @@ jQuery('.profile-category-menu').find('a').click(function(e) {
     case 'Избранные курсы':
       jQuery('.main-profile-modules').removeClass('unactive');
       jQuery('.wrapper').attr('class', 'wrapper-unactive');
-      jQuery('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
-      jQuery('.profile-category-list .profile-category-favoriteCourses').addClass('active-profile-category');
-      jQuery('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
+      $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteCourses').addClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
       if (window.screen.width <= 1024) {
         if (window.innerWidth <= 1024) {
           jQuery('.user-form').css('display', 'none');
@@ -937,7 +952,7 @@ jQuery('.profile-category-menu').find('a').click(function(e) {
 
 // скрипты формы поиска в блоге
 jQuery('#blog-search-form').submit(function(e) {
-  e.preventDefault();
+  //e.preventDefault();
  
   if(jQuery('#blog-search-form').find('[type="text"]').val() !== '') {
     // на проде добавить AJAX 
@@ -966,7 +981,7 @@ jQuery('.change-page-form').submit(function(e) {
 // меняем шапку при проскроленной странице (надо вынести в отдельную функцию и вызывать при событиях риди и скролл)
 
     jQuery(document).scroll(function(){
-      if(window.scrollY != 0) {
+    if(window.scrollY != 0) {
         if(jQuery('.scrolled').length == 0) {
                 jQuery('.header').addClass('scrolled');
                 // jQuery('body').css('padding-top', '6.25vw');
@@ -976,20 +991,20 @@ jQuery('.change-page-form').submit(function(e) {
              jQuery('.header').removeClass('noscrolled');
              // jQuery('body').css('padding-top', '6.25vw');
         }
-        if(jQuery('.header').length > 0) {
-            jQuery('body').css('padding-top', '6.25vw');
-        }
-          
-      } else {
 
-        if(jQuery('.noscrolled').length == 0) {
+        jQuery('body').css('padding-top', '6.25vw');
+
+
+        } else {
+
+            if(jQuery('.noscrolled').length == 0) {
                 jQuery('.header').addClass('noscrolled');
         } 
         if(jQuery('.scrolled').length > 0) {
              jQuery('.header').removeClass('scrolled');
         }
         jQuery('body').css('padding-top', 0);
-      }
+    }
     });
 
 
@@ -997,7 +1012,7 @@ jQuery('.change-page-form').submit(function(e) {
 
         editHeightChildPhotoCont();
         jQuery('.school-relevance').parallax({
-             imageSrc: 'http://localhost/rainbow-back/wp-content/uploads/2018/07/relevance-bg.jpg',
+             imageSrc: '<?php bloginfo("template_directory") ?>/resources/img/main-page/relevance/relevance-bg.jpg',
             positionY: 'top'
             // positionY: '-1000px'
 
@@ -1018,35 +1033,9 @@ jQuery('.change-page-form').submit(function(e) {
 });
 
 
-jQuery(document).ready(function(){
+$(document).ready(function(){
 
-  jQuery('.course-feedback-slider').slick({
-
-    dots: true,
-    arrows: false,
-    speed: 500,
-    fade: true,
-    cssEase: 'linear',
-
-  });
-
-});
-
-
-jQuery(document).ready(function(){
-  jQuery('.atmosphere-rainbow-slides').slick({
-    dots: true,
-    arrows: false,
-    speed: 500,
-    fade: true,
-    cssEase: 'linear',
-  });
-});
-
-
-jQuery(document).ready(function(){
-
-  jQuery('.course-teacher-slider').slick({
+  $('.course-feedback-slider').slick({
 
     dots: true,
     arrows: false,
@@ -1059,236 +1048,255 @@ jQuery(document).ready(function(){
 });
 
 
-// jQuery('.not-found-home-link').mouseout(function(){
-//   jQuery('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404Boy.svg) center bottom no-repeat, radial-gradient(ellipse at center, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%)');
-//   jQuery('.not-found-page').css('backgroundSize', '18.90625vw 19.9479166667vw, 100%');
-// });
+$(document).ready(function(){
+  $('.atmosphere-rainbow-slides').slick({
+    dots: true,
+    arrows: false,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear',
+  });
+});
 
-// jQuery('.not-found-home-link').mouseover(function(){
-//   jQuery('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404BoyHover.svg) calc(50% + .47858796296vw) bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
-//   jQuery('.not-found-page').css('backgroundSize', '13.28125vw 19.9479166667vw, 100%');
-// });
 
-// jQuery('.not-found-home-link').mouseout(function(){
-//   if (window.screen.width <= 1024)
-//   {
-//     if (window.innerWidth <= 1024) 
-//     {
-//       jQuery('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404Boy-tablet.svg) center bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
-//       jQuery('.not-found-page').css('backgroundSize', '26.5625vw 28.125vw, 100%');
-//     }
-//   }
-// });
+$(document).ready(function(){
 
-// jQuery('.not-found-home-link').mouseover(function(){
-//   if (window.screen.width <= 1024)
-//   {
-//     if (window.innerWidth <= 1024) 
-//     {
-//       jQuery('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404BoyHover-tablet.svg) calc(50% + .65104166666vw) bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
-//       jQuery('.not-found-page').css('backgroundSize', '18.75vw 28.125vw, 100%');
-//     }
-//   }
-// });
+  $('.course-teacher-slider').slick({
 
-// jQuery('.not-found-home-link').mouseout(function(){
-//   if (window.screen.width <= 320)
-//   {
-//     if (window.innerWidth <= 320) 
-//     {
-//       jQuery('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404Boy-phone.svg) center bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
-//       jQuery('.not-found-page').css('backgroundSize', '57.5vw 60.625vw, 100%');
-//     }
-//   }
-// });
+    dots: true,
+    arrows: false,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear',
 
-// jQuery('.not-found-home-link').mouseover(function(){
-//   if (window.screen.width <= 320)
-//   {
-//     if (window.innerWidth <= 320) 
-//     {
-//       jQuery('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404BoyHover-phone.svg) calc(50% + 1.38888888889vw) bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
-//       jQuery('.not-found-page').css('backgroundSize', '40.625vw 60.625vw, 100%');
-//     }
-//   }
-// });
+  });
+
+});
+
+
+$('.not-found-home-link').mouseout(function(){
+  $('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404Boy.svg) center bottom no-repeat, radial-gradient(ellipse at center, rgba(254,255,254,1) 0%, rgba(226,232,235,1) 100%)');
+  $('.not-found-page').css('backgroundSize', '18.90625vw 19.9479166667vw, 100%');
+});
+
+$('.not-found-home-link').mouseover(function(){
+  $('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404BoyHover.svg) calc(50% + .47858796296vw) bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
+  $('.not-found-page').css('backgroundSize', '13.28125vw 19.9479166667vw, 100%');
+});
+
+$('.not-found-home-link').mouseout(function(){
+  if (window.screen.width <= 1024)
+  {
+    if (window.innerWidth <= 1024) 
+    {
+      $('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404Boy-tablet.svg) center bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
+      $('.not-found-page').css('backgroundSize', '26.5625vw 28.125vw, 100%');
+    }
+  }
+});
+
+$('.not-found-home-link').mouseover(function(){
+  if (window.screen.width <= 1024)
+  {
+    if (window.innerWidth <= 1024) 
+    {
+      $('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404BoyHover-tablet.svg) calc(50% + .65104166666vw) bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
+      $('.not-found-page').css('backgroundSize', '18.75vw 28.125vw, 100%');
+    }
+  }
+});
+
+$('.not-found-home-link').mouseout(function(){
+  if (window.screen.width <= 320)
+  {
+    if (window.innerWidth <= 320) 
+    {
+      $('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404Boy-phone.svg) center bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
+      $('.not-found-page').css('backgroundSize', '57.5vw 60.625vw, 100%');
+    }
+  }
+});
+
+$('.not-found-home-link').mouseover(function(){
+  if (window.screen.width <= 320)
+  {
+    if (window.innerWidth <= 320) 
+    {
+      $('.not-found-page').css('background', 'url(<? bloginfo("template_directory")  ?>/resources/img/404/404BoyHover-phone.svg) calc(50% + 1.38888888889vw) bottom no-repeat, radial-gradient(ellipse at center, rgba(254, 255, 254, 1) 0%, rgba(226, 232, 235, 1) 100%)');
+      $('.not-found-page').css('backgroundSize', '40.625vw 60.625vw, 100%');
+    }
+  }
+});
 
 // скрытие всплывашек с помощью Esc (Роман К) //
 
-jQuery(document).keyup(function(e){
+$(document).keyup(function(e){
   if(e.keyCode == 27)
   {
-    if(!jQuery('.del-avatar-window-sure').hasClass('unactive'))
+    if(!$('.del-avatar-window-sure').hasClass('unactive'))
     {
-      jQuery('.del-avatar-window-sure').addClass('unactive');
-      jQuery('.profile-modal-shadow').addClass('unactive');
+      $('.del-avatar-window-sure').addClass('unactive');
+      $('.profile-modal-shadow').addClass('unactive');
     }
 
-    if(!jQuery('.del-avatar-window-deleted').hasClass('unactive'))
+    if(!$('.del-avatar-window-deleted').hasClass('unactive'))
     {
-      jQuery('.del-avatar-window-deleted').addClass('unactive');
-      jQuery('.profile-modal-shadow').addClass('unactive');
+      $('.del-avatar-window-deleted').addClass('unactive');
+      $('.profile-modal-shadow').addClass('unactive');
     }
 
-    if(!jQuery('.password-reset').hasClass('unactive'))
+    if(!$('.password-reset').hasClass('unactive'))
     {
-      jQuery('.password-reset').addClass('unactive');
-      jQuery('.profile-modal-shadow').addClass('unactive');
+      $('.password-reset').addClass('unactive');
+      $('.profile-modal-shadow').addClass('unactive');
     }
 
-    if(!jQuery('.ok-button').hasClass('unactive'))
+    if(!$('.ok-button').hasClass('unactive'))
     {
-      jQuery('.ok-button').addClass('unactive');
-      jQuery('.profile-modal-shadow').addClass('unactive');
+      $('.ok-button').addClass('unactive');
+      $('.profile-modal-shadow').addClass('unactive');
     }
 
-    jQuery('.search-widget').addClass('search-trigger');
-    jQuery('.calendar-trigger').show(700);
-    jQuery('.search-cont').fadeOut(400);
-
-    jQuery('.calendar-win').fadeOut(400);
-
-    jQuery('.user-login-win').fadeOut(400);
+    if ($('.results-video-close:visible'))
+    {
+        $('.results-video-cont, .modal-win-shadow').remove();
+    }
 
     jQuery('.change-page-form').fadeOut();
-
-    jQuery('.results-video-cont, .modal-win-shadow:visible').fadeOut();
-
-    jQuery('.win-callback, .modal-win-shadow:visible').fadeOut();
   }
 });
 
 // конец //
 
-jQuery('.user-form > .user-form-input > label > input[required]:eq(0)').focus(function()
+$('.user-form > .user-form-input > label > input[required]:eq(0)').focus(function()
 {
-  jQuery(this).css('borderColor', '#818385');
-  jQuery('.user-form > .user-form-input:eq(0)').removeClass('user-form-input-fail');
+  $(this).css('borderColor', '#818385');
+  $('.user-form > .user-form-input:eq(0)').removeClass('user-form-input-fail');
 });
 
-jQuery('.user-form > .user-form-input > label > input[required]:eq(1)').focus(function()
+$('.user-form > .user-form-input > label > input[required]:eq(1)').focus(function()
 {
-  jQuery(this).css('borderColor', '#818385');
-  jQuery('.user-form > .user-form-input:eq(1)').removeClass('user-form-input-fail');
+  $(this).css('borderColor', '#818385');
+  $('.user-form > .user-form-input:eq(1)').removeClass('user-form-input-fail');
 });
 
-jQuery('.user-form > .user-form-input > label > input[required]:eq(3)').focus(function()
+$('.user-form > .user-form-input > label > input[required]:eq(3)').focus(function()
 {
-  jQuery(this).css('borderColor', '#818385');
-  jQuery('.user-form > .user-form-input:eq(4)').removeClass('user-form-input-fail');
+  $(this).css('borderColor', '#818385');
+  $('.user-form > .user-form-input:eq(4)').removeClass('user-form-input-fail');
 });
 
-jQuery('.user-form > .user-form-input > label > input[required]:eq(0)').blur(function()
+$('.user-form > .user-form-input > label > input[required]:eq(0)').blur(function()
 {
-  if(jQuery(this).val() == '') {
-    jQuery(this).css('borderColor', 'rgb(210, 86, 71)');
-    jQuery('.user-form > .user-form-input:eq(0)').addClass('user-form-input-fail');
-    jQuery(this).attr('placeholder', 'Введите Ваш логин');
+  if($(this).val() == '') {
+    $(this).css('borderColor', 'rgb(210, 86, 71)');
+    $('.user-form > .user-form-input:eq(0)').addClass('user-form-input-fail');
+    $(this).attr('placeholder', 'Введите Ваш логин');
   }
 });
 
-jQuery('.user-form > .user-form-input > label > input[required]:eq(1)').blur(function()
+$('.user-form > .user-form-input > label > input[required]:eq(1)').blur(function()
 {
-  if(jQuery(this).val() == '') {
-    jQuery(this).css('borderColor', 'rgb(210, 86, 71)');
-    jQuery('.user-form > .user-form-input:eq(1)').addClass('user-form-input-fail');
-    jQuery(this).attr('placeholder', 'Введите Ваше имя');
+  if($(this).val() == '') {
+    $(this).css('borderColor', 'rgb(210, 86, 71)');
+    $('.user-form > .user-form-input:eq(1)').addClass('user-form-input-fail');
+    $(this).attr('placeholder', 'Введите Ваше имя');
   }
 });
 
-jQuery('.user-form > .user-form-input > label > input[required]:eq(3)').blur(function()
+$('.user-form > .user-form-input > label > input[required]:eq(3)').blur(function()
 {
-  if(jQuery(this).val() == '') {
-    jQuery(this).css('borderColor', 'rgb(210, 86, 71)');
-    jQuery('.user-form > .user-form-input:eq(4)').addClass('user-form-input-fail');
-    jQuery(this).attr('placeholder', 'Введите Вашу фамилию');
+  if($(this).val() == '') {
+    $(this).css('borderColor', 'rgb(210, 86, 71)');
+    $('.user-form > .user-form-input:eq(4)').addClass('user-form-input-fail');
+    $(this).attr('placeholder', 'Введите Вашу фамилию');
   }
 });
 
-jQuery('.user-form > .user-form-button > button').click(function()
+$('.user-form > .user-form-button > button').click(function()
 {
-  var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}jQuery/i;
+  var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
 
-  if(jQuery('.user-form > .user-form-input > label > input[required]:eq(0)').val() == "Ваш логин") 
+  if($('.user-form > .user-form-input > label > input[required]:eq(0)').val() == "Ваш логин") 
   {
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(0)').text('Это имя к сожалению занято.');
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(0)').removeClass('unactive');
-  } else if(jQuery('.user-form > .user-form-input > label > input[required]:eq(0)').val() == "")
+    $('.user-form > .user-form-input > .wrong-input:eq(0)').text('Это имя к сожалению занято.');
+    $('.user-form > .user-form-input > .wrong-input:eq(0)').removeClass('unactive');
+  } else if($('.user-form > .user-form-input > label > input[required]:eq(0)').val() == "")
   {
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(0)').text('Введите логин');
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(0)').removeClass('unactive');
+    $('.user-form > .user-form-input > .wrong-input:eq(0)').text('Введите логин');
+    $('.user-form > .user-form-input > .wrong-input:eq(0)').removeClass('unactive');
   } else 
   {
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(0)').addClass('unactive');
+    $('.user-form > .user-form-input > .wrong-input:eq(0)').addClass('unactive');
   }
 
-  if(jQuery('.user-form > .user-form-input > label > input[type="email"]').val() == "") 
+  if($('.user-form > .user-form-input > label > input[type="email"]').val() == "") 
   {
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(1)').text('Введите email');
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(1)').removeClass('unactive');
-  } else if(!pattern.test(jQuery('.user-form > .user-form-input > label > input[type="email"]').val()))
+    $('.user-form > .user-form-input > .wrong-input:eq(1)').text('Введите email');
+    $('.user-form > .user-form-input > .wrong-input:eq(1)').removeClass('unactive');
+  } else if(!pattern.test($('.user-form > .user-form-input > label > input[type="email"]').val()))
   {
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(1)').text('Не верно введен email');
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(1)').removeClass('unactive');
-  } else if(jQuery('.user-form > .user-form-input > label > input[type="email"]').val() == "username@email.com")
+    $('.user-form > .user-form-input > .wrong-input:eq(1)').text('Не верно введен email');
+    $('.user-form > .user-form-input > .wrong-input:eq(1)').removeClass('unactive');
+  } else if($('.user-form > .user-form-input > label > input[type="email"]').val() == "username@email.com")
   {
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(1)').text('Этот email к сожалению занят.');
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(1)').removeClass('unactive');
+    $('.user-form > .user-form-input > .wrong-input:eq(1)').text('Этот email к сожалению занят.');
+    $('.user-form > .user-form-input > .wrong-input:eq(1)').removeClass('unactive');
   } else
   {
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(1)').addClass('unactive');
+    $('.user-form > .user-form-input > .wrong-input:eq(1)').addClass('unactive');
   }
   
-  console.log(jQuery('.user-form > .user-form-input > label > input[type="tel"]').val());
+  console.log($('.user-form > .user-form-input > label > input[type="tel"]').val());
 
-  if(jQuery('.user-form > .user-form-input > label > input[type="tel"]').val() == "+38 (012) 345-67-89")
+  if($('.user-form > .user-form-input > label > input[type="tel"]').val() == "+38 (012) 345-67-89")
   {
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(2)').text('Этот номер телефона уже зарегистрирован.');
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(2)').removeClass('unactive');
+    $('.user-form > .user-form-input > .wrong-input:eq(2)').text('Этот номер телефона уже зарегистрирован.');
+    $('.user-form > .user-form-input > .wrong-input:eq(2)').removeClass('unactive');
   } else
   {
-    jQuery('.user-form > .user-form-input > .wrong-input:eq(2)').addClass('unactive');
+    $('.user-form > .user-form-input > .wrong-input:eq(2)').addClass('unactive');
   }
 });
 
 // удаление избраные курсы (Даниил Б) //
 
-jQuery('.main-profile-modules .profile-group-flag').mouseover(function()
+$('.main-profile-modules .profile-group-flag').mouseover(function()
 {
-  jQuery(this).append('<div class="profile-group-flag-delete">Удалить из избранного</div>');
+  $(this).append('<div class="profile-group-flag-delete">Удалить из избранного</div>');
 })
 
-jQuery('.main-profile-modules .profile-group-flag').mouseout(function()
+$('.main-profile-modules .profile-group-flag').mouseout(function()
 {
-  jQuery(this).empty();
+  $(this).empty();
 });
 
-jQuery('.main-profile-modules .profile-group-flag').click(function()
+$('.main-profile-modules .profile-group-flag').click(function()
 {
-  jQuery(this).parent().parent().css('display', 'none');
+  $(this).parent().parent().css('display', 'none');
 });
 
 // конец //
 
 // затемнение картинки при наведении на избранную статью (Даниил Б) //
 
-jQuery('.profile-news-and-blog-article').mouseover(function()
+$('.profile-news-and-blog-article').mouseover(function()
 {
-  jQuery(this).css('box-shadow', '0 0 38px 0.5px rgba(0, 0, 0, 0.14)')
-  jQuery(this).children('a').children('.module-img-shadow').css('opacity', '.35');
+  $(this).css('box-shadow', '0 0 38px 0.5px rgba(0, 0, 0, 0.14)')
+  $(this).children('a').children('.module-img-shadow').css('opacity', '.35');
 });
 
-jQuery('.profile-news-and-blog-article').mouseout(function()
+$('.profile-news-and-blog-article').mouseout(function()
 {
-  jQuery(this).css('box-shadow', '0 0 15.5px 0.5px rgba(0, 0, 0, 0.1)')
-  jQuery(this).children('a').children('.module-img-shadow').css('opacity', '0');
+  $(this).css('box-shadow', '0 0 15.5px 0.5px rgba(0, 0, 0, 0.1)')
+  $(this).children('a').children('.module-img-shadow').css('opacity', '0');
 });
 
 // конец //
 
 // открытие календаря на планшетах (Данил Б) //
 
-jQuery('.mobile-nav-menu-list').find('a:eq(5)').click(function(e)
+$('.mobile-nav-menu-list').find('a:eq(5)').click(function(e)
 {
   e.preventDefault();
   jQuery('.calendar-win').fadeIn(800);
@@ -1305,20 +1313,12 @@ jQuery('.mobile-nav-menu-list').find('a:eq(5)').click(function(e)
 
 // наведение на эелемент результата поиска (Роман К) //
 
-jQuery('.module-search-result').mouseover(function() {
-  jQuery(this).find('span:eq(0)').css('color', '#5891dd');
+$('.module-search-result').mouseover(function() {
+  $(this).find('span:eq(0)').css('color', '#5891dd');
 })
 
-jQuery('.module-search-result').mouseout(function() {
-  jQuery(this).find('span:eq(0)').css('color', 'black');
+$('.module-search-result').mouseout(function() {
+  $(this).find('span:eq(0)').css('color', 'black');
 })
 
-//  //
-
-var elements = document.querySelectorAll('.blog-article-content > p');
-
-for (var i = 0; i <= elements.length; i++) {
-    jQuery('.blog-article-content > p').addClass('wow fadeInRight');
-    jQuery('.blog-article-content > p').attr('data-wow-offset', '75');
-    jQuery('.blog-article-content > p').attr('data-wow-duration', '1.5s');
-}
+// конец //

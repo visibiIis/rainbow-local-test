@@ -11,11 +11,11 @@ get_header(); // подключаем header.php ?>
 
   <div class="module-search-title">
     <span>Результат поиска</span>
-    <span>Найдено 10 результатов по запросу <span><?= $_GET['s'];?></span></span>
+    <span>Найдено <?php wp_count_posts(get_search_query()) ?> результатов по запросу <span><?= $_GET['s'];?></span></span>
   </div>
   
-  <form role="search" class="module-search-form" method="GET" action="<?= home_url( '/' ); ?>">
-    <input type="text" name="s" placeholder="Искать на сайте" value="<?= get_search_query(); ?>">
+  <form class="module-search-form" action="<?= home_url( '/' ); ?>">
+    <input type="text" name="s" placeholder="" value="<?= get_search_query(); ?>">
     <input type="submit" value="">
   </form>
 
@@ -23,13 +23,13 @@ get_header(); // подключаем header.php ?>
 
   <div class="module-search-container">
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-    
+  	
     <div class="module-search-result">
       <div class="module-search-result-text">
         <a href="<?php the_permalink() ?>"><span><?php the_title(); ?></span></a>
-        <span><?php the_content(); ?></span>
+        <span><?php the_content(''); ?></span>
       </div>
-      <span><?= get_the_date('j m Y') ?></span>
+      <span><?= get_the_date('d m Y') ?></span>
     </div>
     <?php endwhile; else: ?>
     <p>Поиск не дал результатов.</p>

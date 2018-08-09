@@ -225,7 +225,7 @@
         <ul>
           <?php $consts = get_array(get_field('consist_list'), 'module_consist'); 
             foreach ($consts as $value) {
-              echo "<li><span>" . $value . "</span></li>";
+              echo "<li><span>".$value."</span></li>";
             }
           ?>
         </ul>
@@ -257,14 +257,14 @@
 
     
     <div class="course-teacher-slider">
-      <?php 
-      $num = get_field('module_number');
-    global $num;
+    	<?php 
+    	$num = get_field('module_number');
+		global $num;
         $teachers = new WP_Query(['category_name' => 'trainer']);
         if($teachers->have_posts()) {
           while($teachers->have_posts()){ $teachers->the_post(); 
-            if(in_array($num, get_array(get_field('module_nums'), 'nums'))){
-               
+          	if(in_array($num, get_array(get_field('module_nums'), 'nums'))){
+          		 
       ?>
 
       <div class="teacher-slider-slide">

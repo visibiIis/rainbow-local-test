@@ -66,6 +66,7 @@ body {
 	background-position: center center;
 	background-repeat: no-repeat; 
 	bottom: 0;
+	overflow: hidden;
 }
 
 .profile-add-avatar {
@@ -2138,8 +2139,6 @@ profile-news-and-blog
     bottom: -3.75vw;
     left: -1.9vw;
 }
-
-
 
 @media all and (max-width: 1024px) and (min-width: 501px) {
     .profile-category-menu {

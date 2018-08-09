@@ -5,6 +5,9 @@
  * @subpackage your-clean-template-3
  */
 
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL);
+
 add_theme_support('title-tag'); // теперь тайтл управляется самим вп
 
 register_nav_menus(array( // Регистрируем 2 меню
@@ -88,6 +91,21 @@ if (!function_exists('pagination')) { // если ф-я уже есть в до�
 		    }
 		   	echo '</ul>';
 		 }
+	}
+}
+
+add_action('wp_footer', 'add_scripts'); // приклеем ф-ю на добавление скриптов в футер
+if (!function_exists('add_scripts')) { // если ф-я уже есть в дочерней теме - нам не надо её определять
+	function add_scripts() { // добавление скриптов
+	    if(is_admin()) return false; // если мы в админке - ничего не делаем
+	    wp_deregister_script('jquery'); // выключаем стандартный jquery
+	    wp_enqueue_script('jq', get_template_directory_uri().'/libs/jquery/jquery-3.2.1.min.js','','',true);
+	    wp_enqueue_script('parallax', get_template_directory_uri().'/libs/parallax.js-1.5.0/parallax.min.js','','',true); // и скрипты шаблона
+	    wp_enqueue_script('slick', get_template_directory_uri().'/libs/slick-1.8.0/slick/slick.min.js','','',true); // и скрипты шаблона
+	    wp_enqueue_script('jqmi', get_template_directory_uri().'/libs/maskedinput-1.4.1/jquery.maskedinput.js','','',true); // и скрипты шаблона
+	    wp_enqueue_script('main', get_template_directory_uri().'/js/init.js','','',true); // и скрипты шаблона
+	    wp_enqueue_script('wow', get_template_directory_uri().'/libs/forAnimation/wow.min.js','','',true); // и скрипты шаблона
+
 	}
 }
 
@@ -216,16 +234,9 @@ function my_single_template( $single ) {
     return $single;
 }
 
-// remove_filter( 'the_content', 'wpautop' ); // Отключаем автоформатирование в полном посте
-// remove_filter( 'the_excerpt', 'wpautop' ); // Отключаем автоформатирование в кратком(анонсе) посте
-// remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
-
-
-add_filter('wpcf7_form_elements', function($content) {
-    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
-
-    return $content;
-});
+//remove_filter( 'the_content', 'wpautop' ); // Отключаем автоформатирование в полном посте
+//remove_filter( 'the_excerpt', 'wpautop' ); // Отключаем автоформатирование в кратком(анонсе) посте
+//remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
 
 function read_speed($content, $titles) {
 	$words_per_minute = "150"; // Время чтения слов в минуту
@@ -234,10 +245,10 @@ function read_speed($content, $titles) {
 	$text_read = round(count(preg_split('/\s/', $content)) /  $words_per_minute, 1); // Получаем общее время чтения текста
 	$img_read = floor((count($result_numb[0]) * $img_per_minute) / 60); // Получаем общее время чтения изображений
 	$all_read = $img_read + $text_read;
-	$all_numb = round($all_read)	;
+	$all_numb = $all_read;
 
 	$cases = [2, 0, 1, 1, 1, 2];
-	return $all_numb . " " . $titles[($all_numb % 100 > 4 && $all_numb % 100 < 20) ? 2 : $cases[min($all_numb % 10, 5)]];
+	return round($all_numb) . " " . $titles[($all_numb % 100 > 4 && $all_numb % 100 < 20) ? 2 : $cases[min($all_numb % 10, 5)]];
 }
 
 function decl_of_numb($all_numb, $titles) {
@@ -352,14 +363,54 @@ function true_load_posts(){
 		<?php }
 		wp_reset_postdata();
 		}
+		die();
 		break;
 	}
 
 	
 }
-
+ 
+ 
 add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
+
+function registrate() {
+	$username = explode('@', $_POST['email'])[0];
+	$email = $_POST['email'];
+	$password = $_POST['password'];
+	$user = wp_create_user( $username, $password, $email);
+	if ( is_wp_error( $user_id ) ) {
+		echo $user->get_error_message();
+	}
+	else {
+		echo 'Юзер создан.';
+	}
+}
+
+function get_favorite_posts($category) { //Возвращает массив с избранными постами по наз. категории
+	return explode(',', get_user_meta(get_current_user_id(), 'favorite_'.$category, true));
+}
+
+function add_post_to_favorite($post_id) {
+	$cat = get_the_category($post_id)[0]->cat_name;
+	$favorites = get_favorite_posts($cat);
+	$favorites[] = $post_id;
+	$favorites = array_unique($favorites); // Чтобы не добавлялись дубли
+	$favorites = implode(',', $favorites);
+	return update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites, '');
+}
+
+function delete_post_from_favorites($post_id) {
+	$cat = get_the_category($post_id)[0]->cat_name;
+	$favorites = get_favorite_posts($cat);
+
+	$key = array_search($post_id, $favorites);
+	if(array_key_exists($key, $favorites)) unset($favorites[$key]);
+
+	$favorites = implode(',', $favorites);
+	update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites);
+}
+
 
 
 ?>

@@ -23,7 +23,7 @@ get_header(); // подключаем header.php ?>
   <section class="about-school">
     <div class="about-school-inner">
             <h3 class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">О нашей школе</h3>
-            <p class="  wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s"><?php the_content(); ?></p>
+            <p class="  wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s"><?php the_content(); ?> </p>
 
             <p class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">Наша школа является автором уникальной техники обучения детей. Программа состоит из тренингов для детей в возрасте от 7 до 17 лет. Более года специалисты различных областей деятельности - от психологов, до специалистов в IT и бизнесменов, создавали и оптимизировали Программу по развитию детей и формированию у них качеств, необходимых для успешного карьерного и предпринимательского роста. </p>
 
@@ -107,40 +107,38 @@ get_header(); // подключаем header.php ?>
     <div class="modules-slider">
 
       <?php  
-        $modules = new WP_Query(['category_name' => 'module']); // указываем категорию 9 и выключаем разбиение на страницы (пагинацию)
-        if($modules->have_posts()){
-          while($modules->have_posts()){ $modules->the_post();
-      ?>
-
-      <div class="modules-slider-slide">
-        <div class="modules-date">
-          <?php  
-            $module_date = get_field('module_date');
-          ?>
-          <span class="modules-date-day"><?= get_array($module_date, 'date')[0]; ?></span>
-          <span class="modules-date-month"><?= get_array($module_date, 'date')[1]; ?></span>
-          <span class="modules-date-year"><?= get_array($module_date, 'date')[2]; ?></span>
-        </div>
-        <div class="module-caption">
-          Модуль <span class="module-number"><?php the_field('module_number'); ?></span>.
-          <span class="module-name"><?php the_title(); ?></span>
-        </div>
-        <div class="module-desc"><?php the_field('module_description'); ?></div>
-        <a href="<?php the_permalink(); ?>" class="module-more">Подробнее</a>
-        <div class="module-group">      
-          <div class="group-age"><?php the_field('module_age'); ?> лет</div>
-          <div class="group-flag"></div>
-        </div>
-      </div>
-      <?php
-          }
-          wp_reset_postdata(); // сбрасываем переменную $post
-        } 
-      ?>
-     
+      $modules = new WP_Query(['category_name' => 'module']); // указываем категорию 9 и выключаем разбиение на страницы (пагинацию)
+      if($modules->have_posts()){
+        while($modules->have_posts()){ $modules->the_post();
+        ?>
+          <div class="modules-slider-slide">
+            <div class="modules-date">
+              <?php  
+                $module_date = get_field('module_date');
+              ?>
+              <span class="modules-date-day"><?= get_array($module_date, 'date')[0]; ?></span>
+              <span class="modules-date-month"><?= get_array($module_date, 'date')[1]; ?></span>
+              <span class="modules-date-year"><?= get_array($module_date, 'date')[2]; ?></span>
+            </div>
+            <div class="module-caption">
+              Модуль <span class="module-number"><?php the_field('module_number'); ?></span>.
+              <span class="module-name"><?php the_title(); ?></span>
+            </div>
+            <div class="module-desc"><?php the_field('module_description'); ?></div>
+            <a href="<?php the_permalink(); ?>" class="module-more">Подробнее</a>
+            <div class="module-group">      
+              <div class="group-age"><?php the_field('module_age'); ?> лет</div>
+              <div class="group-flag"></div>
+            </div>
+          </div>
+        <?php
+        }
+        wp_reset_postdata(); // сбрасываем переменную $post
+      } 
+    ?>
     </div>
     <div class="more-courses">
-      <a href="<?= site_url(); ?>/courses" class="more-courses-link">Смотреть все курсы</a>
+      <a href="/modules/" class="more-courses-link">Смотреть все курсы</a>
     </div>
   </section>
 
@@ -153,7 +151,7 @@ get_header(); // подключаем header.php ?>
           while($teachers->have_posts()){ $teachers->the_post(); 
       ?>
 
-      <div class="teacher-slider-slide">
+          <div class="teacher-slider-slide">
         <div class="teacher-photo">
           <img src="<?php the_post_thumbnail_url(); ?>" alt="">
         </div>
@@ -166,12 +164,11 @@ get_header(); // подключаем header.php ?>
         </div>
       </div>
           
-      <?php
-          }
-          wp_reset_postdata();
-        } 
+        <?php
+        }
+        wp_reset_postdata();
+      } 
       ?>
-      
     </div>  
   </section>
 
@@ -213,7 +210,12 @@ get_header(); // подключаем header.php ?>
     <h3 class="">Приходи на первое ознакомительное занятие и убедись в этом лично!</h3>
     <div class="">Оставить заявку на обучение очень просто</div>
     <form action="#" class="">
-      <?= do_shortcode('[contact-form-7 id="83" title="Форма обратной связи (1-ый тип)"]');  ?>
+      <label for="#"><input type="text" name="clientName" required placeholder="Введите Ваше имя"></label>
+      <label for="#"><input type="email" name="clientEmail" required placeholder="Введите ваш email"></label>
+      <label for="#"><input  type="tel" required name="clientTel" placeholder="Ваш номер телефона +38(0**) *** ** **"></label>
+      <textarea name="clientMsg" placeholder="Сообщение"></textarea>
+      <input type="submit" value="Отправить заявку на обучение">
+      <a href="#">Или запишитесь на бесплатный пробный урок</a>
     </form>
   </section>
 

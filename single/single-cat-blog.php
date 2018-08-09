@@ -10,7 +10,7 @@
     <div class="blog-article-caption wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
        <div class="blog-article-category"><?= get_the_tags()[0]->name ?></div>
        <h2><?php the_title() ?></h2>
-       <div class="blog-article-date"><?php the_date('d F Y'); ?></div>
+       <div class="blog-article-date"><?php the_date() ?></div>
        <ul class="blog-article-socials-sharing">
          <li><a class="blog-article-socials-fb" href="#"></a></li>
          <li><a class="blog-article-socials-youtube" href="#"></a></li>
@@ -41,7 +41,21 @@
     </div>
   </header>
   <section class="blog-article-content">
-    <?php the_content(); ?>
+    <div class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s"><?php the_content();?></div>
   </section>
+
+  <script>
+    var p = document.getElementsByTagName("p"),
+        len = p !== null ? p.length : 0,
+        i = 0;
+    for(i; i < len; i++) {
+        p[i].className += " wow"; 
+      p[i].className += " fadeInRight"; 
+      p[i].setAttribute('data-wow-offset', '75');
+      p[i].setAttribute('data-wow-duration', '1.5s');
+    }
+
+    jQuery('.fadeInRight').fadeIn();
+  </script>
 
 <?php get_footer() ?>

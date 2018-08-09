@@ -1,14 +1,44 @@
 <?php
 /**
- * Главная страница (index.php)
+ * Страница с кастомным шаблоном (page-custom.php)
  * @package WordPress
  * @subpackage your-clean-template-3
+ * Template Name: Личный кабинет
  */
+
+if(!is_user_logged_in()) {
+  header('Location: /');
+}
+
 get_header(); // подключаем header.php ?> 
+
+<?php 
+  $id = get_current_user_id();
+  if(isset($_POST)) {
+    if(isset($_POST['oldPassword'])) {
+      if (wp_check_password( $_POST['oldPassword'], wp_get_current_user()->user_pass, $id )) {
+        if ($_POST['newPassword'] == $_POST['repeatPassword']) {
+          wp_set_password( $_POST['newPassword'], $id );
+        }
+        else {
+          echo '<script>alert("Ошибка. Пароли не совпадают");</script>';
+        }
+      }
+      echo '<script>alert("Ошибка. Старый пароль не верен");</script>';
+    }
+    else {
+    foreach($_POST as $meta_key => $meta) {
+      update_user_meta( $id, $meta_key, $meta);
+    }
+    wp_update_user(['ID' => $id, 'user_email' => get_user_meta( $id, $key = 'user_email', true)]);
+    }
+  }
+
+?>
 
 	<div class="password-reset modal-win">
     <div class="closeCross"></div>
-    <form class="password-reset-form">
+    <form class="password-reset-form" method="post">
       <div class="password-reset-input">
         <label for="">
           <span>Старый пароль</span>
@@ -90,31 +120,43 @@ get_header(); // подключаем header.php ?>
 
     <section class="user-form-section">
 
-      <form class="user-form">
+      <?php 
+        $username = get_user_meta($id, 'user_login', true);
+        $email = get_user_meta($id, 'user_email', true);
+        $first_name = get_user_meta($id, 'first_name', true);
+        $last_name = get_user_meta($id, 'last_name', true);
+        $city = get_user_meta($id, 'city', true);
+        $phone = get_user_meta($id, 'phone', true);
+        $child = get_user_meta($id, 'child', true);
+        $child_name = get_user_meta($id, 'child_name', true);
+        $child_age = get_user_meta($id, 'child_age', true);
+      ?>
+
+      <form method="post" class="user-form">
 				<div class="user-form-input">
-           <label for="#"><span>Ваш логин</span><input type="text" placeholder="Ваш логин" name="login" class="user-form-black-placeholder" required></label>
+           <label for="#"><span>Ваш логин</span><input value="<?= $username ?>" type="text" placeholder="Введите логин" name="user_login" class="user-form-black-placeholder" required></label>
           <div class="wrong-input unactive"></div>
         </div>
 
         <div class="user-form-input user-form-div-margin">
-          <label for="#"><span>Ваше имя</span><input type="text" placeholder="Анна" name="firstName" required></label>
+          <label for="#"><span>Ваше имя</span><input value="<?= $first_name ?>" type="text" placeholder="Введите имя" name="first_name" required></label>
         </div>
 
         <div class="user-form-input user-form-div-margin">
-          <label for="#"><span>Ваш город</span><input type="text" placeholder="Киев" name="city"></label>
+          <label for="#"><span>Ваш город</span><input value="<?= $city  ?>" type="text" placeholder="Введите город" name="city"></label>
         </div>
 
         <div class="user-form-input">
-          <label for="#"><span>Электронная почта</span><input type="email" placeholder="username@mail.com" name="email" required></label>
+          <label for="#"><span>Электронная почта</span><input value="<?= $email ?>" type="email" placeholder="Введите почту" name="user_email" required></label>
           <div class="wrong-input unactive"></div>
         </div>
 
         <div class="user-form-input user-form-div-margin">
-          <label for="#"><span>Ваша фамилия</span><input type="text" placeholder="Аксёненко" name="lastName" required></label>
+          <label for="#"><span>Ваша фамилия</span><input value="<?= $last_name  ?>" type="text" placeholder="Введите фамилию" name="last_name" required></label>
         </div>
 
         <div class="user-form-input user-form-div-margin">
-          <label for="#"><span>Ваш телефон</span><input type="tel" placeholder="(066) 123 45 67" name="phone"></label>
+          <label for="#"><span>Ваш телефон</span><input value="<?= $phone  ?>" type="tel" placeholder="(066) 123 45 67" name="phone"></label>
           <div class="wrong-input unactive"></div>
         </div>
 
@@ -124,22 +166,22 @@ get_header(); // подключаем header.php ?>
           </div>
           <div class="user-radio">
               <div>
-                <input type="radio" id="child-availability-yes" class="customCheckbox" name="child" value="yes">
+                <input <?= $child == 'yes' ? 'checked' : '' ?> type="radio" id="child-availability-yes" class="customCheckbox" name="child" value="yes">
                 <label for="child-availability-yes">Да</label>
               </div>
               <div>
-                <input checked type="radio" id="child-availability-no" class="customCheckbox" name="child" value="no">
+                <input <?= $child != 'yes' ? 'checked' : '' ?> type="radio" id="child-availability-no" class="customCheckbox" name="child" value="no">
                 <label for="child-availability-no">Нет</label>
               </div>
           </div>
         </div>
 
         <div class="user-form-input user-form-div-margin">
-          <label for="#"><span>Сколько лет Вашему ребенку</span><input type="number" placeholder="" name="childOld"></label>
+          <label for="#"><span>Сколько лет Вашему ребенку</span><input value="<?= $child_age  ?>" type="number" placeholder="" name="child_age"></label>
         </div>
 
         <div class="user-form-input user-form-div-margin">
-          <label for="#"><span>Имя Вашего ребенка</span><input type="text" placeholder="" name="childFirstName"></label>
+          <label for="#"><span>Имя Вашего ребенка</span><input value="<?= $child_name  ?>" type="text" placeholder="" name="child_name"></label>
         </div>
 
         <div class="user-form-button">

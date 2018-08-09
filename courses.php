@@ -52,16 +52,15 @@ get_header(); // подключаем header.php ?>
       </ul>
     </nav>
     <div class="courses-page-courses-cont">
+<?php 
 
-      <?php 
-        $query = new WP_Query([
-          'category_name' => 'module',
-          'posts_per_page' => 2
-        ]);
-
-        if( $query->have_posts() ){
-          while( $query->have_posts() ){ $query->the_post();
-      ?>
+$query = new WP_Query([
+  'category_name' => 'module',
+  'posts_per_page' => 2
+]);
+if( $query->have_posts() ){
+	while( $query->have_posts() ){ $query->the_post();
+	?>
 
       <div class="course">
         <div class="modules-date">
@@ -80,30 +79,35 @@ get_header(); // подключаем header.php ?>
           <div class="group-flag"></div>
         </div>
       </div>
-
-      <?php 
-          }
-          wp_reset_postdata();
-        }
-      ?>
-
-      <script>
-        var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
-        var true_posts = '<?php echo serialize($query->query_vars); ?>';
-        var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
-        var max_pages = '<?php echo $query->max_num_pages; ?>';
-      </script>
+<?php }
+wp_reset_postdata();
+}
+?>
+<div id="posts"></div>
+    <script>
+      var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
+      var true_posts = '<?php echo serialize($query->query_vars); ?>';
+      var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
+      var max_pages = '<?php echo $query->max_num_pages; ?>';
+    </script>
       <div id="true_loadmore" class="blog-menu-more-button">
         <span>Больше статей</span>
       </div>
     </div>
+    
   </section>
+  
 
   <section class="callback-form wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
     <h3 class="">Приходи на первое ознакомительное занятие и убедись в этом лично!</h3>
     <div class="">Оставить заявку на обучение очень просто</div>
     <form action="#" class="">
-      <?= do_shortcode('[contact-form-7 id="83" title="Форма обратной связи (1-ый тип)"]'); ?>
+      <label for="#"><input type="text" name="clientName" required placeholder="Введите Ваше имя"></label>
+      <label for="#"><input type="email" name="clientEmail" required placeholder="Введите ваш email"></label>
+      <label for="#"><input  type="tel" required name="clientTel" placeholder="Ваш номер телефона +38(0**) *** ** **"></label>
+      <textarea name="clientMsg" placeholder="Сообщение"></textarea>
+      <input type="submit" value="Отправить заявку на обучение">
+      <a href="#">Или запишитесь на бесплатный пробный урок</a>
     </form>
   </section>
 

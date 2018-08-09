@@ -4,15 +4,17 @@ jQuery(function($){
 		var data = {
 			'action': 'loadmore',
 			'query': true_posts,
-			'page' : current_page
+			'page' : current_page,
 		};
+		console.log(data);
 		$.ajax({
 			url:ajaxurl, // обработчик
 			data:data, // данные
 			type:'POST', // тип запроса
 			success:function(data){
 				if( data ) { 
-					$('#true_loadmore').text('Больше статей').before(data); // вставляем новые посты
+					$('#true_loadmore').text('Больше статей'); // вставляем новые посты\
+					$('#posts').before(data);
 					current_page++; // увеличиваем номер страницы на единицу
 					if (current_page == max_pages) $("#true_loadmore").remove(); // если последняя страница, удаляем кнопку
 				} else {

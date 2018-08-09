@@ -5,7 +5,7 @@
  * @subpackage your-clean-template-3
  */
 ?>
-  <?php $query = new WP_Query(['p' => 125]);
+  <?php $query = new WP_Query(['p' => 101]);
     while( $query->have_posts() ){ $query->the_post();?>
 	<footer class="site-footer">
   <div class="footer-inner wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
@@ -1223,12 +1223,12 @@
 
       <div class="user-login-and-registr-form mobile">
           <h3>Войдите</h3>
-          <form action="" method="post" class="userLogin">
+          <form action="/" method="post" class="userLogin">
             <label><input type="email" placeholder="Введите Ваш email" name="login-email" required></label>
             <label><input  type="password" placeholder="Введите Ваш пароль" name="login-password" required></label>
             <!-- <label><input type="checkbox"> Запомнить меня</label> -->
             <div class="rememberMe-cont">
-              <input type="checkbox" class="customCheckbox" id="rememberMe" />
+              <input type="checkbox" class="customCheckbox" name="rememberMe" id="rememberMe" />
               <label for="rememberMe">Запомнить меня</label>
             </div>
 
@@ -1238,11 +1238,10 @@
           </form>
 
           <h3 style="display: none;">Зарегестрируйтесь</h3>
-          <form style="display: none;" action="" method="post" class="userRegistr">
-            <label><input type="email" placeholder="Введите Ваш email" name="registr-email" required></label>
-            <label><input type="password" placeholder="Введите Ваш пароль" name="registr-password" required></label>
-             <label><input  type="password" placeholder="Повторите Ваш пароль" name="registr-password" required></label>
-
+          <form style="display: none;" action="/" method="post" class="userRegistr">
+            <label><input type="email" placeholder="Введите Ваш email" name="reg-email" required></label>
+            <label><input type="password" placeholder="Введите Ваш пароль" name="password" required></label>
+            <label><input  type="password" placeholder="Повторите Ваш пароль" name="password_repeat" required></label>
             <input type="submit" value="Зарегистрироваться">
             <a href="#" class="loginLink"><span>Вернуться к форме входа</span></a>
           </form>
@@ -1254,7 +1253,7 @@
       </div>
       <div class="user-login-and-registr-form desktop">
           <h3>Войдите</h3>
-          <form action="" method="post" class="userLogin">
+          <form action="/" method="post" class="userLogin">
             <label><input type="email" placeholder="Введите Ваш email" name="login-email" required></label>
             <label><input  type="password" placeholder="Введите Ваш пароль" name="login-password" required></label>
             <!-- <label><input type="checkbox"> Запомнить меня</label> -->
@@ -1269,10 +1268,10 @@
           </form>
 
           <h3 style="display: none;">Зарегестрируйтесь</h3>
-          <form style="display: none;" action="" method="post" class="userRegistr">
-            <label><input type="email" placeholder="Введите Ваш email" name="registr-email" required></label>
-            <label><input type="password" placeholder="Введите Ваш пароль" name="registr-password" required></label>
-             <label><input  type="password" placeholder="Повторите Ваш пароль" name="registr-password" required></label>
+          <form style="display: none;" action="/" method="post" class="userRegistr">
+            <label><input type="email" placeholder="Введите Ваш email" name="reg-email" required></label>
+            <label><input type="password" placeholder="Введите Ваш пароль" name="password" required></label>
+            <label><input  type="password" placeholder="Повторите Ваш пароль" name="password_repeat" required></label>
 
             <input type="submit" value="Зарегистрироваться">
             <a href="#" class="loginLink"><span>Вернуться к форме входа</span></a>
@@ -1513,7 +1512,7 @@ infowindow.open(map, marker);
         });
     </script>
 </body>
-
+<?php if(is_user_logged_in()) { echo '<div hidden id="is_logged_in">.</div>'; } ?>
 <?php wp_footer(); // необходимо для работы плагинов и функционала  ?>
 </body>
 </html>
