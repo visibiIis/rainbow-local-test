@@ -391,16 +391,20 @@ function get_favorite_posts($category) { //Возвращает массив с 
 	return explode(',', get_user_meta(get_current_user_id(), 'favorite_'.$category, true));
 }
 
-function add_post_to_favorite($post_id) {
+function add_post_to_favorite() {
+	$post_id = $_POST['post_id'];
 	$cat = get_the_category($post_id)[0]->cat_name;
 	$favorites = get_favorite_posts($cat);
 	$favorites[] = $post_id;
 	$favorites = array_unique($favorites); // Чтобы не добавлялись дубли
 	$favorites = implode(',', $favorites);
-	return update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites, '');
+	update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites, '');
+	var_dump(get_user_meta( get_current_user_id(), 'favorite_'.$cat));
+	die();
 }
 
-function delete_post_from_favorites($post_id) {
+function delete_post_from_favorites() {
+	$post_id = $_POST['post_id'];
 	$cat = get_the_category($post_id)[0]->cat_name;
 	$favorites = get_favorite_posts($cat);
 
@@ -411,6 +415,8 @@ function delete_post_from_favorites($post_id) {
 	update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites);
 }
 
+add_action( 'wp_ajax_add_to_fav', 'add_post_to_favorite' );
+add_action( 'wp_ajax_nopriv_add_to_fav', 'add_post_to_favorite' );
 
 
 ?>

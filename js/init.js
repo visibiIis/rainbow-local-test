@@ -444,7 +444,7 @@ jQuery('.mobile-nav-menu-close').click(function() {
 
 jQuery('.article-favorite-status').click(function(){
         
-    if (jQuery(this).hasClass('forGuest')) {
+    if (jQuery('#is_logged_in').length < 1) {
         //просим авторизоваться гостя
         if (jQuery('.modal-win-shadow').length == 0) {
             jQuery('body').append('<div class="win-callback-modal modal-win-shadow"></div>');

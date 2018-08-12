@@ -185,15 +185,35 @@ get_header(); // подключаем header.php ?>
           </div>
           <a class="category-article"><?= get_the_tags()[0]->name ?></a>
         </div>
-        <div class="article-favorite-status add-article-in-favorite forGuest"><div>Добавить в избранное</div></div>
+        <div class="article-favorite-status add-article-in-favorite forGuest" id="<?php echo get_the_ID() ?>"><div>Добавить в избранное</div></div>
       </div>
       <?php
           }
           wp_reset_postdata(); 
         }
       ?>
+
+      <script>
+        jQuery(function($){
+          $('.add-article-in-favorite').click(function(){
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'add_to_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                alert(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+      </script>
     </div>
-    <a href="#" class="news-and-blog-show-more mobile">Другие новости</a>   
+    <a href="/modules" class="news-and-blog-show-more mobile">Другие новости</a>   
   </section>
 
   <section  class="school-relevance">
