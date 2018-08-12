@@ -167,7 +167,6 @@ get_header(); // подключаем header.php ?>
         if($news_and_blog_posts->have_posts()){
           while($news_and_blog_posts->have_posts()){ 
             $news_and_blog_posts->the_post();
-            $news_and_blog_content = get_the_content();
       ?>
       <div class="news-and-blog-article wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
         <a class="article-link" href="<?php the_permalink() ?>">
@@ -182,7 +181,7 @@ get_header(); // подключаем header.php ?>
           </div>
           <h4><?php the_title(); ?></h4>
           <div class="news-and-blog-article-desc">
-                <?= mb_strimwidth($news_and_blog_content, 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>
+                <?= mb_strimwidth(get_the_content(), 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>
           </div>
           <a class="category-article"><?= get_the_tags()[0]->name ?></a>
         </div>

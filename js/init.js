@@ -892,7 +892,7 @@ jQuery('.profile-category-menu').find('a').click(function(e) {
       jQuery('.profile-news-and-blog').removeClass('unactive');
       jQuery('.wrapper').attr('class', 'wrapper-unactive');
       $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
+      //$('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
       $('.profile-category-list .profile-category-favoriteArticles').addClass('active-profile-category');
       if (window.screen.width <= 1024) {
         if (window.innerWidth <= 1024) {
@@ -923,6 +923,7 @@ jQuery('.profile-category-menu').find('a').click(function(e) {
       }
     break;
     case 'Избранные курсы':
+        console.log('клик на куурсы');
       jQuery('.main-profile-modules').removeClass('unactive');
       jQuery('.wrapper').attr('class', 'wrapper-unactive');
       $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
