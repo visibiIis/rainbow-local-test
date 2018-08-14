@@ -391,6 +391,10 @@ function get_favorite_posts($category) { //Возвращает массив с 
 	return explode(',', get_user_meta(get_current_user_id(), 'favorite_'.$category, true));
 }
 
+function is_favorite($id) {
+	return in_array($id, get_favorite_posts(get_the_category($id)[0]->cat_name));
+}
+
 function add_post_to_favorite() {
 	$post_id = $_POST['post_id'];
 	$cat = get_the_category($post_id)[0]->cat_name;
@@ -398,8 +402,8 @@ function add_post_to_favorite() {
 	$favorites[] = $post_id;
 	$favorites = array_unique($favorites); // Чтобы не добавлялись дубли
 	$favorites = implode(',', $favorites);
-	update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites, '');
-	var_dump(get_user_meta( get_current_user_id(), 'favorite_'.$cat));
+	echo update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites, '') ? 'Добавил' : delete_post_from_favorites();
+	//var_dump(get_user_meta( get_current_user_id(), 'favorite_'.$cat));
 	die();
 }
 
@@ -412,11 +416,16 @@ function delete_post_from_favorites() {
 	if(array_key_exists($key, $favorites)) unset($favorites[$key]);
 
 	$favorites = implode(',', $favorites);
-	update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites);
+	echo update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites) ? 'Удалил' : add_post_to_favorite();
+	//var_dump(get_user_meta( get_current_user_id(), 'favorite_'.$cat));
+	die();
 }
 
 add_action( 'wp_ajax_add_to_fav', 'add_post_to_favorite' );
 add_action( 'wp_ajax_nopriv_add_to_fav', 'add_post_to_favorite' );
+
+add_action( 'wp_ajax_del_from_fav', 'delete_post_from_favorites' );
+add_action( 'wp_ajax_nopriv_del_from_fav', 'delete_post_from_favorites' );
 
 
 ?>

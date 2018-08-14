@@ -252,11 +252,32 @@ get_header(); // подключаем header.php ?>
             </div>
             <a class="category-article"><?= get_the_tags()[0]->name ?></a>
           </div>
-            <div class="article-favorite-status article-in-favorite"><div>Удалить из избранного</div></div>
-        </div>
+            <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>">
+              <div><?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?></div>
+          </div>
+      </div>
       <?php } wp_reset_postdata(); } ?>
       </div>
 
+      <script>
+        jQuery(function($){
+          $('.article-in-favorite').click(function(){
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'del_from_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+      </script>
       <div class="results-pagination">
         <span class="results-pagination-prev">
           <svg version="1.1" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">

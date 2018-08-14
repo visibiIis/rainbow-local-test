@@ -127,7 +127,7 @@ get_header(); // подключаем header.php ?>
   <section class="modules wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
     <div class="modules-slider">
     <?php  
-      $modules = new WP_Query(['category_name' => 'module']); // указываем категорию 9 и выключаем разбиение на страницы (пагинацию)
+      $modules = new WP_Query(['category_name' => 'module']);
       if($modules->have_posts()){
         while($modules->have_posts()){ $modules->the_post();
         ?>
@@ -204,7 +204,7 @@ get_header(); // подключаем header.php ?>
           </div>
           <a class="category-article"><?= get_the_tags()[0]->name ?></a>
         </div>
-        <div class="article-favorite-status add-article-in-favorite forGuest" id="<?php echo get_the_ID() ?>"><div>Добавить в избранное</div></div>
+        <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>"><div><?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?></div></div>
       </div>
       <?php
           }
@@ -212,25 +212,7 @@ get_header(); // подключаем header.php ?>
         }
       ?>
 
-      <script>
-        jQuery(function($){
-          $('.add-article-in-favorite').click(function(){
-            $(this).addClass('curr');
-            $.ajax({
-              url: '<?php echo admin_url("admin-ajax.php") ?>',
-              type: 'POST',
-              data: {
-                action: 'add_to_fav',
-                post_id: $('.curr').attr('id')
-              },
-              success: function( data ) {
-                console.log(data);
-              }
-            });
-            $(this).removeClass('curr');
-          });
-        });
-      </script>
+      
     </div>
     <a href="/modules" class="news-and-blog-show-more mobile">Другие новости</a>   
   </section>
@@ -281,5 +263,42 @@ get_header(); // подключаем header.php ?>
       <a href="#">Или запишитесь на бесплатный пробный урок</a>
     </form>
   </section>
+  <script>
+    jQuery(function($){
+          $('.add-article-in-favorite').click(function(){
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'add_to_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+
+        jQuery(function($){
+          $('.article-in-favorite').click(function(){
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'del_from_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+  </script>
   
 <?php get_footer(); // подключаем footer.php ?>
