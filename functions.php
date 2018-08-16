@@ -245,10 +245,15 @@ function read_speed($content, $titles) {
 	$text_read = round(count(preg_split('/\s/', $content)) /  $words_per_minute, 1); // Получаем общее время чтения текста
 	$img_read = floor((count($result_numb[0]) * $img_per_minute) / 60); // Получаем общее время чтения изображений
 	$all_read = $img_read + $text_read;
-	$all_numb = $all_read;
+	$all_numb = round($all_read);
 
 	$cases = [2, 0, 1, 1, 1, 2];
-	return round($all_numb) . " " . $titles[($all_numb % 100 > 4 && $all_numb % 100 < 20) ? 2 : $cases[min($all_numb % 10, 5)]];
+
+	if($all_numb == 0) {
+		return "меньше минуты";
+	} else {	
+		return $all_numb . " " . $titles[($all_numb % 100 > 4 && $all_numb % 100 < 20) ? 2 : $cases[min($all_numb % 10, 5)]];
+	}
 }
 
 function decl_of_numb($all_numb, $titles) {

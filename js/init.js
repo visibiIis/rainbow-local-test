@@ -883,68 +883,46 @@ if(!$('.main-profile-modules').hasClass('unactive'))
 
 // переключение между страницами профиля (Данил С, Данил Б, Роман К)
 
-jQuery('.profile-category-menu').find('a').click(function(e) {
-  e.preventDefault();
-  var changeCatText = jQuery(this).text();
-  jQuery('.content').addClass('unactive');
-  switch(changeCatText) {
-    case 'Избранные статьи':
-      jQuery('.profile-news-and-blog').removeClass('unactive');
-      jQuery('.wrapper').attr('class', 'wrapper-unactive');
-      $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteArticles').addClass('active-profile-category');
-      if (window.screen.width <= 1024) {
-        if (window.innerWidth <= 1024) {
-          jQuery('.user-form').css('display', 'none');
-        }
-      }
-      if (window.screen.width <= 320) {
-        if (window.innerWidth <= 320) {
-          jQuery('.user-form').css('display', 'none');
-        }
-      }
-    break;
-    case 'Личные данные':
-      jQuery('.user-form-section').removeClass('unactive')
-      jQuery('.wrapper-unactive').attr('class', 'wrapper');
-      $('.profile-category-list .profile-category-userData').addClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
-      if (window.screen.width <= 1024) {
-        if (window.innerWidth <= 1024) {
-          jQuery('.user-form').css('display', 'flex');
-        }
-      }
-      if (window.screen.width <= 320) {
-        if (window.innerWidth <= 320) {
-          jQuery('.user-form').css('display', 'flex');
-        }
-      }
-    break;
-    case 'Избранные курсы':
-      jQuery('.main-profile-modules').removeClass('unactive');
-      jQuery('.wrapper').attr('class', 'wrapper-unactive');
-      $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteCourses').addClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
-      if (window.screen.width <= 1024) {
-        if (window.innerWidth <= 1024) {
-          jQuery('.user-form').css('display', 'none');
-        }
-      }
-      if (window.screen.width <= 320) {
-        if (window.innerWidth <= 320) {
-          jQuery('.user-form').css('display', 'none');
-        }
-      }
-    break;
-  }
-  if(win)
-  jQuery('.profile-category-menu').fadeOut(function() {
-        jQuery(this).removeClass('opened');
-      });
+var profileListItemsCount = 0;
+// выбираем активную вкладку
+jQuery('.profile-tabs-cont > *:nth-child(1)').fadeIn(function() {
+  jQuery('.profile-category-list').find('li:nth-child(1)').find('a').addClass('active');
 });
+
+// считаем количество ссылок на табы и добавляем им атрибут, необходимый для открытия нужного окна
+jQuery('.profile-category-list').find('li').each(function() {
+  profileListItemsCount++;
+  jQuery(this).find('a').attr('data-open-tab', profileListItemsCount);
+});
+
+
+jQuery('[data-open-tab]').click(function(e) {
+  e.preventDefault();
+
+  // костыль для фона (чтобы вкладка была без фона - добавляй к ссылке в дропдауне атрибут data-none-background="1")
+  if (jQuery(this).attr('data-none-background') == 1) {
+    if (!jQuery('.wrapper').hasClass('noneBackground')) {
+       jQuery('.wrapper').addClass('noneBackground');
+    }
+     
+  } else {
+    if (jQuery('.wrapper').hasClass('noneBackground')) {
+       jQuery('.wrapper').removeClass('noneBackground');
+    }
+  }
+  // end
+
+    //по значению атрибута открываем нужный нам таб, перед эти закрывая активный
+   var profileTabNumber = jQuery(this).attr('data-open-tab');
+   jQuery('[data-open-tab].active').removeClass('active');
+   jQuery(this).addClass('active');
+
+   jQuery('.profile-tabs-cont > *:visible').fadeOut(400, function() {
+     jQuery('.profile-tabs-cont > *:nth-child(' + profileTabNumber + ')').fadeIn(400);
+  });
+});
+
+//END
 
 
 // jQuery('body').css('padding-top', '6.25vw');
@@ -1133,12 +1111,6 @@ $('.not-found-home-link').mouseover(function(){
 $(document).keyup(function(e){
   if(e.keyCode == 27)
   {
-    if(!$('.del-avatar-window-sure').hasClass('unactive'))
-    {
-      $('.del-avatar-window-sure').addClass('unactive');
-      $('.profile-modal-shadow').addClass('unactive');
-    }
-
     if(!$('.del-avatar-window-deleted').hasClass('unactive'))
     {
       $('.del-avatar-window-deleted').addClass('unactive');
@@ -1163,6 +1135,8 @@ $(document).keyup(function(e){
     }
 
     jQuery('.change-page-form').fadeOut();
+
+    jQuery('.del-avatar-window-sure, .modal-win-shadow:visible').fadeOut();
   }
 });
 
@@ -1260,20 +1234,21 @@ $('.user-form > .user-form-button > button').click(function()
 });
 
 // удаление избраные курсы (Даниил Б) //
-
-$('.main-profile-modules .profile-group-flag').mouseover(function()
-{
-  $(this).append('<div class="profile-group-flag-delete">Удалить из избранного</div>');
-})
-
-$('.main-profile-modules .profile-group-flag').mouseout(function()
-{
-  $(this).empty();
+jQuery('.main-profile-modules').find('.profile-group-flag').click(function() {
+  jQuery(this).closest('.profile-module').fadeOut(400, function() {
+      // добавить ajax запрос, удаляющий инфо о закладке из базы
+      jQuery(this).remove();
+  });
 });
 
-$('.main-profile-modules .profile-group-flag').click(function()
+// удаление избраные статьи (Даниил Б) //
+
+$('.profile-news-and-blog-articles').find('.article-favorite-status').click(function()
 {
-  $(this).parent().parent().css('display', 'none');
+    $(this).closest('.profile-news-and-blog-article').fadeOut(400, function()
+    {
+        $(this).remove();
+    });
 });
 
 // конец //

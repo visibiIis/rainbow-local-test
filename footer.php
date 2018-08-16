@@ -23,7 +23,7 @@
       <div class="sharing-bar">
         <h3>Мы приносим <span></span> только хорошие новости</h3>
         <form action="#" class="subscribe-form">
-          <?= do_shortcode('[contact-form-7 id="90" title="Футер -> Форма подписки"]');  ?>
+          <?= do_shortcode('[contact-form-7 id="245" title="Форма подписки"]');  ?>
         </form>
         <ul class="footer-socials">
           <!-- <li><a  class="footer-vk" href="#"></a></li> -->

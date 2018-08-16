@@ -29,7 +29,7 @@ body {
 
 .wrapper {
 	width: 84.375vw;
-	height: 45.3125vw;
+	min-height: 45.3125vw;
 	border-radius: 35px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 	background-color: #feffff;
@@ -207,6 +207,17 @@ body {
 
 /*------------Модули_Модуль------------*/
 
+.wrapper .profile-modules {
+	width: 67.375vw;
+	margin: 4.01041666667vw auto;
+}
+
+.wrapper.noneBackground {
+    background: none;
+    box-shadow: none;
+    border: 0
+}
+
 .profile-modules {
 	width: 67.375vw;
 	margin: 4.01041666667vw 16.5520833333vw;
@@ -312,6 +323,8 @@ body {
 }
 
 .main-profile-modules .profile-group-flag-delete {
+    transition: .6s;
+    opacity: 0;
 	position: absolute;
 	display: block;
 	width: 7.76041666667vw;
@@ -337,6 +350,10 @@ body {
 	transform: rotate(45deg);
 	margin: -.36458333333vw 0 0 3.54166666667vw;
 }
+
+.main-profile-modules .profile-group-flag:hover .profile-group-flag-delete {
+    opacity: 1;
+}    
     
 .profile-module-group {
 	margin-left: 20.9166666667vw;
@@ -581,7 +598,6 @@ profile-news-and-blog
 
 .profile-news-and-blog {
     padding-top: 7.76041666667vw;
-    padding-bottom: 3.3854166vw;
 }
 
 .profile-news-and-blog-articles {
@@ -2140,6 +2156,12 @@ profile-news-and-blog
     left: -1.9vw;
 }
 
+/*profile tabs styles*/
+
+.profile-tabs-cont > *:not(.active) {
+    display: none;
+}
+
 @media all and (max-width: 1024px) and (min-width: 501px) {
     .profile-category-menu {
         opacity: 1;
@@ -2625,6 +2647,10 @@ profile-news-and-blog
 	profile-modules
 	-------------*/
 
+	.wrapper .profile-modules {
+		width: 81.7708333333vw;
+		margin: 37.5vw auto 9.24479166667vw;
+	}
 
 	.profile-modules {
 		width: 81.7708333333vw;
@@ -3644,6 +3670,12 @@ profile-news-and-blog
 	profile-modules
 	-------------*/
 
+	.wrapper .profile-modules {
+		width: 100vw;
+		height: auto;
+		margin: 0;
+		text-align: center;
+	}
 
 	.profile-modules {
 		width: 100vw;

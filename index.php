@@ -235,12 +235,7 @@ get_header(); // подключаем header.php ?>
     <h3 class="">Приходи на первое ознакомительное занятие и убедись в этом лично!</h3>
     <div class="">Оставить заявку на обучение очень просто</div>
     <form action="#" class="">
-      <label for="#"><input type="text" name="clientName" required placeholder="Введите Ваше имя"></label>
-      <label for="#"><input type="email" name="clientEmail" required placeholder="Введите ваш email"></label>
-      <label for="#"><input  type="tel" required name="clientTel" placeholder="Ваш номер телефона +38(0**) *** ** **"></label>
-      <textarea name="clientMsg" placeholder="Сообщение"></textarea>
-      <input type="submit" value="Отправить заявку на обучение">
-      <a href="#">Или запишитесь на бесплатный пробный урок</a>
+      <?= do_shortcode('[contact-form-7 id="244" title="Форма обратной связи 1-ый тип"]'); ?>
     </form>
   </section>
   

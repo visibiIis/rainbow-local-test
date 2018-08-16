@@ -40,7 +40,7 @@ body {
     font-family: Conv_FuturaPTMedium, sans-serif;
 }
 
-.closeCross {
+.closeCross:not(.profile-cross) {
     position: absolute;
     right: 22px;
     top: 22px;

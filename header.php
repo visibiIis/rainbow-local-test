@@ -103,7 +103,6 @@
              <!-- <div> +38 (066) 123 45 67</div> -->
           </div>
           <div class="lang-bar">
-          	<?php echo do_shortcode('[google-translator]'); ?>
               <a href="#" class="current-lang">Рус</a> | <a href="#">Укр</a>
           </div>
       </div>
