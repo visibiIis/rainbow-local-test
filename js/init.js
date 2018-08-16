@@ -444,7 +444,7 @@ jQuery('.mobile-nav-menu-close').click(function() {
 
 jQuery('.article-favorite-status').click(function(){
         
-    if (jQuery(this).hasClass('forGuest')) {
+    if (jQuery('#is_logged_in').length < 1) {
         //просим авторизоваться гостя
         if (jQuery('.modal-win-shadow').length == 0) {
             jQuery('body').append('<div class="win-callback-modal modal-win-shadow"></div>');
@@ -909,6 +909,61 @@ jQuery('[data-open-tab]').click(function(e) {
     if (jQuery('.wrapper').hasClass('noneBackground')) {
        jQuery('.wrapper').removeClass('noneBackground');
     }
+  var changeCatText = jQuery(this).text();
+  jQuery('.content').addClass('unactive');
+  switch(changeCatText) {
+    case 'Избранные статьи':
+      jQuery('.profile-news-and-blog').removeClass('unactive');
+      jQuery('.wrapper').attr('class', 'wrapper-unactive');
+      $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
+      //$('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteArticles').addClass('active-profile-category');
+      if (window.screen.width <= 1024) {
+        if (window.innerWidth <= 1024) {
+          jQuery('.user-form').css('display', 'none');
+        }
+      }
+      if (window.screen.width <= 320) {
+        if (window.innerWidth <= 320) {
+          jQuery('.user-form').css('display', 'none');
+        }
+      }
+    break;
+    case 'Личные данные':
+      jQuery('.user-form-section').removeClass('unactive')
+      jQuery('.wrapper-unactive').attr('class', 'wrapper');
+      $('.profile-category-list .profile-category-userData').addClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
+      if (window.screen.width <= 1024) {
+        if (window.innerWidth <= 1024) {
+          jQuery('.user-form').css('display', 'flex');
+        }
+      }
+      if (window.screen.width <= 320) {
+        if (window.innerWidth <= 320) {
+          jQuery('.user-form').css('display', 'flex');
+        }
+      }
+    break;
+    case 'Избранные курсы':
+        console.log('клик на куурсы');
+      jQuery('.main-profile-modules').removeClass('unactive');
+      jQuery('.wrapper').attr('class', 'wrapper-unactive');
+      $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteCourses').addClass('active-profile-category');
+      $('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
+      if (window.screen.width <= 1024) {
+        if (window.innerWidth <= 1024) {
+          jQuery('.user-form').css('display', 'none');
+        }
+      }
+      if (window.screen.width <= 320) {
+        if (window.innerWidth <= 320) {
+          jQuery('.user-form').css('display', 'none');
+        }
+      }
+    break;
   }
   // end
 
@@ -920,7 +975,6 @@ jQuery('[data-open-tab]').click(function(e) {
    jQuery('.profile-tabs-cont > *:visible').fadeOut(400, function() {
      jQuery('.profile-tabs-cont > *:nth-child(' + profileTabNumber + ')').fadeIn(400);
   });
-});
 
 //END
 

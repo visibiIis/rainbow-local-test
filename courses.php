@@ -76,7 +76,7 @@ if( $query->have_posts() ){
         <a href="<?php the_permalink() ?>" class="module-more">Подробнее</a>
         <div class="module-group">      
           <div class="group-age"><?php the_field('module_age') ?> лет </div>
-          <div class="group-flag"></div>
+          <div class="group-flag" id="<?php echo get_the_ID() ?>"></div>
         </div>
       </div>
 <?php }
@@ -94,6 +94,25 @@ wp_reset_postdata();
         <span>Больше статей</span>
       </div>
     </div>
+    <script>
+        jQuery(function($){
+          $('.group-flag').click(function(){
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'add_to_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+      </script>
     
   </section>
   

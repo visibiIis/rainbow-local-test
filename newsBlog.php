@@ -85,7 +85,7 @@ get_header(); // подключаем header.php ?>
           </div>
           <a class="category-article"><?= get_the_tags()[0]->name ?></a>
         </div>
-        <div class="article-favorite-status add-article-in-favorite forGuest"><div>Добавить в избранное</div></div>
+        <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>"><div><?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?></div></div>
       </div>
     <?php } wp_reset_postdata(); } ?>
 
@@ -114,6 +114,26 @@ get_header(); // подключаем header.php ?>
       console.log( params['cat']);
       document.getElementById(params['cat']).classlist.add('current-cat')
     </script>
+
+    <script>
+        jQuery(function($){
+          $('.add-article-in-favorite').click(function(){
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'add_to_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+      </script>
     
     <div id="posts"></div>
 

@@ -205,7 +205,13 @@ get_header(); // подключаем header.php ?>
    <section class="main-profile-modules">
 
       <div class="profile-modules">
-
+        <?php $posts = get_favorite_posts('module'); 
+        $query = new WP_Query( 
+          array('post__in' => $posts ) 
+        );
+        if($query->have_posts()){
+          while($query->have_posts()){ $query->the_post();
+        ?>
         <div class="profile-module">
 
           <div class="profile-module-group">      
@@ -220,8 +226,19 @@ get_header(); // подключаем header.php ?>
           <div class="profile-module-caption">
             Модуль <span class="module-number">1</span>.
               <span class="profile-module-name">Startap. Шаг 1.</span>
+            <div class="profile-group-age"><?php the_field('module_age') ?> лет </div>
           </div>
-          <div class="profile-module-desc">Открываем для себя мир бизнеса. Знакомство с компьютером. Основы web дизайна и программирования.
+          <div class="profile-modules-date">
+            <?php $module_date = get_field('module_date'); ?>
+             <span class="profile-modules-date-day"><?= get_array($module_date, 'date')[0]; ?></span>
+              <span class="profile-modules-date-month"><?= get_array($module_date, 'date')[1]; ?></span>
+              <span class="profile-modules-date-year"><?= get_array($module_date, 'date')[2]; ?></span>
+          </div>
+          <div class="profile-module-caption">
+            Модуль <span class="module-number"><?php the_field('module_number') ?></span>.
+              <span class="profile-module-name"><?php the_title(); ?></span>
+          </div>
+          <div class="profile-module-desc"><?php the_field('module_description') ?>
           </div>
           <a href="#" class="profile-module-more">Подробнее</a>
         </div>
@@ -313,13 +330,26 @@ get_header(); // подключаем header.php ?>
 
         </div>
 
+          <a href="<?php the_permalink() ?>" class="profile-module-more">Подробнее</a>
+        </div>
+      <?php } wp_reset_postdata(); } ?>
+      
       </div>
 
     </section>
     <section class="profile-news-and-blog">
 
       <div class="profile-news-and-blog-articles">
-
+        <?php $posts = get_favorite_posts('blog'); 
+        $query = new WP_Query( 
+           [
+            'post__in' => $posts,
+            'posts_per_page' => 4
+          ]
+        );
+        if($query->have_posts()){
+          while($query->have_posts()){ $query->the_post();
+        ?>
         <div class="profile-news-and-blog-article">
           <a class="article-link" href="#"><!--<div class="module-img-shadow"></div>-->
             <img src="../resources/img/main-page/news-and-blog/kids_emotions_02.jpg" alt=""></a>
@@ -443,18 +473,45 @@ get_header(); // подключаем header.php ?>
           <div>
             <div class="article-date-bar">
               <span class="article-date">8 ноября 2016</span> <span class="article-reading-time">Читать 4 минуты</span>
+          <a class="article-link" href="<?php get_permalink() ?>"><!--<div class="module-img-shadow"></div>-->
+            <img src="<?php the_post_thumbnail_url('full') ?>" alt=""></a>
+          <div>
+            <div class="article-date-bar">
+              <span class="article-date"><?php the_date('d F Y'); ?></span> 
+              <span class="article-reading-time">Читать <?= read_speed(get_the_content(), [' минута', ' минуты', ' минут']); ?></span>
             </div>
-            <h4>Lorem ipsum dolor sit amet mandamus</h4>
+            <h4><?php the_title(); ?></h4>
             <div class="news-and-blog-article-desc">
-              Lorem ipsum dolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat prodolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat pro. Ne per dicit animal. Autem intellegam an his, an harum valpulate his, vis partem ex...      
+              <?= mb_strimwidth(get_the_content(), 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>      
             </div>
-            <a class="category-article">Воспитание</a>
+            <a class="category-article"><?= get_the_tags()[0]->name ?></a>
           </div>
-            <div class="article-favorite-status article-in-favorite"><div>Удалить из избранного</div></div>
-        </div>
-
+            <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>">
+              <div><?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?></div>
+          </div>
+      </div>
+      <?php } wp_reset_postdata(); } ?>
       </div>
 
+      <script>
+        jQuery(function($){
+          $('.article-in-favorite').click(function(){
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'del_from_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+      </script>
       <div class="results-pagination">
         <span class="results-pagination-prev">
           <svg version="1.1" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">

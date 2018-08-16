@@ -314,7 +314,7 @@ function true_load_posts(){
 	          </div>
 	          <a class="category-article"><?= get_the_tags()[0]->name ?></a>
 	        </div>
-	        <div class="article-favorite-status add-article-in-favorite forGuest"><div>Добавить в избранное</div></div>
+	        <div class="article-favorite-status add-article-in-favorite forGuest id='<?php echo get_the_ID() ?>'"><div>Добавить в избранное</div></div>
 	      </div>
 	    <?php } wp_reset_postdata(); }
 	    die();
@@ -362,7 +362,7 @@ function true_load_posts(){
         <a href="<?php the_permalink() ?>" class="module-more">Подробнее</a>
         <div class="module-group">      
           <div class="group-age"><?php the_field('module_age') ?> лет </div>
-          <div class="group-flag"></div>
+          <div class="group-flag" id="<?php echo get_the_ID() ?>"></div>
         </div>
       </div>
 		<?php }
@@ -396,16 +396,24 @@ function get_favorite_posts($category) { //Возвращает массив с 
 	return explode(',', get_user_meta(get_current_user_id(), 'favorite_'.$category, true));
 }
 
-function add_post_to_favorite($post_id) {
+function is_favorite($id) {
+	return in_array($id, get_favorite_posts(get_the_category($id)[0]->cat_name));
+}
+
+function add_post_to_favorite() {
+	$post_id = $_POST['post_id'];
 	$cat = get_the_category($post_id)[0]->cat_name;
 	$favorites = get_favorite_posts($cat);
 	$favorites[] = $post_id;
 	$favorites = array_unique($favorites); // Чтобы не добавлялись дубли
 	$favorites = implode(',', $favorites);
-	return update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites, '');
+	echo update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites, '') ? 'Добавил' : delete_post_from_favorites();
+	//var_dump(get_user_meta( get_current_user_id(), 'favorite_'.$cat));
+	die();
 }
 
-function delete_post_from_favorites($post_id) {
+function delete_post_from_favorites() {
+	$post_id = $_POST['post_id'];
 	$cat = get_the_category($post_id)[0]->cat_name;
 	$favorites = get_favorite_posts($cat);
 
@@ -413,9 +421,16 @@ function delete_post_from_favorites($post_id) {
 	if(array_key_exists($key, $favorites)) unset($favorites[$key]);
 
 	$favorites = implode(',', $favorites);
-	update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites);
+	echo update_user_meta( get_current_user_id(), 'favorite_'.$cat, $favorites) ? 'Удалил' : add_post_to_favorite();
+	//var_dump(get_user_meta( get_current_user_id(), 'favorite_'.$cat));
+	die();
 }
 
+add_action( 'wp_ajax_add_to_fav', 'add_post_to_favorite' );
+add_action( 'wp_ajax_nopriv_add_to_fav', 'add_post_to_favorite' );
+
+add_action( 'wp_ajax_del_from_fav', 'delete_post_from_favorites' );
+add_action( 'wp_ajax_nopriv_del_from_fav', 'delete_post_from_favorites' );
 
 
 ?>
