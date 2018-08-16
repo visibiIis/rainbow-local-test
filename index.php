@@ -156,7 +156,9 @@ get_header(); // подключаем header.php ?>
         wp_reset_postdata(); // сбрасываем переменную $post
       } 
     ?>
-    <script>
+    </div>
+  </section>
+      <script>
         jQuery(function($){
           $('.group-flag').click(function(){
             $(this).addClass('curr');
@@ -175,8 +177,6 @@ get_header(); // подключаем header.php ?>
           });
         });
       </script>
-    </div>
-  </section>
 
   <section class="news-and-blog">
     <h3 class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">Новости и блог</h3>
