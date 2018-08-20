@@ -83,6 +83,8 @@ get_header(); // подключаем header.php ?>
 
   <div class="wrapper">
 
+    <!-- <div class="profile-tabs-cont"> -->
+
     <section class="main-profile-personal">
 
       <div class="user-profile">
@@ -127,8 +129,7 @@ get_header(); // подключаем header.php ?>
       </div>
       
     </section>
-
-  	<div class="profile-tabs-cont">  
+ 
 
     <section class="user-form-section">
 
@@ -201,7 +202,7 @@ get_header(); // подключаем header.php ?>
         </div>
 			</form>
   	</section>
-
+    
    <section class="main-profile-modules">
 
       <div class="profile-modules">
@@ -213,21 +214,7 @@ get_header(); // подключаем header.php ?>
           while($query->have_posts()){ $query->the_post();
         ?>
         <div class="profile-module">
-
-          <div class="profile-module-group">      
-            <div class="profile-group-flag"><div class="profile-group-flag-delete">Удалить из избранного</div></div>
-            <div class="profile-group-age">14-17 лет </div>
-          </div>
-          <div class="profile-modules-date">
-             <span class="profile-modules-date-day">23</span>
-             <span class="profile-modules-date-month">11</span>
-             <span class="profile-modules-date-year">2016</span>
-          </div>
-          <div class="profile-module-caption">
-            Модуль <span class="module-number">1</span>.
-              <span class="profile-module-name">Startap. Шаг 1.</span>
             <div class="profile-group-age"><?php the_field('module_age') ?> лет </div>
-          </div>
           <div class="profile-modules-date">
             <?php $module_date = get_field('module_date'); ?>
              <span class="profile-modules-date-day"><?= get_array($module_date, 'date')[0]; ?></span>
@@ -238,105 +225,13 @@ get_header(); // подключаем header.php ?>
             Модуль <span class="module-number"><?php the_field('module_number') ?></span>.
               <span class="profile-module-name"><?php the_title(); ?></span>
           </div>
-          <div class="profile-module-desc"><?php the_field('module_description') ?>
-          </div>
-          <a href="#" class="profile-module-more">Подробнее</a>
-        </div>
-        
-        <div class="profile-module">
-
-          <div class="profile-module-group">      
-            <div class="profile-group-flag"><div class="profile-group-flag-delete">Удалить из избранного</div></div>
-            <div class="profile-group-age">7-9 лет </div>
-          </div>
-          <div class="profile-modules-date">
-             <span class="profile-modules-date-day">20</span>
-             <span class="profile-modules-date-month">12</span>
-             <span class="profile-modules-date-year">2016</span>
-          </div>
-          <div class="profile-module-caption">
-              Модуль <span class="module-number">1</span>.
-             <span class="profile-module-name">Вижу цель, ну-ка от винта!</span>
-          </div>
-          <div class="profile-module-desc">Открываем для себя мир бизнеса. Знакомство с компьютером. Основы web дизайна и программирования.
-          </div>
-            <a href="#" class="profile-module-more">Подробнее</a>
-            
-        </div>
-
-
-        <div class="profile-module">
-
-          <div class="profile-module-group">      
-            <div class="profile-group-flag"><div class="profile-group-flag-delete">Удалить из избранного</div></div>
-            <div class="profile-group-age">10-13 лет </div>
-          </div>
-          <div class="profile-modules-date">
-             <span class="profile-modules-date-day">15</span>
-             <span class="profile-modules-date-month">10</span>
-             <span class="profile-modules-date-year">2016</span>
-          </div>
-          <div class="profile-module-caption">
-              Модуль <span class="module-number">2</span>.
-             <span class="profile-module-name">Business World погружение.</span>
-          </div>
-          <div class="profile-module-desc">Открываем для себя мир бизнеса. Знакомство с компьютером. Основы web дизайна и программирования.
-          </div>
-            <a href="#" class="profile-module-more">Подробнее</a>
-
-        </div>
-
-
-        <div class="profile-module">
-
-          <div class="profile-module-group">      
-            <div class="profile-group-flag"><div class="profile-group-flag-delete">Удалить из избранного</div></div>
-            <div class="profile-group-age">14-17 лет </div>
-          </div>
-          <div class="profile-modules-date">
-             <span class="profile-modules-date-day">23</span>
-             <span class="profile-modules-date-month">11</span>
-             <span class="profile-modules-date-year">2016</span>
-          </div>
-          <div class="profile-module-caption">
-              Модуль <span class="module-number">1</span>.
-             <span class="profile-module-name">Startap. Шаг 1.</span>
-          </div>
-          <div class="profile-module-desc">Открываем для себя мир бизнеса. Знакомство с компьютером. Основы web дизайна и программирования.
-          </div>
-            <a href="#" class="profile-module-more">Подробнее</a>
-
-        </div>
-
-
-        <div class="profile-module">
-
-          <div class="profile-module-group">      
-            <div class="profile-group-flag"><div class="profile-group-flag-delete">Удалить из избранного</div></div>
-            <div class="profile-group-age">14-17 лет </div>
-          </div>
-          <div class="profile-modules-date">
-             <span class="profile-modules-date-day">23</span>
-             <span class="profile-modules-date-month">11</span>
-             <span class="profile-modules-date-year">2016</span>
-          </div>
-          <div class="profile-module-caption">
-              Модуль <span class="module-number">1</span>.
-             <span class="profile-module-name">Startap. Шаг 1.</span>
-          </div>
-          <div class="profile-module-desc">Открываем для себя мир бизнеса. Знакомство с компьютером. Основы web дизайна и программирования.
-          </div>
-            <a href="#" class="profile-module-more">Подробнее</a>
-
-        </div>
-
+          <div class="profile-module-desc"><?php the_field('module_description') ?></div>
           <a href="<?php the_permalink() ?>" class="profile-module-more">Подробнее</a>
         </div>
       <?php } wp_reset_postdata(); } ?>
-      
-      </div>
-
+    </div>
     </section>
+
     <section class="profile-news-and-blog">
 
       <div class="profile-news-and-blog-articles">
@@ -351,128 +246,6 @@ get_header(); // подключаем header.php ?>
           while($query->have_posts()){ $query->the_post();
         ?>
         <div class="profile-news-and-blog-article">
-          <a class="article-link" href="#"><!--<div class="module-img-shadow"></div>-->
-            <img src="../resources/img/main-page/news-and-blog/kids_emotions_02.jpg" alt=""></a>
-          <div>
-            <div class="article-date-bar">
-              <span class="article-date">8 ноября 2016</span> <span class="article-reading-time">Читать 4 минуты</span>
-            </div>
-            <h4>Lorem ipsum dolor sit amet mandamus</h4>
-            <div class="news-and-blog-article-desc">
-              Lorem ipsum dolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat prodolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat pro. Ne per dicit animal. Autem intellegam an his, an harum valpulate his, vis partem ex...      
-            </div>
-            <a class="category-article">Воспитание</a>
-          </div>
-            <div class="article-favorite-status article-in-favorite"><div>Удалить из избранного</div></div>
-        </div>
-
-        <div class="profile-news-and-blog-article">
-          <a class="article-link" href="#"><!--<div class="module-img-shadow"></div>-->
-            <img src="../resources/img/main-page/news-and-blog/kids_training.jpg" alt=""></a>
-          <div>
-          <div class="article-date-bar">
-            <span class="article-date">8 ноября 2016</span> <span class="article-reading-time">Читать 4 минуты</span>
-          </div>
-          <h4>Lorem ipsum dolor sit amet mandamus</h4>
-          <div class="news-and-blog-article-desc">
-            Lorem ipsum dolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat prodolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat pro. Ne per dicit animal. Autem intellegam an his, an harum valpulate his, vis partem ex...      
-          </div>
-          <a class="category-article">Воспитание</a>
-          </div>
-          <div class="article-favorite-status article-in-favorite"><div>Удалить из избранного</div></div>
-        </div>
-
-        <div class="profile-news-and-blog-article">
-          <a class="article-link" href="#"><!--<div class="module-img-shadow"></div>-->
-            <img src="../resources/img/main-page/news-and-blog/stock-photo-113729839.jpg" alt=""></a>
-          <div>
-          <div class="article-date-bar">
-            <span class="article-date">8 ноября 2016</span> <span class="article-reading-time">Читать 4 минуты</span>
-          </div>
-          <h4>Lorem ipsum dolor sit amet mandamus</h4>
-          <div class="news-and-blog-article-desc">
-            Lorem ipsum dolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat prodolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat pro. Ne per dicit animal. Autem intellegam an his, an harum valpulate his, vis partem ex...      
-          </div>
-          <a class="category-article">Воспитание</a>
-          </div>
-          <div class="article-favorite-status article-in-favorite"><div>Удалить из избранного</div></div>
-        </div>
-
-        <div class="profile-news-and-blog-article">
-          <a class="article-link" href="#">
-            <!--<div class="module-img-shadow"></div>-->
-            <img src="../resources/img/main-page/news-and-blog/kids_training.jpg" alt=""></a>
-          <div>
-          <div class="article-date-bar">
-            <span class="article-date">8 ноября 2016</span> <span class="article-reading-time">Читать 4 минуты</span>
-          </div>
-          <h4>Lorem ipsum dolor sit amet mandamus</h4>
-          <div class="news-and-blog-article-desc">
-            Lorem ipsum dolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat prodolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat pro. Ne per dicit animal. Autem intellegam an his, an harum valpulate his, vis partem ex...      
-          </div>
-          <a class="category-article">Воспитание</a>
-          </div>
-          <div class="article-favorite-status article-in-favorite"><div>Удалить из избранного</div></div>
-        </div>
-
-        <div class="profile-news-and-blog-article">
-          <a class="article-link" href="#">
-            <!--<div class="module-img-shadow"></div>-->
-            <img src="../resources/img/main-page/news-and-blog/kids_emotions_02.jpg" alt=""></a>
-          <div>
-            <div class="article-date-bar">
-              <span class="article-date">8 ноября 2016</span> <span class="article-reading-time">Читать 4 минуты</span>
-            </div>
-            <h4>Lorem ipsum dolor sit amet mandamus</h4>
-            <div class="news-and-blog-article-desc">
-              Lorem ipsum dolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat prodolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat pro. Ne per dicit animal. Autem intellegam an his, an harum valpulate his, vis partem ex...      
-            </div>
-            <a class="category-article">Воспитание</a>
-          </div>
-            <div class="article-favorite-status article-in-favorite"><div>Удалить из избранного</div></div>
-        </div>
-
-        <div class="profile-news-and-blog-article">
-          <a class="article-link" href="#">
-            <!--<div class="module-img-shadow"></div>-->
-            <img src="../resources/img/main-page/news-and-blog/kids_training.jpg" alt=""></a>
-          <div>
-            <div class="article-date-bar">
-              <span class="article-date">8 ноября 2016</span> <span class="article-reading-time">Читать 4 минуты</span>
-            </div>
-            <h4>Lorem ipsum dolor sit amet mandamus</h4>
-            <div class="news-and-blog-article-desc">
-              Lorem ipsum dolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat prodolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat pro. Ne per dicit animal. Autem intellegam an his, an harum valpulate his, vis partem ex...      
-            </div>
-            <a class="category-article">Воспитание</a>
-          </div>
-           <div class="article-favorite-status article-in-favorite"><div>Удалить из избранного</div></div>
-        </div>
-
-        <div class="profile-news-and-blog-article">
-          <a class="article-link" href="#">
-            <!--<div class="module-img-shadow"></div> -->
-            <img src="../resources/img/main-page/news-and-blog/stock-photo-113729839.jpg" alt=""></a>
-          <div>
-            <div class="article-date-bar">
-              <span class="article-date">8 ноября 2016</span> <span class="article-reading-time">Читать 4 минуты</span>
-            </div>
-            <h4>Lorem ipsum dolor sit amet mandamus</h4>
-            <div class="news-and-blog-article-desc">
-              Lorem ipsum dolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat prodolor sit amet, mea adhuc legendos molestiae ea, te iriure intellegebat pro. Ne per dicit animal. Autem intellegam an his, an harum valpulate his, vis partem ex...      
-            </div>
-            <a class="category-article">Воспитание</a>
-          </div>
-            <div class="article-favorite-status article-in-favorite"><div>Удалить из избранного</div></div>
-        </div>
-
-        <div class="profile-news-and-blog-article">
-          <a class="article-link" href="#">
-            <!--<div class="module-img-shadow"></div>-->
-            <img src="../resources/img/main-page/news-and-blog/kids_training.jpg" alt=""></a>
-          <div>
-            <div class="article-date-bar">
-              <span class="article-date">8 ноября 2016</span> <span class="article-reading-time">Читать 4 минуты</span>
           <a class="article-link" href="<?php get_permalink() ?>"><!--<div class="module-img-shadow"></div>-->
             <img src="<?php the_post_thumbnail_url('full') ?>" alt=""></a>
           <div>
@@ -540,12 +313,8 @@ get_header(); // подключаем header.php ?>
           <div class="change-page-form-close closeCross"></div>
         </form>
       </div>
-
     </section>
-
   </div>
-
-
   </div>
 
 <?php get_footer(); // подключаем footer.php ?>
