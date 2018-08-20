@@ -62,13 +62,37 @@ get_courses(['posts_per_page' => 2])
     </div>
     <script>
         jQuery(function($){
-          $('.group-flag').click(function(){
+          $('.module-add').click(function(){
+            $(this).addClass('module-added');
+            $(this).removeClass('module-add');
+
             $(this).addClass('curr');
             $.ajax({
               url: '<?php echo admin_url("admin-ajax.php") ?>',
               type: 'POST',
               data: {
                 action: 'add_to_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+
+        jQuery(function($){
+          $('.module-added').click(function(){
+            $(this).addClass('module-add');
+            $(this).removeClass('module-added');
+
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'del_from_fav',
                 post_id: $('.curr').attr('id')
               },
               success: function( data ) {
