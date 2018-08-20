@@ -1733,6 +1733,15 @@ margin-top: 1.875vw;
 .modules {
   overflow: hidden;
 }
+
+.module-added {
+    background: url(../resources/img/main-page/blueFlag.svg) no-repeat 0 0;
+}
+
+.module-add {
+    background: url(../resources/img/main-page/whiteFlag.svg) no-repeat 0 0;
+}
+
 .modules-slider-slide {
 
     /*padding: 45px 60px 40px;*/
@@ -1971,7 +1980,6 @@ line-height: 1;
   width: 1.302083vw;
 /*height: 39px;*/
   height: 2.08333vw;
-  background: url(../resources/img/main-page/whiteFlag.svg) no-repeat 0 0;
   -webkit-background-size: contain;
   background-size: contain;
 

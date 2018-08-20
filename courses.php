@@ -53,56 +53,46 @@ get_header(); // подключаем header.php ?>
     </nav>
     <div class="courses-page-courses-cont">
 <?php 
-
-$query = new WP_Query([
-  'category_name' => 'module',
-  'posts_per_page' => 2
-]);
-if( $query->have_posts() ){
-	while( $query->have_posts() ){ $query->the_post();
-	?>
-
-      <div class="course">
-        <div class="modules-date">
-          <span class="modules-date-day"><?= get_array(get_field('module_date'), 'date')[0] ?></span>
-          <span class="modules-date-month"><?= get_array(get_field('module_date'), 'date')[1] ?></span>
-          <span class="modules-date-year"><?= get_array(get_field('module_date'), 'date')[2] ?></span>
-        </div>
-        <div class="module-caption">
-          Модуль <span class="module-number"><?php the_field('module_number') ?></span>.
-          <span class="module-name"><?php the_title() ?></span>
-        </div>
-        <div class="module-desc"><?php the_field('module_description') ?></div>
-        <a href="<?php the_permalink() ?>" class="module-more">Подробнее</a>
-        <div class="module-group">      
-          <div class="group-age"><?php the_field('module_age') ?> лет </div>
-          <div class="group-flag" id="<?php echo get_the_ID() ?>"></div>
-        </div>
-      </div>
-<?php }
-wp_reset_postdata();
-}
+get_courses(['posts_per_page' => 2])
 ?>
 <div id="posts"></div>
-    <script>
-      var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
-      var true_posts = '<?php echo serialize($query->query_vars); ?>';
-      var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
-      var max_pages = '<?php echo $query->max_num_pages; ?>';
-    </script>
       <div id="true_loadmore" class="blog-menu-more-button">
         <span>Больше статей</span>
       </div>
     </div>
     <script>
         jQuery(function($){
-          $('.group-flag').click(function(){
+          $('.module-add').click(function(){
+            $(this).addClass('module-added');
+            $(this).removeClass('module-add');
+
             $(this).addClass('curr');
             $.ajax({
               url: '<?php echo admin_url("admin-ajax.php") ?>',
               type: 'POST',
               data: {
                 action: 'add_to_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+
+        jQuery(function($){
+          $('.module-added').click(function(){
+            $(this).addClass('module-add');
+            $(this).removeClass('module-added');
+
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'del_from_fav',
                 post_id: $('.curr').attr('id')
               },
               success: function( data ) {
