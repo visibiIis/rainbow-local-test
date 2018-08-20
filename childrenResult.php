@@ -25,36 +25,11 @@ get_header(); // подключаем header.php ?>
     <h3 class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">Результаты Учеников</h3>
     <div class="results-acrticles-cont">
     	<?php 
-			$query = new WP_Query([
-        'category_name' => 'child',
+			$args = [
         'posts_per_page' => 2
-      ]);
-			if( $query->have_posts() ){
-				while( $query->have_posts() ){ $query->the_post();
-		?>
-      <div class="results-article wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
-        <div class="results-article-title">
-          <div class="results-article-autor"><?php the_title() ?></div>
-          <div class="results-article-autor-info">
-            <span><?php the_field('age') ?> лет</span> 
-            <span>г. <?php the_field('city') ?></span>
-          </div>
-          <h4><?php the_field('description') ?></h4>
-          <div class="results-article-read">
-            <a class="results-article-read-link" href="<?php the_permalink() ?>">Читать подробнее</a>
-          </div>
-        </div>
-        <div class="results-article-photo">
-          <img src="<?php the_post_thumbnail_url('full') ?>" alt="Фото статьи">
-        </div>
-      </div>
-      <?php } wp_reset_postdata(); } ?>
-      <script>
-      var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
-      var true_posts = '<?php echo serialize($query->query_vars); ?>';
-      var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
-      var max_pages = '<?php echo $query->max_num_pages; ?>';
-    </script>
+      ];
+			get_childs($args);
+      ?>
       <div id="posts"></div>
     </div>
     <div id="true_loadmore" class="showMoreResArticles">

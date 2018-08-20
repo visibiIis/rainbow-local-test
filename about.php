@@ -107,36 +107,28 @@ get_header(); // подключаем header.php ?>
     <div class="modules-slider">
 
       <?php  
-      $modules = new WP_Query(['category_name' => 'module']); // указываем категорию 9 и выключаем разбиение на страницы (пагинацию)
-      if($modules->have_posts()){
-        while($modules->have_posts()){ $modules->the_post();
-        ?>
-          <div class="modules-slider-slide">
-            <div class="modules-date">
-              <?php  
-                $module_date = get_field('module_date');
-              ?>
-              <span class="modules-date-day"><?= get_array($module_date, 'date')[0]; ?></span>
-              <span class="modules-date-month"><?= get_array($module_date, 'date')[1]; ?></span>
-              <span class="modules-date-year"><?= get_array($module_date, 'date')[2]; ?></span>
-            </div>
-            <div class="module-caption">
-              Модуль <span class="module-number"><?php the_field('module_number'); ?></span>.
-              <span class="module-name"><?php the_title(); ?></span>
-            </div>
-            <div class="module-desc"><?php the_field('module_description'); ?></div>
-            <a href="<?php the_permalink(); ?>" class="module-more">Подробнее</a>
-            <div class="module-group">      
-              <div class="group-age"><?php the_field('module_age'); ?> лет</div>
-              <div class="group-flag" id="<?= get_the_ID() ?>"></div>
-            </div>
-          </div>
-        <?php
-        }
-        wp_reset_postdata(); // сбрасываем переменную $post
-      } 
-    ?>
+      	get_courses_slides(['posts_per_page' => 6]); 
+      ?>
     </div>
+    <script>
+        jQuery(function($){
+          $('.group-flag').click(function(){
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'add_to_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+      </script>
     <div class="more-courses">
       <a href="/modules/" class="more-courses-link">Смотреть все курсы</a>
     </div>
@@ -146,28 +138,7 @@ get_header(); // подключаем header.php ?>
     <h3 class="">Тренеры нашей школы</h3>
     <div class="teacher-slider ">
       <?php 
-        $teachers = new WP_Query(['category_name' => 'trainer']);
-        if($teachers->have_posts()) {
-          while($teachers->have_posts()){ $teachers->the_post(); 
-      ?>
-
-          <div class="teacher-slider-slide">
-        <div class="teacher-photo">
-          <img src="<?php the_post_thumbnail_url(); ?>" alt="">
-        </div>
-        <div class="teacher-info">
-          <div class="teacher-name"><?php the_title() ?></div>
-          <div class="teacher-vac"><?php the_field('duty'); ?></div>
-          <div class="teacher-desc">
-             <?php the_content(); ?>            
-          </div>
-        </div>
-      </div>
-          
-        <?php
-        }
-        wp_reset_postdata();
-      } 
+        get_teachers();
       ?>
     </div>  
   </section>
@@ -218,25 +189,5 @@ get_header(); // подключаем header.php ?>
       <a href="#">Или запишитесь на бесплатный пробный урок</a>
     </form>
   </section>
-
-  <script>
-        jQuery(function($){
-          $('.group-flag').click(function(){
-            $(this).addClass('curr');
-            $.ajax({
-              url: '<?php echo admin_url("admin-ajax.php") ?>',
-              type: 'POST',
-              data: {
-                action: 'add_to_fav',
-                post_id: $('.curr').attr('id')
-              },
-              success: function( data ) {
-                console.log(data);
-              }
-            });
-            $(this).removeClass('curr');
-          });
-        });
-      </script>
 
 <?php get_footer(); // подключаем footer.php ?>

@@ -392,6 +392,53 @@ function registrate() {
 	}
 }
 
+function check_register() {
+  if($_POST['password'] !== $_POST['password_repeat']) {
+    echo '<script> alert("Пароли не совпадают")</script>';
+  }
+  else {
+
+    $username = explode('@', $_POST['reg-email'])[0];
+    $password = $_POST['password'];
+    $email = $_POST['reg-email'];
+
+    $user = wp_create_user($username, $password, $email);
+
+    if(is_wp_error($user)) {
+     echo '<script> alert("'. $user->get_error_message() .'") </script>';
+    }
+    else {
+      echo '<script> alert("Успешная регистрация")</script>';
+      update_user_meta( $user, 'user_login', $username);
+      update_user_meta( $user, 'user_email', $email);
+      wp_authenticate( $username, $password );
+      //header('Location: /account');
+    }
+  }
+}
+
+function check_login() {
+  $username = $_POST['login-email'];
+  $password = $_POST['login-password'];
+
+  $credentials = [
+    'user_login'    => $username,
+    'user_password' => $password,
+    'remember'      => $_POST['rememberMe'],
+  ];
+
+  $user = wp_signon($credentials);
+
+  if(is_wp_error($user)) {
+     echo '<script> alert("'. $user->get_error_message() .'") </script>';
+    }
+  else {
+    echo '<script> alert("Успешная авторизация")</script>';
+    wp_authenticate( $username, $password );
+    //header('Location: /account');
+  }
+}
+
 function get_favorite_posts($category) { //Возвращает массив с избранными постами по наз. категории
 	return explode(',', get_user_meta(get_current_user_id(), 'favorite_'.$category, true));
 }
@@ -432,5 +479,8 @@ add_action( 'wp_ajax_nopriv_add_to_fav', 'add_post_to_favorite' );
 add_action( 'wp_ajax_del_from_fav', 'delete_post_from_favorites' );
 add_action( 'wp_ajax_nopriv_del_from_fav', 'delete_post_from_favorites' );
 
+
+
+include('cycles.php'); //Получить шаблоны циклов
 
 ?>

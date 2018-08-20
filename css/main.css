@@ -1971,7 +1971,6 @@ line-height: 1;
   width: 1.302083vw;
 /*height: 39px;*/
   height: 2.08333vw;
-  background: url(../resources/img/main-page/whiteFlag.svg) no-repeat 0 0;
   -webkit-background-size: contain;
   background-size: contain;
 
@@ -11770,4 +11769,12 @@ line-height: 1.5714;
         background-position: top center;
         background-color: #6890c6;
     }
+}
+
+.module-added {
+    background: url(../resources/img/main-page/blueFlag.svg) no-repeat 0 0;
+}
+
+.module-add {
+    background: url(../resources/img/main-page/whiteFlag.svg) no-repeat 0 0;
 }
