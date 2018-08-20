@@ -314,7 +314,7 @@ function true_load_posts(){
 	          </div>
 	          <a class="category-article"><?= get_the_tags()[0]->name ?></a>
 	        </div>
-	        <div class="article-favorite-status add-article-in-favorite forGuest id='<?php echo get_the_ID() ?>'"><div>Добавить в избранное</div></div>
+	        <div class="article-favorite-status add-article-in-favorite forGuest" id="<?php echo get_the_ID() ?>"><div>Добавить в избранное</div></div>
 	      </div>
 	    <?php } wp_reset_postdata(); }
 	    die();

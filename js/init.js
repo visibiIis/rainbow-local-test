@@ -1,3 +1,4 @@
+
 function editHeightChildPhotoCont() {
 
     if (innerWidth > 1024) {
@@ -17,30 +18,30 @@ jQuery(document).ready(function() {
 
 if (window.innerWidth <= 320)
 {
-	$('.calendar-win').find('h2').text('Расписание');
+    $('.calendar-win').find('h2').text('Расписание');
 
-	$('.calendar-win').find('.calendar-slider').empty();
-	$('.calendar-win').find('.calendar-slider').append('<div class="calendar-slider-slide"><table><tr><th>Понедельник</th><th>Вторник</th></tr><tr><td></td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Среда</th><th>Четверг</th></tr><tr><td></td><td></td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Пятница</th><th>Суббота</th></tr><tr><td></td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Воскресенье</th></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr></table></div>');
+    $('.calendar-win').find('.calendar-slider').empty();
+    $('.calendar-win').find('.calendar-slider').append('<div class="calendar-slider-slide"><table><tr><th>Понедельник</th><th>Вторник</th></tr><tr><td></td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Среда</th><th>Четверг</th></tr><tr><td></td><td></td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td></td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Пятница</th><th>Суббота</th></tr><tr><td></td><td></td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td><td class="module-day">Модуль <span class="module-number">1</span>. <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span><span class="module-age">(7-9лет)</span> </td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table></div><div class="calendar-slider-slide"><table><tr><th>Воскресенье</th></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr></table></div>');
 }
 
 // изменение дней нидели в календаре для планшетов (Даниил Б)
 
 if (window.innerWidth <= 1024 && window.innerWidth < 320) 
 {
-	console.log('priv 768');
-	var sliders = $('.calendar-win').find('.calendar-slider-slide'),
-		sliderIndex = 0;
+    console.log('priv 768');
+    var sliders = $('.calendar-win').find('.calendar-slider-slide'),
+        sliderIndex = 0;
 
-	for (sliderIndex; sliderIndex < sliders.length; ++sliderIndex)
-	{
-	  $(sliders[sliderIndex]).find('th:eq(0)').text('ПН');
-	  $(sliders[sliderIndex]).find('th:eq(1)').text('ВТ');
-	  $(sliders[sliderIndex]).find('th:eq(2)').text('СР');
-	  $(sliders[sliderIndex]).find('th:eq(3)').text('ЧТ');
-	  $(sliders[sliderIndex]).find('th:eq(4)').text('ПТ');
-	  $(sliders[sliderIndex]).find('th:eq(5)').text('СБ');
-	  $(sliders[sliderIndex]).find('th:eq(6)').text('ВС');
-	}
+    for (sliderIndex; sliderIndex < sliders.length; ++sliderIndex)
+    {
+      $(sliders[sliderIndex]).find('th:eq(0)').text('ПН');
+      $(sliders[sliderIndex]).find('th:eq(1)').text('ВТ');
+      $(sliders[sliderIndex]).find('th:eq(2)').text('СР');
+      $(sliders[sliderIndex]).find('th:eq(3)').text('ЧТ');
+      $(sliders[sliderIndex]).find('th:eq(4)').text('ПТ');
+      $(sliders[sliderIndex]).find('th:eq(5)').text('СБ');
+      $(sliders[sliderIndex]).find('th:eq(6)').text('ВС');
+    }
 }
 
 //скрипты вызова окна смены пароля
@@ -120,7 +121,6 @@ jQuery('.password-reset-form').find('[type="password"]').blur(function() { // П
         /*jQuery('.ok-button').find('button').click(function() {
           jQuery('.ok-button, .modal-win-shadow:visible').fadeOut();
         });
-
         jQuery('.ok-button').fadeIn(400);
         */
       });
@@ -864,25 +864,7 @@ jQuery('.del-avatar-window-sure').find('.closeCross, .del-avatar-cancel').click(
 
 
 
-// profile menu
-
-if(!$('.user-form').hasClass('unactive'))
-{
-  $('.profile-category-list .profile-category-userData').addClass('active-profile-category');
-}
-
-if(!$('.profile-news-and-blog').hasClass('unactive'))
-{
-  $('.profile-category-list .profile-category-favoriteCourses').addClass('active-profile-category');
-}
-
-if(!$('.main-profile-modules').hasClass('unactive'))
-{
-  $('.profile-category-list .profile-category-favoriteArticles').addClass('active-profile-category');
-}
-
-// переключение между страницами профиля (Данил С, Данил Б, Роман К)
-
+//profile menu change tab script
 var profileListItemsCount = 0;
 // выбираем активную вкладку
 jQuery('.profile-tabs-cont > *:nth-child(1)').fadeIn(function() {
@@ -909,61 +891,6 @@ jQuery('[data-open-tab]').click(function(e) {
     if (jQuery('.wrapper').hasClass('noneBackground')) {
        jQuery('.wrapper').removeClass('noneBackground');
     }
-  var changeCatText = jQuery(this).text();
-  jQuery('.content').addClass('unactive');
-  switch(changeCatText) {
-    case 'Избранные статьи':
-      jQuery('.profile-news-and-blog').removeClass('unactive');
-      jQuery('.wrapper').attr('class', 'wrapper-unactive');
-      $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
-      //$('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteArticles').addClass('active-profile-category');
-      if (window.screen.width <= 1024) {
-        if (window.innerWidth <= 1024) {
-          jQuery('.user-form').css('display', 'none');
-        }
-      }
-      if (window.screen.width <= 320) {
-        if (window.innerWidth <= 320) {
-          jQuery('.user-form').css('display', 'none');
-        }
-      }
-    break;
-    case 'Личные данные':
-      jQuery('.user-form-section').removeClass('unactive')
-      jQuery('.wrapper-unactive').attr('class', 'wrapper');
-      $('.profile-category-list .profile-category-userData').addClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteCourses').removeClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
-      if (window.screen.width <= 1024) {
-        if (window.innerWidth <= 1024) {
-          jQuery('.user-form').css('display', 'flex');
-        }
-      }
-      if (window.screen.width <= 320) {
-        if (window.innerWidth <= 320) {
-          jQuery('.user-form').css('display', 'flex');
-        }
-      }
-    break;
-    case 'Избранные курсы':
-        console.log('клик на куурсы');
-      jQuery('.main-profile-modules').removeClass('unactive');
-      jQuery('.wrapper').attr('class', 'wrapper-unactive');
-      $('.profile-category-list .profile-category-userData').removeClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteCourses').addClass('active-profile-category');
-      $('.profile-category-list .profile-category-favoriteArticles').removeClass('active-profile-category');
-      if (window.screen.width <= 1024) {
-        if (window.innerWidth <= 1024) {
-          jQuery('.user-form').css('display', 'none');
-        }
-      }
-      if (window.screen.width <= 320) {
-        if (window.innerWidth <= 320) {
-          jQuery('.user-form').css('display', 'none');
-        }
-      }
-    break;
   }
   // end
 
@@ -975,6 +902,7 @@ jQuery('[data-open-tab]').click(function(e) {
    jQuery('.profile-tabs-cont > *:visible').fadeOut(400, function() {
      jQuery('.profile-tabs-cont > *:nth-child(' + profileTabNumber + ')').fadeIn(400);
   });
+});
 
 //END
 
@@ -1185,7 +1113,7 @@ $(document).keyup(function(e){
 
     if ($('.results-video-close:visible'))
     {
-        $('.results-video-cont, .modal-win-shadow').remove();
+        $('.results-video-cont, .modal-win-shadow').fadeOut();
     }
 
     jQuery('.change-page-form').fadeOut();
@@ -1288,21 +1216,20 @@ $('.user-form > .user-form-button > button').click(function()
 });
 
 // удаление избраные курсы (Даниил Б) //
-jQuery('.main-profile-modules').find('.profile-group-flag').click(function() {
-  jQuery(this).closest('.profile-module').fadeOut(400, function() {
-      // добавить ajax запрос, удаляющий инфо о закладке из базы
-      jQuery(this).remove();
-  });
+
+$('.main-profile-modules .profile-group-flag').mouseover(function()
+{
+  $(this).append('<div class="profile-group-flag-delete">Удалить из избранного</div>');
+})
+
+$('.main-profile-modules .profile-group-flag').mouseout(function()
+{
+  $(this).empty();
 });
 
-// удаление избраные статьи (Даниил Б) //
-
-$('.profile-news-and-blog-articles').find('.article-favorite-status').click(function()
+$('.main-profile-modules .profile-group-flag').click(function()
 {
-    $(this).closest('.profile-news-and-blog-article').fadeOut(400, function()
-    {
-        $(this).remove();
-    });
+  $(this).parent().parent().css('display', 'none');
 });
 
 // конец //
