@@ -72,7 +72,7 @@ get_header(); // подключаем header.php ?>
     </div>
     <script>
         jQuery(function($){
-          $('.module-add').click(function(){
+          $('.module-add').live('click', function(){
             $(this).addClass('module-added');
             $(this).removeClass('module-add');
 
@@ -93,7 +93,7 @@ get_header(); // подключаем header.php ?>
         });
 
         jQuery(function($){
-          $('.module-added').click(function(){
+          $('.module-added').live('click', function(){
             $(this).addClass('module-add');
             $(this).removeClass('module-added');
 
@@ -122,6 +122,44 @@ get_header(); // подключаем header.php ?>
       get_news(['posts_per_page' => 4])
       ?>
 
+      <script>
+        jQuery(function($){
+              $('.add-article-in-favorite').live('click', function() {
+                $(this).removeClass('article-in-favorite').addClass('add-article-in-favorite').addClass('curr');
+                
+                $.ajax({
+                  url: '<?php echo admin_url("admin-ajax.php") ?>',
+                  type: 'POST',
+                  data: {
+                    action: 'add_to_fav',
+                    post_id: $('.curr').attr('id')
+                  },
+                  success: function( data ) {
+                    console.log(data);
+                  }
+                });
+                $(this).removeClass('curr');
+              });
+          });
+
+        jQuery(function($){
+                $('.article-in-favorite').live('click', function() {
+                  $(this).removeClass('add-article-in-favorite').addClass('article-in-favorite').addClass('curr');
+                  $.ajax({
+                    url: '<?php echo admin_url("admin-ajax.php") ?>',
+                    type: 'POST',
+                    data: {
+                      action: 'del_from_fav',
+                      post_id: $('.curr').attr('id')
+                    },
+                    success: function( data ) {
+                      console.log(data);
+                    }
+                  });
+                  $(this).removeClass('curr');
+                });
+        });
+    </script>
       
     </div>
     <a href="/modules" class="news-and-blog-show-more mobile">Другие новости</a>   
@@ -168,42 +206,5 @@ get_header(); // подключаем header.php ?>
       <?= do_shortcode('[contact-form-7 id="244" title="Форма обратной связи 1-ый тип"]'); ?>
     </form>
   </section>
-  <script>
-    jQuery(function($){
-          $('.add-article-in-favorite').click(function(){
-            $(this).addClass('curr');
-            $.ajax({
-              url: '<?php echo admin_url("admin-ajax.php") ?>',
-              type: 'POST',
-              data: {
-                action: 'add_to_fav',
-                post_id: $('.curr').attr('id')
-              },
-              success: function( data ) {
-                console.log(data);
-              }
-            });
-            $(this).removeClass('curr');
-          });
-        });
-
-        jQuery(function($){
-          $('.article-in-favorite').click(function(){
-            $(this).addClass('curr');
-            $.ajax({
-              url: '<?php echo admin_url("admin-ajax.php") ?>',
-              type: 'POST',
-              data: {
-                action: 'del_from_fav',
-                post_id: $('.curr').attr('id')
-              },
-              success: function( data ) {
-                console.log(data);
-              }
-            });
-            $(this).removeClass('curr');
-          });
-        });
-  </script>
   
 <?php get_footer(); // подключаем footer.php ?>

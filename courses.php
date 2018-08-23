@@ -62,7 +62,7 @@ get_courses(['posts_per_page' => 2])
     </div>
     <script>
         jQuery(function($){
-          $('.module-add').click(function(){
+          $('.module-add').live('click', function(){
             $(this).addClass('module-added');
             $(this).removeClass('module-add');
 
@@ -83,7 +83,7 @@ get_courses(['posts_per_page' => 2])
         });
 
         jQuery(function($){
-          $('.module-added').click(function(){
+          $('.module-added').live('click', function(){
             $(this).addClass('module-add');
             $(this).removeClass('module-added');
 

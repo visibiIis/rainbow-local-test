@@ -16,7 +16,48 @@
          <li><a class="blog-article-socials-youtube" href="#"></a></li>
          <li><a class="blog-article-socials-insta" href="#"></a></li>
        </ul>
-       <div class="article-favorite-status add-article-in-favorite"><div>Добавить в избранное</div></div>
+       <div id="<?= get_the_ID() ?>" class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?>"></div>
+       <script>
+      jQuery(function($){
+              $('.add-article-in-favorite').live('click', function() {
+            $(this).addClass('article-in-favorite');
+            $(this).removeClass('add-article-in-favorite');
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'add_to_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+
+      jQuery(function($){
+              $('.article-in-favorite').live('click', function() {
+              $(this).addClass('add-article-in-favorite');
+              $(this).removeClass('article-in-favorite');
+              $(this).addClass('curr');
+              $.ajax({
+                url: '<?php echo admin_url("admin-ajax.php") ?>',
+                type: 'POST',
+                data: {
+                  action: 'del_from_fav',
+                  post_id: $('.curr').attr('id')
+                },
+                success: function( data ) {
+                  console.log(data);
+                }
+              });
+              $(this).removeClass('curr');
+            });
+          });
+    </script>
        <!-- <div class="blog-article-prev"></div> -->
        <div class="blog-article-controls">
        <a href="#" class="blog-article-prev">

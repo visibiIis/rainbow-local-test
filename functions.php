@@ -314,7 +314,7 @@ function true_load_posts(){
 	          </div>
 	          <a class="category-article"><?= get_the_tags()[0]->name ?></a>
 	        </div>
-	        <div class="article-favorite-status add-article-in-favorite forGuest" id="<?php echo get_the_ID() ?>"><div>Добавить в избранное</div></div>
+	       <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>"><div><?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?></div></div>
 	      </div>
 	    <?php } wp_reset_postdata(); }
 	    die();
@@ -362,7 +362,7 @@ function true_load_posts(){
         <a href="<?php the_permalink() ?>" class="module-more">Подробнее</a>
         <div class="module-group">      
           <div class="group-age"><?php the_field('module_age') ?> лет </div>
-          <div class="group-flag" id="<?php echo get_the_ID() ?>"></div>
+          <div class="group-flag <?= is_favorite(get_the_ID()) ? 'module-added' : 'module-add' ?> " id="<?php echo get_the_ID() ?>" ></div>
         </div>
       </div>
 		<?php }

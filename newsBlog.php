@@ -66,6 +66,52 @@ get_header(); // подключаем header.php ?>
       ];
       get_news($args)
       ?>
+    
+    <div id="posts"></div>
+
+    </div>
+    
+     <script>
+      jQuery(function($){
+              $('.add-article-in-favorite').live('click', function() {
+            $(this).addClass('article-in-favorite');
+            $(this).removeClass('add-article-in-favorite');
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'add_to_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+
+      jQuery(function($){
+              $('.article-in-favorite').live('click', function() {
+              $(this).addClass('add-article-in-favorite');
+              $(this).removeClass('article-in-favorite');
+              $(this).addClass('curr');
+              $.ajax({
+                url: '<?php echo admin_url("admin-ajax.php") ?>',
+                type: 'POST',
+                data: {
+                  action: 'del_from_fav',
+                  post_id: $('.curr').attr('id')
+                },
+                success: function( data ) {
+                  console.log(data);
+                }
+              });
+              $(this).removeClass('curr');
+            });
+          });
+    </script>
 
     <script>
       var params = window
@@ -84,51 +130,7 @@ get_header(); // подключаем header.php ?>
 
       console.log( params['cat']);
       document.getElementById(params['cat']).classlist.add('current-cat')
-
-      jQuery(function($){
-          $('.add-article-in-favorite').click(function(){
-            $(this).addClass('curr');
-            $.ajax({
-              url: '<?php echo admin_url("admin-ajax.php") ?>',
-              type: 'POST',
-              data: {
-                action: 'add_to_fav',
-                post_id: $('.curr').attr('id')
-              },
-              success: function( data ) {
-                console.log(data);
-              }
-            });
-            $(this).removeClass('curr');
-          });
-        });
-
-      jQuery(function($){
-          $('.article-in-favorite').click(function(){
-            $(this).addClass('curr');
-            $.ajax({
-              url: '<?php echo admin_url("admin-ajax.php") ?>',
-              type: 'POST',
-              data: {
-                action: 'del_from_fav',
-                post_id: $('.curr').attr('id')
-              },
-              success: function( data ) {
-                console.log(data);
-              }
-            });
-            $(this).removeClass('curr');
-          });
-        });
     </script>
-
-    <script>
-        
-      </script>
-    
-    <div id="posts"></div>
-
-    </div>
 
     <div id="true_loadmore" class="blog-menu-more-button">
       <span>Больше статей</span>
