@@ -1512,7 +1512,16 @@ infowindow.open(map, marker);
         });
     </script>
 </body>
-<?php if(is_user_logged_in()) { echo '<div hidden id="is_logged_in">.</div>'; } ?>
+
+<script>
+  if (!($("#is_logged_in").length > 0)){
+        jQuery('.user-cabinet-trigger').click(function(e){
+            e.preventDefault();
+            jQuery('.user-login-win').fadeIn(800);
+            // return false;
+        });
+    }
+</script>
 <?php wp_footer(); // необходимо для работы плагинов и функционала  ?>
 </body>
 </html>

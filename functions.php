@@ -379,6 +379,7 @@ function true_load_posts(){
 add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
 
+/*
 function registrate() {
 	$username = explode('@', $_POST['email'])[0];
 	$email = $_POST['email'];
@@ -391,6 +392,7 @@ function registrate() {
 		echo 'Юзер создан.';
 	}
 }
+*/
 
 function check_register() {
   if($_POST['password'] !== $_POST['password_repeat']) {
@@ -412,7 +414,10 @@ function check_register() {
       update_user_meta( $user, 'user_login', $username);
       update_user_meta( $user, 'user_email', $email);
       wp_authenticate( $username, $password );
-      //header('Location: /account');
+      nocache_headers();
+	  wp_clear_auth_cookie();
+	  wp_set_auth_cookie($user->ID);
+      echo '<script> document.location.href = "'.get_site_url().'/account"; </script>';
     }
   }
 }
@@ -435,6 +440,10 @@ function check_login() {
   else {
     echo '<script> alert("Успешная авторизация")</script>';
     wp_authenticate( $username, $password );
+    nocache_headers();
+	wp_clear_auth_cookie();
+	wp_set_auth_cookie($user->ID);
+    echo '<script> document.location.href = "'.get_site_url().'/account"; </script>';
     //header('Location: /account');
   }
 }

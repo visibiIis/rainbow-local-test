@@ -55,7 +55,7 @@ if( $query->have_posts() ){
         <a href="<?php the_permalink() ?>" class="module-more">Подробнее</a>
         <div class="module-group">      
           <div class="group-age"><?php the_field('module_age') ?> лет </div>
-          <div class="group-flag" id="<?php echo get_the_ID() ?>"></div>
+          <div class="group-flag <?= is_favorite(get_the_ID()) ? 'module-added' : 'module-add' ?> " id="<?php echo get_the_ID() ?>" ></div>
         </div>
       </div>
 <?php }
@@ -106,9 +106,9 @@ function get_news(array $args = []) {
         ?>
 		<script>
       var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
-      var true_posts = '<?php echo serialize($query->query_vars); ?>';
+      var true_posts = '<?php echo serialize($news_and_blog_posts->query_vars); ?>';
       var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
-      var max_pages = '<?php echo $query->max_num_pages; ?>';
+      var max_pages = '<?php echo $news_and_blog_posts->max_num_pages; ?>';
     </script>
       <?php
 }

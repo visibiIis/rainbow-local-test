@@ -15,6 +15,7 @@
   <?php wp_head(); // необходимо для работы плагинов и функционала ?>
 </head>
 <body>
+  <?php if(is_user_logged_in()) { echo '<div hidden id="is_logged_in">.</div>'; } ?>
   <?php $query = new WP_Query(['p' => 88]) ?>
     <?php while( $query->have_posts() ){ $query->the_post();?>
 

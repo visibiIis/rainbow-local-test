@@ -305,14 +305,6 @@ jQuery('.password-reset-form').find('[type="password"]').blur(function() { // П
 
 
 // скрипты для личного квбинета
-    if (!($("#is_logged_in").length > 0)){
-        jQuery('.user-cabinet-trigger').click(function(e){
-            e.preventDefault();
-            jQuery('.user-login-win').fadeIn(800);
-            // return false;
-        });
-    }
-
 
     jQuery('.user-login-and-registr-form.desktop .registrLink').click(function(e) {
         e.preventDefault();
