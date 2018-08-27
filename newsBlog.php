@@ -60,43 +60,14 @@ get_header(); // подключаем header.php ?>
     <div class="news-and-blog-articles">
       <?php
 
-       $query = new WP_Query([
-        'category_name' => 'blog',
+      $args = [
         'posts_per_page' => 4,
         'tag_id' => $_GET ? $_GET['cat'] : 0
-      ]);
-        if($query->have_posts()){
-          while($query->have_posts()){ 
-            $query->the_post();
-            $news_and_blog_content = get_the_content(); ?>
-
-      <div class="news-and-blog-article wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
-        <a class="article-link" href="<?php the_permalink() ?>">
-          <img src="<?php the_post_thumbnail_url(); ?>" alt="">
-        </a>
-        <div>
-          <div class="article-date-bar">
-            <span class="article-date"><?= get_the_date(); ?></span> 
-            <span class="article-reading-time">Читать <?= read_speed(get_the_content(), [' минуту', ' минуты', ' минут']); ?></span>
-          </div>
-          <h4><?php the_title(); ?></h4>
-          <div class="news-and-blog-article-desc">
-            <?= mb_strimwidth($news_and_blog_content, 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>      
-          </div>
-          <a class="category-article"><?= get_the_tags()[0]->name ?></a>
-        </div>
-        <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>"><div><?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?></div></div>
-      </div>
-    <?php } wp_reset_postdata(); } ?>
+      ];
+      get_news($args)
+      ?>
 
     <script>
-      var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
-      var true_posts = '<?php echo serialize($query->query_vars); ?>';
-      //var tag_id = document.getElementsByClassName('current-cat')[0].getAttribute('id');
-      var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
-      var max_pages = '<?php echo $query->max_num_pages; ?>';
-
-
       var params = window
       .location
       .search
@@ -113,10 +84,8 @@ get_header(); // подключаем header.php ?>
 
       console.log( params['cat']);
       document.getElementById(params['cat']).classlist.add('current-cat')
-    </script>
 
-    <script>
-        jQuery(function($){
+      jQuery(function($){
           $('.add-article-in-favorite').click(function(){
             $(this).addClass('curr');
             $.ajax({
@@ -133,6 +102,28 @@ get_header(); // подключаем header.php ?>
             $(this).removeClass('curr');
           });
         });
+
+      jQuery(function($){
+          $('.article-in-favorite').click(function(){
+            $(this).addClass('curr');
+            $.ajax({
+              url: '<?php echo admin_url("admin-ajax.php") ?>',
+              type: 'POST',
+              data: {
+                action: 'del_from_fav',
+                post_id: $('.curr').attr('id')
+              },
+              success: function( data ) {
+                console.log(data);
+              }
+            });
+            $(this).removeClass('curr');
+          });
+        });
+    </script>
+
+    <script>
+        
       </script>
     
     <div id="posts"></div>
@@ -144,5 +135,7 @@ get_header(); // подключаем header.php ?>
     </div>
 
   </section>
+
+
 
 <?php get_footer(); // подключаем footer.php ?>

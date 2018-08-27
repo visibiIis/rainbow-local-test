@@ -1,29 +1,212 @@
-<?php
-/**
- * Шаблон подвала (footer.php)
- * @package WordPress
- * @subpackage your-clean-template-3
- */
-?>
-  <?php $query = new WP_Query(['p' => 101]);
-    while( $query->have_posts() ){ $query->the_post();?>
-	<footer class="site-footer">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсы</title>
+    <link rel="stylesheet" href="../css/normalize.css-7.0.0/normalize.css">
+    <link rel="stylesheet" href="../libs/slick-1.8.0/slick/slick.css">
+    <link rel="stylesheet" href="../libs/slick-1.8.0/slick/slick-theme.css">
+    <!-- <link rel="stylesheet" href="../libs/revealator/fm.revealator.jquery.min.css"> -->
+    <link rel="stylesheet" href="../libs/forAnimation/animate.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sirota.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
+      <nav><ul class="site-nav-list">
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">О школе</a></li>
+          <li><a href="#">Курсы</a></li>
+          <li><a href="#">Результаты учеников</a></li>
+          <li><a href="#">Блог</a></li>
+          <li><a href="#">Контакты</a></li>
+      </ul></nav>
+      <div class="mobile-nav-menu-trigger"><div></div></div>
+      <a href="#" class="logo"><img src="../resources/img/header/logo.svg" alt="Логотип Rainbow school"><img src="../resources/img/header/scrollLogo.svg" alt="Логотип Rainbow school"></a>
+      <div class="user-bar">
+          <a href="#" class="calendar-trigger">
+                <svg viewBox="0 0 298.314 298.313">
+                    <g>
+                        <g id="_x32_22._Calender">
+                            <g>
+                                <path d="M172.708,156.999L172.708,156.999c-8.681,0-15.701,7.029-15.701,15.709c0,8.664,7.037,15.701,15.701,15.701l0,0
+                                    c8.664,0,15.701-7.037,15.701-15.701C188.41,164.028,181.388,156.999,172.708,156.999z M125.605,141.306
+                                    c8.668,0,15.701-7.033,15.701-15.701c0-8.674-7.033-15.699-15.701-15.699c-8.666,0-15.699,7.025-15.699,15.699
+                                    C109.906,134.273,116.939,141.306,125.605,141.306z M172.708,109.906L172.708,109.906c-8.681,0-15.701,7.025-15.701,15.699
+                                    c0,8.668,7.021,15.701,15.701,15.701l0,0c8.664,0,15.701-7.033,15.701-15.701C188.41,116.931,181.388,109.906,172.708,109.906z
+                                     M188.41,31.4h-78.504v31.402h78.504V31.4z M219.812,141.306c8.66,0,15.701-7.033,15.701-15.701
+                                    c0-8.674-7.025-15.699-15.701-15.699c-8.681,0-15.701,7.025-15.701,15.699C204.111,134.273,211.148,141.306,219.812,141.306z
+                                     M219.812,188.409c8.66,0,15.701-7.037,15.701-15.701c0-8.68-7.025-15.701-15.701-15.701c-8.681,0-15.701,7.021-15.701,15.701
+                                    C204.111,181.372,211.148,188.409,219.812,188.409z M125.605,188.409c8.668,0,15.701-7.037,15.701-15.701
+                                    c0-8.68-7.025-15.709-15.701-15.709c-8.674,0-15.699,7.029-15.699,15.709C109.906,181.372,116.939,188.409,125.605,188.409z
+                                     M78.504,235.513c8.666,0,15.701-7.041,15.701-15.701c0-8.68-7.035-15.701-15.701-15.701c-8.674,0-15.701,7.021-15.701,15.701
+                                    C62.803,228.472,69.837,235.513,78.504,235.513z M266.911,31.4h-15.696v31.402h15.696v204.108H31.402V62.803h15.699V31.4H31.402
+                                    C14.06,31.4,0,45.455,0,62.803v204.101c0,17.352,14.06,31.41,31.402,31.41h235.508c17.345,0,31.402-14.059,31.402-31.41V62.803
+                                    C298.313,45.455,284.255,31.4,266.911,31.4z M78.504,188.409c8.666,0,15.701-7.037,15.701-15.701
+                                    c0-8.68-7.035-15.709-15.701-15.709c-8.674,0-15.701,7.029-15.701,15.709C62.803,181.372,69.837,188.409,78.504,188.409z
+                                     M78.504,141.306c8.666,0,15.701-7.033,15.701-15.701c0-8.674-7.035-15.699-15.701-15.699c-8.674,0-15.701,7.025-15.701,15.699
+                                    C62.803,134.273,69.837,141.306,78.504,141.306z M125.605,235.513c8.668,0,15.701-7.041,15.701-15.701
+                                    c0-8.68-7.033-15.701-15.701-15.701c-8.666,0-15.699,7.021-15.699,15.701C109.906,228.472,116.939,235.513,125.605,235.513z
+                                     M78.504,62.803c8.666,0,15.701-7.033,15.701-15.701v-31.4C94.205,7.025,87.178,0,78.504,0c-8.667,0-15.701,7.025-15.701,15.701
+                                    v31.4C62.803,55.77,69.837,62.803,78.504,62.803z M219.812,62.803c8.66,0,15.701-7.033,15.701-15.701v-31.4
+                                    C235.513,7.025,228.472,0,219.812,0c-8.681,0-15.701,7.025-15.701,15.701v31.4C204.111,55.77,211.148,62.803,219.812,62.803z"/>
+                            </g>
+                        </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                </svg>              
+          </a>
+          <div class="search-widget search-trigger">
+            <svg viewBox="0 0 362.715 362.715">
+                <path d="M352.464,302.966l-90.374-90.373c-6.689-6.69-15.414-10.097-24.182-10.238c33.904-50.513,28.561-119.733-16.045-164.339
+                     c-50.688-50.687-133.161-50.687-183.848,0c-50.688,50.687-50.688,133.161,0,183.848c44.606,44.606,113.826,49.95,164.339,16.045
+                    c0.142,8.767,3.548,17.492,10.238,24.182l90.373,90.374c13.669,13.668,35.829,13.668,49.498,0
+                    C366.132,338.795,366.132,316.634,352.464,302.966z M193.579,193.579c-35.091,35.091-92.188,35.091-127.279,0
+                    c-35.091-35.091-35.091-92.188,0-127.279c35.091-35.091,92.188-35.091,127.279,0C228.67,101.39,228.67,158.488,193.579,193.579z"/>
+                <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+            </svg>
+
+
+              <div class="search-cont">
+                
+
+
+                <form class="search-form" action="" method="GET">
+                  <input type="text" placeholder="Искать на сайте">
+                  <input type="submit" value=''>
+                  <div class="search-close closeCross"></div>
+                </form>
+              </div>
+          </div>
+          <a class="user-cabinet-trigger">
+            <svg viewBox="0 0 31.5 42.5">
+                <g>
+                    <circle  cx="15.7" cy="11.9" r="10.3"/>
+                    <path " d="M23.2,23c-0.4-0.1-0.8,0-1.2,0.2c-1.8,1.1-3.9,1.8-6.2,1.8s-4.4-0.6-6.2-1.8C9.2,23,8.7,22.9,8.4,23
+                        c-4.4,1.2-7.7,5.3-7.1,9.9c0.6,4.6,5.3,7.9,10.3,7.9H20c5,0,9.6-3.3,10.3-7.9C30.8,28.3,27.6,24.2,23.2,23z"/>
+                </g>
+            </svg>
+          </a>
+          <div class="phones-list">
+              <ul>
+                <li>+38 (066) 123 45 67</li>
+                <li>+38 (066) 123 45 67</li>
+                <li>+38 (066) 123 45 67</li>
+              </ul>
+             <!-- <div> +38 (066) 123 45 67</div> -->
+          </div>
+          <div class="lang-bar">
+              <a href="#" class="current-lang">Рус</a> | <a href="#">Укр</a>
+          </div>
+      </div>
+    </div>  
+  </header>  
+  <section class="courses-page-slider">
+    <div class="courses-page-slider-slide" style="background-image: url(../resources/img/course1/1.jpg);">
+      <div class="courses-caption">
+        <div class="courses-page-slider-age">Возраст <span>от 7 до 9 лет</span></div>
+        <h2><span class="courses-page-slider-module">Модуль <span>1</span>. </span>Вижу цель, ну-ка от винта!</h2>
+        <div>Посмотри, как проходит урок</div>
+        <a href="https://www.youtube.com/embed/8UibZVodz94" class="courses-video-play"></a>
+      </div>
+    </div>
+    <!--<div class="courses-page-slider-slide" style="background-image: url(../resources/img/courses/01.jpg);">
+      <div class="courses-caption">
+        <h2>+Присоединяйся к команде супергероев Rainbow School</h2>
+        <div>Посмотри, как проходит урок</div>
+        <a href="https://www.youtube.com/embed/hobcK9iGlPA" class="courses-video-play"></a>
+      </div>
+    </div>
+    <div class="courses-page-slider-slide" style="background-image: url(../resources/img/courses/01.jpg);">
+      <div class="courses-caption">
+        <h2>+Присоединяйся к команде супергероев Rainbow School</h2>
+        <div>Посмотри, как проходит урок</div>
+        <a href="https://www.youtube.com/embed/6CcguSRET2M" class="courses-video-play"></a>
+      </div>
+    </div>
+    <div class="courses-page-slider-slide" style="background-image: url(../resources/img/courses/01.jpg);">
+      <div class="courses-caption">
+        <h2>+Присоединяйся к команде супергероев Rainbow School</h2>
+        <div>Посмотри, как проходит урок</div>
+        <a href="https://www.youtube.com/embed/tRs_ahAN8PI" class="courses-video-play"></a>
+      </div>
+    </div>-->
+    </div>    
+  </section>
+  <section class="about-course">
+      <h3>О курсе</h3>
+      <div class="about-course-desc">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+      </div>
+      <ul class="about-course-info">
+        <li class="about-course-info-item">
+          <div class="about-course-info-title">
+            <span class="about-course-info-price">Стоимость:</span>
+            <span class="about-course-info-value">1000грн/мес</span>
+          </div>
+          <div class="about-course-info-desc">
+            Вы можете сберечь 5% оплатив стоимость модуля 
+          </div>
+        </li>
+        <li class="about-course-info-item">
+          <div class="about-course-info-title">
+            <span class="about-course-info-quantity">Количество:</span>
+            <span class="about-course-info-value">24 занятия</span>
+          </div>
+          <div class="about-course-info-desc">
+            Два раза в неделю занятия. Одно занятие длится 1 час
+          </div>
+        </li>
+        <li class="about-course-info-item">
+          <div class="about-course-info-title">
+            <span class="about-course-info-duration">Продолжительность:</span>
+            <span class="about-course-info-value">3 месяца</span>
+          </div>
+          <div class="about-course-info-desc">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          </div>
+        </li>
+        <li class="about-course-info-item">
+          <div class="about-course-info-title">
+            <span class="about-course-info-places">Мест в группе:</span>
+            <span class="about-course-info-value">10-15 человек</span>
+          </div>
+          <div class="about-course-info-desc">
+              Мы уделяем внимание каждому студенту курса, поэтому количество мест в группе ограничено.
+          </div>
+        </li>
+      </ul>
+  </section>
+
+<section class="callback-form wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
+  <h3 class="">Приходи на первое ознакомительное занятие и убедись в этом лично!</h3>
+  <div class="">Оставить заявку на обучение очень просто</div>
+  <form action="#" class="">
+    <label for="#"><input type="text" name="clientName" required placeholder="Введите Ваше имя"></label>
+    <label for="#"><input type="email" name="clientEmail" required placeholder="Введите ваш email"></label>
+    <label for="#"><input  type="tel" required name="clientTel" placeholder="Ваш номер телефона +38(0**) *** ** **"></label>
+    <textarea name="clientMsg" placeholder="Сообщение"></textarea>
+    <input type="submit" value="Отправить заявку на обучение">
+    <a href="#">Или запишитесь на бесплатный пробный урок</a>
+  </form>
+</section>
+<footer class="site-footer">
   <div class="footer-inner wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
       <nav class="footer-nav">
-        <?php 
-            $args = array( 
-              'container'=> false,
-              'menu' => 'Menu Footer',
-              'menu_class'=> '',
-              'item_wrap' => '<ul class="%2$s">%3$s</ul>',
-          );
-          wp_nav_menu($args);
-        ?>
+        <ul>
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">О школе</a></li>
+          <li><a href="#">Курсы</a></li>
+          <li><a href="#">Результаты учеников</a></li>
+          <li><a href="#">Новости и блог</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
       </nav>
       <div class="sharing-bar">
         <h3>Мы приносим <span></span> только хорошие новости</h3>
         <form action="#" class="subscribe-form">
-          <?= do_shortcode('[contact-form-7 id="245" title="Форма подписки"]');  ?>
+          <label for="#"><input type="email" placeholder="Введите ваш e-mail" name="subscriberEmail" required></label>
+          <input type="submit" value="Подписаться">
         </form>
         <ul class="footer-socials">
           <!-- <li><a  class="footer-vk" href="#"></a></li> -->
@@ -35,23 +218,22 @@
       <div class="our-contacts">
         <h5>Наши контакты</h5>
         <ul>
-          <li><?php the_field('tel1') ?></li>
-          <li><?php the_field('tel2') ?></li>
+          <li>+38 (066) 123 45 47</li>
+          <li>+38 (066) 123 45 47</li>
           <li><a href="#">Написать нам</a></li>
         </ul>
-        <div class="copyright">Разработка и поддержка сайта <a href="http://mela.studio/">mela.studio</a></div>
+        <div class="copyright">Разработка и поддержка сайта <a href="#">mela.studio</a></div>
       </div>
-    </div>
-  </footer>
-  <?php } wp_reset_postdata() ?>
+  </div>
+  
 
-<?php if(!is_page('contacts')) { ?>
+</footer>
+
 <div class="map-container">
 <div id="map">
 
 </div>
 </div>
-<?php } ?>
 
   <div class="calendar-win">
       <div class="calendar-win-inner">
@@ -182,7 +364,7 @@
                       </table>
 
                   </div>
-				                    <div class="calendar-slider-slide">
+                            <div class="calendar-slider-slide">
                       <table>
                           <tr>
                               <th>Понедельник</th>
@@ -204,7 +386,7 @@
                                 <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span>
                                 <span class="module-age">(7-9лет)</span> 
                               </td>-->
-							  <td></td>
+                <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -294,7 +476,7 @@
                       </table>
 
                   </div>
-				                    <div class="calendar-slider-slide">
+                            <div class="calendar-slider-slide">
                       <table>
                           <tr>
                               <th>Понедельник</th>
@@ -316,7 +498,7 @@
                                 <span class="module-time">c <span class="module-time-start">16</span> до <span class="module-time-start">18</span> </span>
                                 <span class="module-age">(7-9лет)</span> 
                               </td>-->
-							  <td></td>
+                <td></td>
                               <td></td>
                           </tr>
                           <tr>
@@ -1223,12 +1405,12 @@
 
       <div class="user-login-and-registr-form mobile">
           <h3>Войдите</h3>
-          <form action="/" method="post" class="userLogin">
+          <form action="" method="post" class="userLogin">
             <label><input type="email" placeholder="Введите Ваш email" name="login-email" required></label>
             <label><input  type="password" placeholder="Введите Ваш пароль" name="login-password" required></label>
             <!-- <label><input type="checkbox"> Запомнить меня</label> -->
             <div class="rememberMe-cont">
-              <input type="checkbox" class="customCheckbox" name="rememberMe" id="rememberMe" />
+              <input type="checkbox" class="customCheckbox" id="rememberMe" />
               <label for="rememberMe">Запомнить меня</label>
             </div>
 
@@ -1238,10 +1420,11 @@
           </form>
 
           <h3 style="display: none;">Зарегестрируйтесь</h3>
-          <form style="display: none;" action="/" method="post" class="userRegistr">
-            <label><input type="email" placeholder="Введите Ваш email" name="reg-email" required></label>
-            <label><input type="password" placeholder="Введите Ваш пароль" name="password" required></label>
-            <label><input  type="password" placeholder="Повторите Ваш пароль" name="password_repeat" required></label>
+          <form style="display: none;" action="" method="post" class="userRegistr">
+            <label><input type="email" placeholder="Введите Ваш email" name="registr-email" required></label>
+            <label><input type="password" placeholder="Введите Ваш пароль" name="registr-password" required></label>
+             <label><input  type="password" placeholder="Повторите Ваш пароль" name="registr-password" required></label>
+
             <input type="submit" value="Зарегистрироваться">
             <a href="#" class="loginLink"><span>Вернуться к форме входа</span></a>
           </form>
@@ -1253,48 +1436,38 @@
       </div>
       <div class="user-login-and-registr-form desktop">
           <h3>Войдите</h3>
-					<div class="userLogin">
-						<?php 
-						dynamic_sidebar( 'sidebar-5' );
-						?>
-						<div class="align-left"><a href="#" class="registrLink"><span>или Зарегистрироваться</span></a></div>
-					</div>
-          <!--<form action="/" method="post" class="userLogin">
+          <form action="" method="post" class="userLogin">
             <label><input type="email" placeholder="Введите Ваш email" name="login-email" required></label>
             <label><input  type="password" placeholder="Введите Ваш пароль" name="login-password" required></label>
-            <label><input type="checkbox"> Запомнить меня</label> 
+            <!-- <label><input type="checkbox"> Запомнить меня</label> -->
             <div class="rememberMe-cont">
               <input type="checkbox" class="customCheckbox" id="rememberMe" />
               <label for="rememberMe">Запомнить меня</label>
             </div>
 
             <a href="#" id="remindPass"><span>Напомнить пароль</span></a>
-            <input type="submit" value="Войти"><input type="reset" value="Отмена">            
-          </form>-->
-					
-          <h3 style="display: none;">Зарегестрируйтесь</h3>
-					<div class="userRegistr" style="display: none;">
-						<?php 
-						dynamic_sidebar( 'sidebar-4' );
-						?>
-						<div class="align-center"><a href="#" class="loginLink"><span>Вернуться к форме входа</span></a></div>
-					</div>
-          <!--<form style="display: none;" action="/" method="post" class="userRegistr">
-            <label><input type="email" placeholder="Введите Ваш email" name="reg-email" required></label>
-            <label><input type="password" placeholder="Введите Ваш пароль" name="password" required></label>
-            <label><input  type="password" placeholder="Повторите Ваш пароль" name="password_repeat" required></label>
+            <input type="submit" value="Войти"><input type="reset" value="Отмена">
+            <a href="#" class="registrLink"><span>или Зарегистрироваться</span></a>
+          </form>
 
-            <input type="submit" value="Зарегистрироваться">            
-          </form>-->
-					
+          <h3 style="display: none;">Зарегестрируйтесь</h3>
+          <form style="display: none;" action="" method="post" class="userRegistr">
+            <label><input type="email" placeholder="Введите Ваш email" name="registr-email" required></label>
+            <label><input type="password" placeholder="Введите Ваш пароль" name="registr-password" required></label>
+             <label><input  type="password" placeholder="Повторите Ваш пароль" name="registr-password" required></label>
+
+            <input type="submit" value="Зарегистрироваться">
+            <a href="#" class="loginLink"><span>Вернуться к форме входа</span></a>
+          </form>
+
       </div>
     </div>
     <div class="user-login-close closeCross"></div>
   </div>
   <div class="mobile-nav-menu">
     <!-- <div class="mobile-nav-menu-cont"> -->
-      <a href="#" class="mobile-nav-menu-logo"><img src="<?= bloginfo('template_directory');?>/resources/img/header/logo2.svg" alt="Rainbow school logo">
-      <img src="<?= bloginfo('template_directory');?>/resources/img/header/scrollLogo.svg" alt="Rainbow school logo 2">
+      <a href="#" class="mobile-nav-menu-logo"><img src="../resources/img/header/logo2.svg" alt="Rainbow school logo">
+      <img src="../resources/img/header/scrollLogo.svg" alt="Rainbow school logo 2">
       </a>
     <!-- </div> -->
     <div class="lang-bar">
@@ -1362,14 +1535,15 @@
 
      <div class="call-for-authorization-close closeCross"></div>
   </div>
-<script src="<?php bloginfo('template_directory'); ?>/libs/jquery/jquery-3.2.1.min.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/libs/slick-1.8.0/slick/slick.min.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/libs/parallax.js-1.5.0/parallax.min.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/libs/maskedinput-1.4.1/jquery.maskedinput.js"></script>
 
-<script src="<?php bloginfo('template_directory'); ?>/js/init.js"></script>
+<script src="../libs/jquery/jquery-3.2.1.min.js"></script>
+<script src="../libs/slick-1.8.0/slick/slick.min.js"></script>
+<script src="../libs/parallax.js-1.5.0/parallax.min.js"></script>
+<script src="../libs/maskedinput-1.4.1/jquery.maskedinput.js"></script>
 
-<script src="<?php bloginfo('template_directory'); ?>/libs/forAnimation/wow.min.js"></script>
+<script src="../js/init.js"></script>
+
+<script src="../libs/forAnimation/wow.min.js"></script>
 <script>
     new WOW().init();
 </script>
@@ -1393,13 +1567,13 @@
 
         if (window.innerWidth <= 1024 && window.innerWidth > 500) {
           if (document.getElementsByClassName('contacts-map')[0]) {
-            iconPath = '<?= bloginfo('template_directory');?>/resources/img/main-page/marker-contacts-tab.svg';
+            iconPath = '../resources/img/main-page/marker-contacts-tab.svg';
            centerMap = {lat: 50.519905, lng: 30.55};
            mapZoom = 12;
            markerPos = {lat: 50.502556, lng: 30.498570};
            infowindowSize = new google.maps.Size(150, 50);  
           } else {
-            iconPath = '<?= bloginfo('template_directory');?>/resources/img/main-page/marker-tab.svg';
+            iconPath = '../resources/img/main-page/marker-tab.svg';
            centerMap = {lat: 58.519905, lng: 30.504715};
            mapZoom = 15;
            markerPos = {lat: 50.502556, lng: 30.498570};
@@ -1408,13 +1582,13 @@
 
         } else if (window.innerWidth < 501) {
           if (document.getElementsByClassName('contacts-map')[0]) {
-            iconPath = '<?= bloginfo('template_directory');?>/resources/img/main-page/marker-contacts-mob.svg';
+            iconPath = '../resources/img/main-page/marker-contacts-mob.svg';
            centerMap = {lat: 50.503738, lng: 30.504715};
            mapZoom = 15;
            markerPos = {lat: 50.502556, lng: 30.498570};
            infowindowSize = new google.maps.Size(150, 50);
           } else {
-            iconPath = '<?= bloginfo('template_directory');?>/resources/img/main-page/marker-mob.svg';
+            iconPath = '../resources/img/main-page/marker-mob.svg';
            centerMap = {lat: 50.503738, lng: 30.504715};
            mapZoom = 15;
            markerPos = {lat: 50.502556, lng: 30.498570};
@@ -1424,13 +1598,13 @@
         } else {
 
           if(document.getElementsByClassName('contacts-map')[0]) {
-            iconPath = '<?= bloginfo('template_directory');?>/resources/img/main-page/marker-contacts.svg';
+            iconPath = '../resources/img/main-page/marker-contacts.svg';
            centerMap = {lat: 50.503503, lng: 30.498880};
             mapZoom = 16;
             markerPos = {lat: 50.502086, lng:30.498412};
             infowindowSize =  new google.maps.Size(270, 50);  
           } else {
-            iconPath = '<?= bloginfo('template_directory');?>/resources/img/main-page/marker.svg';
+            iconPath = '../resources/img/main-page/marker.svg';
            centerMap = {lat: 50.509203, lng: 30.498880};
             mapZoom = 13;
             markerPos = {lat: 50.5031755, lng: 30.4992025};
@@ -1442,7 +1616,7 @@
 
 /*
 else if (window.innerWidth < 1025 && window.innerWidth > 500) {
-            iconPath = '<?= bloginfo('template_directory');?>/resources/img/main-page/marker-tab.svg';
+            iconPath = '../resources/img/main-page/marker-tab.svg';
         }
 */
             // В переменной map создаем объект карты GoogleMaps и вешаем эту переменную на <div id="map"></div>
@@ -1522,7 +1696,5 @@ infowindow.open(map, marker);
         });
     </script>
 </body>
-<?php if(is_user_logged_in()) { echo '<div hidden id="is_logged_in">.</div>'; } ?>
-<?php wp_footer(); // необходимо для работы плагинов и функционала  ?>
-</body>
+
 </html>

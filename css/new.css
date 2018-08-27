@@ -1,0 +1,56 @@
+/**/
+.widget-title{display: none;}
+.wpum-login-form form .login-username label, .wpum-login-form form .login-password label{display: none;}
+.wpum-login-form form p.login-password, .wpum-login-form form p.login-remember, .wpum-login-form form p.login-username{padding: 0;margin: 0;border: none;line-height: 1;}
+.wpum-login-form form p:before{display: none !important;}
+.wpum-login-form form input[type=email], .wpum-login-form form input[type=password], .wpum-login-form form input[type=text]{float: none;width: 100%;}
+.wpum-login-form form p.login-password {margin-top: .9375vw;margin-bottom: .625vw;}
+.wpum-login-form form .login-remember label{float: none;width: auto;position: relative;padding: 0 0 0 20px;color: #626466;font-size: .78125vw;margin-left: 1.302vw;position: relative;}
+.wpum-login-form form .login-remember label input{position: absolute;opacity: 0;}
+.wpum-login-form form .login-remember label span:before {content: '';position: absolute;left: 0;width: 13px;height: 13px;border: 1px solid #9fa7b0;
+border-radius: 50%;background: #FFF;top: 0;bottom: 0;margin: auto;}
+.wpum-login-form form .login-remember input:checked + span:after{content: '';position: absolute;top: 1px;left: 4px;width: 7px;height: 7px;border-radius: 50%;background: #5891de;box-shadow: inset 0 1px 1px rgba(0,0,0,.5);transition: all .2s;top: 0;bottom: 0;margin: auto;}
+.wpum-login-form form .login-remember{float: left;}
+.wpum-login-form .login-submit{clear: both;margin-bottom: 0;}
+.login-submit{text-align: center;}
+.align-left{text-align: left;flex-basis: 100%;}
+#wpum-psw-footer{display: none;}
+.fieldset-username, .fieldset-user_email{margin-bottom: .9375vw;}
+.align-center, .form_button{text-align: center;}
+#username{position: absolute;width: 0;height: 0;left:-99999em;opacity:0;}
+.logout_link{width: 11.3541666667vw;height: 2.72083333333vw;line-height: 2.72083333333vw;text-align: center;border: .15416666666vw solid #9fa7af;
+border-radius: 2.81041666667vw;background: #fff;font-size: .9375vw;color: rgb(65,65,65);display: block;text-decoration: none;}
+.logout_link:hover{border: .15416666666vw solid #5791dd;color: rgb(0,0,0);}
+.wpum-uploaded-files label{width: 6.77083333333vw;height: 6.77083333333vw;border-radius: 50%;border: .20833333333vw solid #303030;bottom: 0;margin: 0;display: block;}
+.wpum-uploaded-files{width: 7.96875vw;height: 7.29166666667vw;display: block;margin: 4vw auto 0;position: relative;}
+.wpum-uploaded-files img{height: 6.77083333333vw;max-width: none;}
+.wpum-uploaded-files input {display: none;}
+#empty_img, .wpum-uploaded-file-preview {
+    display: block;
+    width: 100%;
+    height: 6.77083333333vw;
+    background-image: url(../resources/img/profile/avatarBoy.svg);background-size: 2.60416666667vw 2.5vw;background-position: center center;background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: 0 !important;
+}
+.closeImg{height: .8854166vw;width: .88541666vw;right: 0;top: 0;position: absolute;display: block;text-decoration: none;}
+.closeImg:before, .closeImg:after{left: .3125vw;height: 1.25208333333vw;width: .22083333333vw;background-color: #af1f1f;border-radius: 25%;position: absolute;content: ' ';}
+.closeImg:after{-webkit-transform: rotate(-45deg);-ms-transform: rotate(-45deg);transform: rotate(-45deg);}
+.closeImg:before {-webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);}
+.closeImg span{position: absolute;width: 8.8541666vw;height: 1.71875vw;background-color: #af1f1f;border-radius: .9375vw;top: -2.39583333333vw;left: -4vw;text-align: center;line-height: 1.71875vw;color: #fff;font-size: .78125vw;opacity: 0;-webkit-transition: .4s;-o-transition: .4s;transition: .4s;-webkit-transform: scale(0);-ms-transform: scale(0);transform: scale(0);}
+.closeImg span:after{content: '';display: block;position: absolute;display: block;top: 1.3vw;left: 4.0625vw;width: .625vw;height: .625vw;background-color: #af1f1f;transform: rotate(45deg);}
+.closeImg:hover span{opacity: 1;-webkit-transform: none;-ms-transform: none;transform: none;}
+.user_avatar .description{display: none;}
+span.profile-add-avatar{font-size: 2.34375vw;}
+.user-form .ac_fields{float: left;width: 33.3%; margin-bottom: 1.075vw;}
+.wpum-submit{clear: both;text-align: center;}
+.user-form .ac_fields label{font-size: .9375vw;color: rgb(127,129,132);text-transform: uppercase;margin-left: 1.09375vw;display: block;}
+.button{width: 11.5104166vw;height: 2.96875vw;margin: 0;border: .15416666666vw solid #5791dd;border-radius: 1.45833333333vw;text-transform: uppercase;font-size: 1.04166vw;font-weight: bold;background-color: #5791dd;color: white;line-height: 2.7;}
+.button:hover{background-color: white;color: black;cursor: pointer;}
+.rel_fields{display: inline-block;position: relative;}
+span.wpum-required-star{content: '*';display: block;position: absolute;font-size: 1.5625vw !important;color: #e71743;margin: -1.97916666667vw 0 0 13.5416666667vw;right: 14px;}
+.user-form:after{display: block;clear: both;content: '';}
+.wpum-submit{margin: 15px 0 0;}
+#wpum-form-profile .user-form{margin-bottom: 0;}

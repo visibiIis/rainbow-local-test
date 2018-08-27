@@ -15,6 +15,10 @@
   <?php wp_head(); // необходимо для работы плагинов и функционала ?>
 </head>
 <body>
+<?php
+$lang = get_bloginfo("language");
+include( dirname(__FILE__) . '/languages/' . $lang . '.php');
+?>
   <?php $query = new WP_Query(['p' => 88]) ?>
     <?php while( $query->have_posts() ){ $query->the_post();?>
 

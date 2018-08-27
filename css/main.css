@@ -40,7 +40,7 @@ body {
     font-family: Conv_FuturaPTMedium, sans-serif;
 }
 
-.closeCross:not(.profile-cross) {
+.closeCross:not(.profile-cross .search-close) {
     position: absolute;
     right: 22px;
     top: 22px;
@@ -839,7 +839,7 @@ margin-bottom: 3.020833vw;
     margin-bottom: 1.8229vw;
     color: #070707;
 }
-.userLogin, .userRegistr {
+.userLogin, .userRegistr{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -847,8 +847,9 @@ margin-bottom: 3.020833vw;
     flex-wrap: wrap;
     width: 21.875vw;
 }
+.wpum-login-form form{width: 21.875vw;}
 .userLogin > * , .userRegistr > * {
-    flex-basis: 50%;
+    flex-basis: 100%;
 }
 .userLogin label:first-child, .userLogin label:first-child + label,
 .userRegistr label:first-child, .userRegistr label:first-child + label, 
@@ -874,7 +875,7 @@ position: absolute;
 line-height: 5;
     right: 15px;
 }
-.userLogin label:first-child + label {
+.userLogin label:first-child + label{
     margin-top: .9375vw;
     margin-bottom: .625vw;
 }
@@ -885,7 +886,7 @@ line-height: 5;
 .user-login-and-registr-form input[type="email"]:focus, .user-login-and-registr-form input[type="password"]:focus {
     outline: none;
 }
-.user-login-and-registr-form input[type="email"], .user-login-and-registr-form input[type="password"] {
+.user-login-and-registr-form input[type="email"], .user-login-and-registr-form input[type="password"], .user-login-and-registr-form input[type="text"] {
     /*flex-basis: 100%;*/
 
     width: 100%;
@@ -909,22 +910,22 @@ line-height: 5;
 
 
 
-.userLogin ::-webkit-input-placeholder {
+.userLogin ::-webkit-input-placeholder, .wpum-login-form form ::-webkit-input-placeholder{
 color: #626466;
 font-size: .78125vw;
 line-height: 4.26;
 }
-.userLogin ::-moz-placeholder          {
+.userLogin ::-moz-placeholder, .wpum-login-form form ::-moz-placeholder{
     color: #626466;
 font-size: .78125vw;
 line-height: 4.26;
     }/* Firefox 19+ */
-.userLogin :-moz-placeholder           {
+.userLogin :-moz-placeholder, .wpum-login-form form :-moz-placeholder{
     color: #626466;
 font-size: .78125vw;
 line-height: 4.26;
     }/* Firefox 18- */
-.userLogin :-ms-input-placeholder      {
+.userLogin :-ms-input-placeholder, .wpum-login-form form :-ms-input-placeholder{
 color: #626466;
 font-size: .78125vw;
 line-height: 4.26;
@@ -1051,6 +1052,7 @@ font-size: .78125vw;
 text-align: right;
 text-decoration: none;
 outline: none;
+float: right;
 }
 #remindPass:hover, #remindPass:focus {
     color: #000;
@@ -1065,7 +1067,7 @@ outline: none;
 .userLogin [type="submit"] {
     margin-right: 1.25vw;
 }
-.userLogin [type="submit"], .userLogin [type="reset"]{
+.userLogin [type="submit"], .userLogin [type="reset"], .login-submit input[type="submit"]{
     margin-top: 1.25vw;
     font-family: Conv_FuturaPTMedium, sans-serif;
     /*height: 55px;*/
@@ -1088,9 +1090,10 @@ outline: none;
     box-sizing: border-box;
     width: 9.1146vw;
     flex-basis: 42%;
+    cursor: pointer;
 }
 
-.userLogin [type="submit"] {
+.userLogin [type="submit"], .login-submit input[type="submit"] {
     /*border: 2px solid #5891dd;*/
     /*border-color: #fff;*/
     border-color: #5891dd;
@@ -1103,7 +1106,7 @@ outline: none;
     /*transition: all .3s ease-in;*/
 }
 .userLogin [type="submit"]:focus,
-.userLogin [type="submit"]:hover {
+.userLogin [type="submit"]:hover, .login-submit input[type="submit"]:hover {
     color: #fff;
     background: #5891dd;
 }
@@ -1142,6 +1145,7 @@ outline: none;
     /*-o-transition: all .3s ease-in;*/
     /*transition: all .3s ease-in;*/
     cursor: pointer;
+    width: 100%;
 }
 .userRegistr [type="submit"]:hover,
 .userRegistr [type="submit"]:focus {
@@ -1733,6 +1737,15 @@ margin-top: 1.875vw;
 .modules {
   overflow: hidden;
 }
+
+.module-added {
+    background: url(../resources/img/main-page/blueFlag.svg) no-repeat 0 0;
+}
+
+.module-add {
+    background: url(../resources/img/main-page/whiteFlag.svg) no-repeat 0 0;
+}
+
 .modules-slider-slide {
 
     /*padding: 45px 60px 40px;*/
@@ -1971,7 +1984,6 @@ line-height: 1;
   width: 1.302083vw;
 /*height: 39px;*/
   height: 2.08333vw;
-  background: url(../resources/img/main-page/whiteFlag.svg) no-repeat 0 0;
   -webkit-background-size: contain;
   background-size: contain;
 

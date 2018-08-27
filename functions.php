@@ -28,7 +28,24 @@ register_sidebar(array( // регистрируем левую колонку, �
 	'before_title' => '<span class="widgettitle">', //  разметка до вывода заголовка виджета
 	'after_title' => "</span>\n", //  разметка после вывода заголовка виджета
 ));
-
+register_sidebar( array(
+    'name'          => __( 'Registration', 'twentysixteen' ),
+    'id'            => 'sidebar-4',
+    'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'twentysixteen' ),
+    'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
+  ) );
+  register_sidebar( array(
+    'name'          => __( 'Login', 'twentysixteen' ),
+    'id'            => 'sidebar-5',
+    'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'twentysixteen' ),
+    'before_widget' => '<section id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
+  ) );
 if (!class_exists('clean_comments_constructor')) { // если класс уже есть в дочерней теме - нам не надо его определять
 	class clean_comments_constructor extends Walker_Comment { // класс, который собирает всю структуру комментов
 		public function start_lvl( &$output, $depth = 0, $args = array()) { // что выводим перед дочерними комментариями
@@ -121,6 +138,7 @@ if (!function_exists('add_styles')) { // если ф-я уже есть в до�
 		wp_enqueue_style( 'bor', get_template_directory_uri().'/css/borisov.css' );
 		wp_enqueue_style( 'vis', get_template_directory_uri().'/css/visibilis.css' );
 		wp_enqueue_style( 'main', get_template_directory_uri().'/css/main.css' ); // основные стили шаблона
+		wp_enqueue_style( 'new', get_template_directory_uri().'/css/new.css' );
 	}
 }
 
@@ -314,7 +332,7 @@ function true_load_posts(){
 	          </div>
 	          <a class="category-article"><?= get_the_tags()[0]->name ?></a>
 	        </div>
-	        <div class="article-favorite-status add-article-in-favorite forGuest id='<?php echo get_the_ID() ?>'"><div>Добавить в избранное</div></div>
+	        <div class="article-favorite-status add-article-in-favorite forGuest" id="<?php echo get_the_ID() ?>"><div>Добавить в избранное</div></div>
 	      </div>
 	    <?php } wp_reset_postdata(); }
 	    die();
@@ -392,6 +410,53 @@ function registrate() {
 	}
 }
 
+function check_register() {
+  if($_POST['password'] !== $_POST['password_repeat']) {
+    echo '<script> alert("Пароли не совпадают")</script>';
+  }
+  else {
+
+    $username = explode('@', $_POST['reg-email'])[0];
+    $password = $_POST['password'];
+    $email = $_POST['reg-email'];
+
+    $user = wp_create_user($username, $password, $email);
+
+    if(is_wp_error($user)) {
+     echo '<script> alert("'. $user->get_error_message() .'") </script>';
+    }
+    else {
+      echo '<script> alert("Успешная регистрация")</script>';
+      update_user_meta( $user, 'user_login', $username);
+      update_user_meta( $user, 'user_email', $email);
+      wp_authenticate( $username, $password );
+      //header('Location: /account');
+    }
+  }
+}
+
+function check_login() {
+  $username = $_POST['login-email'];
+  $password = $_POST['login-password'];
+
+  $credentials = [
+    'user_login'    => $username,
+    'user_password' => $password,
+    'remember'      => $_POST['rememberMe'],
+  ];
+
+  $user = wp_signon($credentials);
+
+  if(is_wp_error($user)) {
+     echo '<script> alert("'. $user->get_error_message() .'") </script>';
+    }
+  else {
+    echo '<script> alert("Успешная авторизация")</script>';
+    wp_authenticate( $username, $password );
+    //header('Location: /account');
+  }
+}
+
 function get_favorite_posts($category) { //Возвращает массив с избранными постами по наз. категории
 	return explode(',', get_user_meta(get_current_user_id(), 'favorite_'.$category, true));
 }
@@ -433,4 +498,94 @@ add_action( 'wp_ajax_del_from_fav', 'delete_post_from_favorites' );
 add_action( 'wp_ajax_nopriv_del_from_fav', 'delete_post_from_favorites' );
 
 
+
+include('cycles.php'); //Получить шаблоны циклов
+add_filter( 'login_form_middle', 'add_password_forgotten', 10, 2 );
+function add_password_forgotten(){
+	$content = '<a href="'.home_url('/password-reset/').'" id="remindPass"><span>Напомнить парль?</span></a>';
+	return $content;
+}
+add_action( 'wp_enqueue_scripts', 'myajax_data', 99 );
+function myajax_data(){
+  wp_localize_script('twentysixteen-script', 'myajax',
+    array(
+      'url' => admin_url('admin-ajax.php')
+    )
+  );
+
+}
+add_action('wp_footer', 'my_action_javascript', 99);
+function my_action_javascript() {
+  ?>
+  <script type="text/javascript" >
+  jQuery(document).ready(function($) {
+    jQuery('.wpum-login-form form').submit(function(e){
+      var flag=true;
+     // data = { action: 'login_action', log: jQuery('#user_login').val(), pwd: jQuery('#user_pass').val() };
+      jQuery.ajax({
+        method: "POST",
+        url: myajax.url,
+        data: { action: 'login_action', log: jQuery('#user_login').val(), pwd: jQuery('#user_pass').val() },
+        async:false
+      }).done(function(response){
+        if(response == 'error'){
+          jQuery('.wpum-login-form').addClass('error-form');
+          flag = false;
+        }else{
+          flag = true;
+        }
+      })
+      return flag;
+    })
+  });
+  </script>
+  <?php
+}
+add_action( 'wp_ajax_login_action', 'login_action_callback' );
+add_action( 'wp_ajax_nopriv_login_action', 'login_action_callback' );
+function login_action_callback(){
+  $user = get_user_by( 'email', $_POST['log'] );
+  if ( $user && wp_check_password( $_POST['pwd'], $user->data->user_pass, $user->ID) && $user->roles[0] != 'administrator'){
+  }else{
+    echo 'error';
+  }
+  wp_die();
+}
+add_action('wp_footer', 'register_action_javascript', 99);
+function register_action_javascript() {
+  ?>
+  <script type="text/javascript" >
+  jQuery(document).ready(function($) {
+    jQuery('.wpum-registration-form').submit(function(e){
+      var flag=true;
+      jQuery.ajax({
+        method: "POST",
+        url: myajax.url,
+        data: { action: 'register_action', r_email: jQuery('#user_email').val(), username: jQuery('#user_email').val()},
+        async:false
+      }).done(function(response){
+        if(response == 'error'){
+          jQuery('.wpum-registration-form').addClass('error-form');
+          flag = false;
+        }else{
+          flag = true;
+        }
+      })
+      return flag;
+    })
+  });
+  </script>
+  <?php
+}
+add_action( 'wp_ajax_register_action', 'register_action_callback' );
+add_action( 'wp_ajax_nopriv_register_action', 'register_action_callback' );
+function register_action_callback(){
+  $exists = email_exists($_POST['r_email']);
+  if ($exists){
+    echo 'error';
+  }else{
+
+  }
+  wp_die();
+}
 ?>
