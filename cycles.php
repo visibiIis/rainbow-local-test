@@ -76,41 +76,47 @@ wp_reset_postdata();
 function get_news(array $args = []) {
 	$args['category_name'] = 'blog';
 	  $news_and_blog_posts = new WP_Query($args);
-        if($news_and_blog_posts->have_posts()){
-          while($news_and_blog_posts->have_posts()){ 
-            $news_and_blog_posts->the_post();
+    if($news_and_blog_posts->have_posts())
+    {
+      while($news_and_blog_posts->have_posts())
+      { 
+        $news_and_blog_posts->the_post();
       ?>
-      <div class="news-and-blog-article wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
-        <a class="article-link" href="<?php the_permalink() ?>">
-          <img src="<?php the_post_thumbnail_url(); ?>" alt="">
-        </a>
-        <div>
-          <div class="article-date-bar">
-            <span class="article-date"><?php the_date('d F Y'); ?></span> 
-            <span class="article-reading-time">
-              Читать <?= read_speed(get_the_content(), [' минута', ' минуты', ' минут']); ?>
-            </span>
+        <div class="news-and-blog-article wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
+          <a class="article-link" href="<?php the_permalink() ?>">
+            <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+          </a>
+          <div>
+            <div class="article-date-bar">
+              <span class="article-date"><?php the_date('d F Y'); ?></span> 
+              <span class="article-reading-time">
+                Читать <?= read_speed(get_the_content(), [' минута', ' минуты', ' минут']); ?>
+              </span>
+            </div>
+            <h4><?php the_title(); ?></h4>
+            <div class="news-and-blog-article-desc">
+              <?= mb_strimwidth(get_the_content(), 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>
+            </div>
+            <a class="category-article"><?= get_the_tags()[0]->name ?></a>
           </div>
-          <h4><?php the_title(); ?></h4>
-          <div class="news-and-blog-article-desc">
-                <?= mb_strimwidth(get_the_content(), 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>
+          <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>">
+            <div>
+              <?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?>
+            </div>
           </div>
-          <a class="category-article"><?= get_the_tags()[0]->name ?></a>
         </div>
-        <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>"><div><?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?></div></div>
-      </div>
       <?php
-          }
-          wp_reset_postdata(); 
-        }
-        ?>
+      }
+      wp_reset_postdata(); 
+    }
+  ?>
 		<script>
       var ajaxurl = '<?php echo site_url() ?>/wp-admin/admin-ajax.php';
-      var true_posts = '<?php echo serialize($query->query_vars); ?>';
+      var true_posts = '<?php echo serialize($news_and_blog_posts->query_vars); ?>';
       var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
-      var max_pages = '<?php echo $query->max_num_pages; ?>';
+      var max_pages = '<?php echo $news_and_blog_posts->max_num_pages; ?>';
     </script>
-      <?php
+  <?php
 }
 
 //Тренеры
