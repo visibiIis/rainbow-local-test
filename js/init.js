@@ -503,7 +503,7 @@ jQuery('.article-favorite-status').click(function(){
 /*паралакс*/
 
 jQuery('.school-relevance').parallax({
-    imageSrc: '<?php bloginfo("template_directory") ?>/resources/img/main-page/relevance/relevance-bg.jpg',
+    imageSrc: 'http://localhost/rainbow-local-test/wp-content/uploads/2018/08/relevance-bg.jpg',
     positionY: 'top'
     // positionY: '-1000px'
 
@@ -986,7 +986,7 @@ jQuery('.change-page-form').submit(function(e) {
 
         editHeightChildPhotoCont();
         jQuery('.school-relevance').parallax({
-             imageSrc: '<?php bloginfo("template_directory") ?>/resources/img/main-page/relevance/relevance-bg.jpg',
+             imageSrc: 'http://localhost/rainbow-local-test/wp-content/uploads/2018/08/relevance-bg.jpg',
             positionY: 'top'
             // positionY: '-1000px'
 
@@ -1133,6 +1133,8 @@ $(document).keyup(function(e){
     jQuery('.change-page-form').fadeOut();
 
     jQuery('.del-avatar-window-sure, .modal-win-shadow:visible').fadeOut();
+
+    jQuery('.calendar-win:visible').fadeOut(800);
   }
 });
 

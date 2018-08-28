@@ -486,7 +486,7 @@ html {
     /*left: -245px;*/
     /*left: -12.76041666vw;*/
     /*left: -190px;*/
-    left: -9.8958333vw;
+    left: -8.4vw;
     top: 10%;
     padding-bottom: 1.1%;
 }
@@ -596,7 +596,6 @@ font-size: .8333vw;
 
 
 .user-cabinet-trigger, .calendar-trigger, .search-widget {
-    display: flex;
     cursor: pointer;
 }
  .calendar-trigger:hover svg, .search-widget:hover svg {
@@ -1635,8 +1634,6 @@ text-align: center;
 margin: 3.02083vw 0;
 }
 
-
-.school-programm p,
 .about-school p {
 margin: 0;
 /*font-size: 18px;*/
@@ -5924,6 +5921,7 @@ line-height: 1.5714;
 
         /*max-height: 525px;*/
         max-height: 68.359375vw;
+        max-width: 100vw;
     }
 
 
@@ -6046,12 +6044,20 @@ line-height: 1.5714;
 
     }
 
-.mobile-nav-menu .search-form [type="submit"] {
-           filter: invert(100%);
--webkit-filter: invert(100%); 
-}
+    .mobile-nav-menu .search-form [type="submit"] {
+        filter: invert(100%);
+        -webkit-filter: invert(100%); 
+    }
+
+    .mobile-nav-menu .search-form .search-close {
+        display: none;
+    }
 
     .mobile-nav-menu-close.closeCross {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        cursor: pointer;
         right: auto;
         /*left: 63px;*/
         left: 8.203125vw;

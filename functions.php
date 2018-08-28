@@ -252,9 +252,9 @@ function my_single_template( $single ) {
     return $single;
 }
 
-//remove_filter( 'the_content', 'wpautop' ); // Отключаем автоформатирование в полном посте
-//remove_filter( 'the_excerpt', 'wpautop' ); // Отключаем автоформатирование в кратком(анонсе) посте
-//remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
+// remove_filter( 'the_content', 'wpautop' ); // Отключаем автоформатирование в полном посте
+// remove_filter( 'the_excerpt', 'wpautop' ); // Отключаем автоформатирование в кратком(анонсе) посте
+// remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
 
 function read_speed($content, $titles) {
 	$words_per_minute = "150"; // Время чтения слов в минуту

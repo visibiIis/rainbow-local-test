@@ -1530,7 +1530,7 @@
         right: 8.463541666vw;
     }   
 
-    .mobile-nav-menu-list {
+    .mobile-nav-menu-list ul{
         padding: 0;
         margin: 0;
         list-style: none;
@@ -1553,7 +1553,7 @@
         position: relative;
     }
 
-    .mobile-nav-menu-list .active-nav-link:before, .mobile-nav-menu-list a:hover:before, .mobile-nav-menu-list a:focus:before {
+    .mobile-nav-menu-list ul .active-nav-link:before, .mobile-nav-menu-list a:hover:before, .mobile-nav-menu-list ul a:focus:before {
     content: '';
     display: block;
     /* width: 8px; */

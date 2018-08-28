@@ -43,7 +43,6 @@
       </div>
     </div>
   </footer>
-  <?php } wp_reset_postdata() ?>
 
 <?php if(!is_page('contacts')) { ?>
 <div class="map-container">
@@ -1292,46 +1291,29 @@
     <div class="user-login-close closeCross"></div>
   </div>
   <div class="mobile-nav-menu">
-    <!-- <div class="mobile-nav-menu-cont"> -->
-      <a href="#" class="mobile-nav-menu-logo"><img src="<?= bloginfo('template_directory');?>/resources/img/header/logo2.svg" alt="Rainbow school logo">
+    <a href="#" class="mobile-nav-menu-logo"><img src="<?= bloginfo('template_directory');?>/resources/img/header/logo2.svg" alt="Rainbow school logo">
       <img src="<?= bloginfo('template_directory');?>/resources/img/header/scrollLogo.svg" alt="Rainbow school logo 2">
-      </a>
-    <!-- </div> -->
+    </a>
     <div class="lang-bar">
-              <span class="current-lang">Рус</span> | <span>Eng</span>
+      <span class="current-lang">Рус</span> | <span>Eng</span>
     </div>
 
-    <form class="search-form" action="" method="GET">
-                  <input type="text" placeholder="Введите запрос для поиска...">
-                  <input type="submit" value="">
-                  <!-- <div class="search-close closeCross"></div> -->
-                  <!--
-                              <svg  onclick="document.getElementById('search-form').submit(); /*return false;*/" viewBox="0 0 362.715 362.715">
-                <path d="M352.464,302.966l-90.374-90.373c-6.689-6.69-15.414-10.097-24.182-10.238c33.904-50.513,28.561-119.733-16.045-164.339
-                     c-50.688-50.687-133.161-50.687-183.848,0c-50.688,50.687-50.688,133.161,0,183.848c44.606,44.606,113.826,49.95,164.339,16.045
-                    c0.142,8.767,3.548,17.492,10.238,24.182l90.373,90.374c13.669,13.668,35.829,13.668,49.498,0
-                    C366.132,338.795,366.132,316.634,352.464,302.966z M193.579,193.579c-35.091,35.091-92.188,35.091-127.279,0
-                    c-35.091-35.091-35.091-92.188,0-127.279c35.091-35.091,92.188-35.091,127.279,0C228.67,101.39,228.67,158.488,193.579,193.579z"/>
-                <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-            </svg>-->
-     </form>
+    <?php get_search_form(); ?>
 
-
-
-    <nav>
-      <ul class="mobile-nav-menu-list">
-        <li><a href="#" class="active-nav-link">Главная</a></li>
-        <li><a href="#">О школе</a></li>
-        <li><a href="#">Курсы</a></li>
-        <li><a href="#">Результаты учеников</a></li>
-        <li><a href="#">Блог</a></li>
-        <li><a href="#">Расписание занятий</a></li>
-        <li><a href="#">Контакты</a></li>
-      </ul>
+    <nav class="mobile-nav-menu-list">
+      <?php 
+        $args = array( 
+          'container'=> false,
+          'menu' => 'Menu Header Mobile',
+          'menu_class'=> '',
+          'item_wrap' => '<ul class="%2$s">%3$s</ul>',
+        );
+        wp_nav_menu($args);
+      ?>      
     </nav>
     <ul class="mobile-nav-menu-contact-phones">
-      <li>+38 (066) 123 45 67</li>
-      <li>+38 (066) 123 45 67</li>
+      <li><?php the_field('tel1') ?></li>
+      <li><?php the_field('tel2') ?></li>
     </ul>
     <div class="mobile-nav-menu-socials-cont">
       <h3>Мы в социальных сетях</h3>
@@ -1362,6 +1344,8 @@
 
      <div class="call-for-authorization-close closeCross"></div>
   </div>
+  <?php } wp_reset_postdata() ?>
+
 <script src="<?php bloginfo('template_directory'); ?>/libs/jquery/jquery-3.2.1.min.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/libs/slick-1.8.0/slick/slick.min.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/libs/parallax.js-1.5.0/parallax.min.js"></script>

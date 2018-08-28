@@ -243,10 +243,16 @@
     border: 3px solid #f8f7f8;
     position: relative;
     box-sizing: border-box;
+    background: white;
 
     /*padding: 45px 50px  80px 65px;*/
     padding: 2.34375vw 2.6041666vw 4.1666vw 3.38541666vw ;
 }
+
+.courses-page-courses-cont .course:hover {
+    
+}
+
 .courses-page-courses-cont .course .module-group {
     top: -3px;
 }

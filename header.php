@@ -29,7 +29,7 @@ include( dirname(__FILE__) . '/languages/' . $lang . '.php');
           <?php 
             $args = array( 
               'container'=> false,
-              'menu' => 'Menu Header',
+              'menu' => 'Menu Header Desktop',
               'menu_class'=> 'site-nav-list',
               'item_wrap' => '<ul class="%2$s">%3$s</ul>',
             );
