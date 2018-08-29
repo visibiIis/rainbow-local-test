@@ -60,15 +60,17 @@ get_header(); // подключаем header.php ?>
     <div class="news-and-blog-articles">
       <?php
 
-      $args = [
-        'posts_per_page' => 4,
-        'tag_id' => $_GET ? $_GET['cat'] : 0
-      ];
-      get_news($args)
+        $args = [
+          'posts_per_page' => 4,
+          'tag_id' => $_GET ? $_GET['cat'] : 0
+        ];
+        
+        get_news($args)
+
       ?>
 
     <script>
-      var params = window
+      /*var params = window
       .location
       .search
       .replace('?','')
@@ -83,7 +85,7 @@ get_header(); // подключаем header.php ?>
       );
 
       console.log( params['cat']);
-      document.getElementById(params['cat']).classlist.add('current-cat')
+      document.getElementById(params['cat']).classList.add('current-cat');*/
 
       jQuery(function($){
           $('.add-article-in-favorite').click(function(){
@@ -124,15 +126,37 @@ get_header(); // подключаем header.php ?>
 
     <script>
         
-      </script>
+    </script>
     
     <div id="posts"></div>
 
     </div>
 
-    <div id="true_loadmore" class="blog-menu-more-button">
-      <span>Больше статей</span>
-    </div>
+      <?php
+
+        $posts = get_posts( array(
+          'numberposts' => -1,
+          'category'    => 2,
+          'orderby'     => 'date',
+          'order'       => 'DESC',
+          'include'     => array(),
+          'exclude'     => array(),
+          'meta_key'    => '',
+          'meta_value'  =>'',
+          'post_type'   => 'post',
+          'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+        ) );
+
+        $posts_number = count($posts);
+        
+      ?>
+
+    <?php if ($posts_number > 4 ) : ?>
+      <div id="true_loadmore" class="blog-menu-more-button">
+        <span>Больше статей</span>
+        <div class="unactive"></div>
+      </div>
+    <?php endif ?>
 
   </section>
 

@@ -472,6 +472,7 @@
 }
 
 .blog-menu-more-button {
+    position: relative;
     border: 2px solid #5791dd;
     width: 11.45833vw;
     height: 2.34375vw;
@@ -482,6 +483,17 @@
     text-transform: uppercase;
     font-size: .833vw;
     font-weight: bold;
+}
+
+.blog-menu-more-button > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 11.45833vw;
+    height: 2.34375vw;
+    background: transparent;
 }
 
 .blog-menu-more-button:hover {

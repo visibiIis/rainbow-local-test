@@ -1149,12 +1149,24 @@
 	}
 
 	.blog-menu-more-button {
+        position: relative;
 		width: 26.302083333vw;
 		height: 6.25vw;
 		line-height: 6.25vw;
 		font-size: 2.083333333vw;
 		border-radius: 10vw;
 	}
+
+    .blog-menu-more-button > div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 26.302083333vw;
+        height: 6.25vw;
+        background: transparent;
+    }
 
 	.news-and-blog-article h4 {
 		font-size: 2.604166667vw;
@@ -2136,6 +2148,7 @@
 	}
 
 	.blog-menu-more-button {
+        position: relative;
 		width: 65.625vw;
 		height: 15.3125vw;
 		line-height: 15.3125vw;
@@ -2143,6 +2156,17 @@
 		border-radius: 10vw;
 		margin-top: 11.5625vw;
 	}
+
+    .blog-menu-more-button > div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 65.625vw;
+        height: 15.3125vw;
+        background: transparent;
+    }
 
 	.news-and-blog-article h4 {
 		font-size: 6.25vw;

@@ -306,35 +306,47 @@ function true_load_posts(){
  
 	$args = unserialize( stripslashes( $_POST['query'] ) );
 	$args['paged'] = $_POST['page'] + 1; // следующая страница
+
 	//$args['posts_per_page'] = 4;
 	$query = new WP_Query($args);
 
 	switch($args['category_name']) {
 		case 'blog':
-			if($query->have_posts()){
-	          while($query->have_posts()){ 
+			if($query->have_posts())
+			{
+	          while($query->have_posts())
+	          { 
+	          	$query->the_post();
+	          	?>
+					
+					<div class="news-and-blog-article wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
+			          <a class="article-link" href="<?php the_permalink() ?>">
+			            <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+			          </a>
+			          <div>
+			            <div class="article-date-bar">
+			              <span class="article-date"><?php the_date('d F Y'); ?></span> 
+			              <span class="article-reading-time">
+			                Читать <?= read_speed(get_the_content(), [' минута', ' минуты', ' минут']); ?>
+			              </span>
+			            </div>
+			            <h4><?php the_title(); ?></h4>
+			            <div class="news-and-blog-article-desc">
+			              <?= mb_strimwidth(get_the_content(), 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>
+			            </div>
+			            <a class="category-article"><?= get_the_tags()[0]->name ?></a>
+			          </div>
+			          <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>">
+			            <div>
+			              <?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?>
+			            </div>
+			          </div>
+			        </div>
 
-	            $query->the_post();
-	            $news_and_blog_content = get_the_content(); ?>
-
-	      <div class="news-and-blog-article wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
-	        <a class="article-link" href="<?php the_permalink() ?>">
-	          <img src="<?php the_post_thumbnail_url(); ?>" alt="">
-	        </a>
-	        <div>
-	          <div class="article-date-bar">
-	            <span class="article-date"><?= get_the_date('j F Y'); ?></span> 
-	            <span class="article-reading-time">Читать <?= read_speed(get_the_content(), [' минута', ' минуты', ' минут']); ?></span>
-	          </div>
-	          <h4><?php the_title(); ?></h4>
-	          <div class="news-and-blog-article-desc">
-	            <?= mb_strimwidth($news_and_blog_content, 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>      
-	          </div>
-	          <a class="category-article"><?= get_the_tags()[0]->name ?></a>
-	        </div>
-	        <div class="article-favorite-status add-article-in-favorite forGuest" id="<?php echo get_the_ID() ?>"><div>Добавить в избранное</div></div>
-	      </div>
-	    <?php } wp_reset_postdata(); }
+	          	<?php
+	            
+	    	  } wp_reset_postdata();
+	    	}
 	    die();
 		break;
 		case 'child':
