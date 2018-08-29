@@ -32,10 +32,33 @@ get_header(); // подключаем header.php ?>
       ?>
       <div id="posts"></div>
     </div>
+
+    <?php
+
+      $posts = get_posts( array(
+        'numberposts' => -1,
+        'category'    => 7,
+        'orderby'     => 'date',
+        'order'       => 'DESC',
+        'include'     => array(),
+        'exclude'     => array(),
+        'meta_key'    => '',
+        'meta_value'  =>'',
+        'post_type'   => 'post',
+        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+      ) );
+
+      $posts_number = count($posts);
+      
+    ?>
+
+    <?php if ($posts_number > 2 ) : ?>
     <div id="true_loadmore" class="showMoreResArticles">
         <span>Больше статей</span>
-      </div>
-    
+        <div class="unactive"></div>
+    </div>
+    <?php endif ?>
+
   </section>
 
   <section class="win-callback-init wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">

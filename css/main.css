@@ -4020,6 +4020,7 @@ margin-top: .78125vw;
 .showMoreResArticles:hover {
    color: #fff;
    background: #5891dd;
+   cursor: pointer;
 }
 
 .results-article + .results-article {
@@ -5562,6 +5563,17 @@ line-height: 1.5714;
     line-height: 1.333;
     /*margin-top: 45px;*/
     margin-top: 2.34375vw;
+}
+
+#true_loadmore > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 11.45833vw;
+    height: 2.34375vw;
+    background: transparent;
 }
 
 

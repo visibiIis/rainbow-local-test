@@ -503,7 +503,7 @@ jQuery('.article-favorite-status').click(function(){
 /*паралакс*/
 
 jQuery('.school-relevance').parallax({
-    imageSrc: 'http://localhost/rainbow-local-test/wp-content/uploads/2018/08/relevance-bg.jpg',
+    imageSrc: 'wp-content/themes/rainbow/resources/img/main-page/relevance/relevance-bg.jpg',
     positionY: 'top'
     // positionY: '-1000px'
 
@@ -983,10 +983,9 @@ jQuery('.change-page-form').submit(function(e) {
 
 
     jQuery(window).resize(function () {
-
         editHeightChildPhotoCont();
         jQuery('.school-relevance').parallax({
-             imageSrc: 'http://localhost/rainbow-local-test/wp-content/uploads/2018/08/relevance-bg.jpg',
+            imageSrc: 'wp-content/themes/rainbow/resources/img/main-page/relevance/relevance-bg.jpg',
             positionY: 'top'
             // positionY: '-1000px'
 

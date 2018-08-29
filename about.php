@@ -5,6 +5,11 @@
  * @subpackage your-clean-template-3
  * Template Name: О школе
  */
+
+remove_filter( 'the_content', 'wpautop' ); // Отключаем автоформатирование в полном посте
+remove_filter( 'the_excerpt', 'wpautop' ); // Отключаем автоформатирование в кратком(анонсе) посте
+remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
+
 get_header(); // подключаем header.php ?>
   <section id="video-bg" class="about-school-video">
     <video width="100%" height="auto" preload="auto" autoplay="autoplay"
@@ -24,9 +29,6 @@ get_header(); // подключаем header.php ?>
     <div class="about-school-inner">
             <h3 class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">О нашей школе</h3>
             <p class="  wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s"><?php the_content(); ?> </p>
-
-            <p class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">Наша школа является автором уникальной техники обучения детей. Программа состоит из тренингов для детей в возрасте от 7 до 17 лет. Более года специалисты различных областей деятельности - от психологов, до специалистов в IT и бизнесменов, создавали и оптимизировали Программу по развитию детей и формированию у них качеств, необходимых для успешного карьерного и предпринимательского роста. </p>
-
             <p class="wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">Три основных направления наших треннингов:</p>
 
             <ul class="training-category">

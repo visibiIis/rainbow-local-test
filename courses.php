@@ -53,12 +53,36 @@ get_header(); // подключаем header.php ?>
     </nav>
     <div class="courses-page-courses-cont">
 <?php 
-get_courses(['posts_per_page' => 2])
+  get_courses(['posts_per_page' => 2]);
 ?>
 <div id="posts"></div>
-      <div id="true_loadmore" class="blog-menu-more-button">
-        <span>Больше статей</span>
-      </div>
+
+      <?php
+
+        $posts = get_posts( array(
+          'numberposts' => -1,
+          'category'    => 3,
+          'orderby'     => 'date',
+          'order'       => 'DESC',
+          'include'     => array(),
+          'exclude'     => array(),
+          'meta_key'    => '',
+          'meta_value'  =>'',
+          'post_type'   => 'post',
+          'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+        ) );
+
+        $posts_number = count($posts);
+        
+      ?>
+
+      <?php if ($posts_number > 2 ) : ?>
+        <div id="true_loadmore" class="blog-menu-more-button">
+          <span>Больше статей</span>
+          <div class="unactive"></div>
+        </div>
+      <?php endif ?>
+
     </div>
     <script>
         jQuery(function($){

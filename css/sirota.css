@@ -229,8 +229,8 @@
 	
 }
 .courses-page-courses-cont {
-    display:  flex;
-    /*justify-content: ;*/
+    display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     /*padding-bottom: 50px;*/
     padding-bottom: 2.6041666vw;
@@ -256,14 +256,14 @@
 .courses-page-courses-cont .course .module-group {
     top: -3px;
 }
-.courses-page-courses-cont .course:nth-child(2n) {
+.courses-page-courses-cont .course:nth-of-type(2n) {
     /*background: red;*/
     /*margin-left: 28px;*/
-    margin-left: 1.458333vw;
+    margin-left: 1.45833333333vw;
 }
-.courses-page-courses-cont .course:nth-child(n + 3) {
+.courses-page-courses-cont .course:nth-of-type(n + 3) {
     /*margin-top: 35px;*/
-    margin-top: 1.82291666vw;
+    margin-top: 1.45833333333vw;
 }
 .course {
 	/*width: 30vw;
@@ -1156,17 +1156,6 @@
 		font-size: 2.083333333vw;
 		border-radius: 10vw;
 	}
-
-    .blog-menu-more-button > div {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 26.302083333vw;
-        height: 6.25vw;
-        background: transparent;
-    }
 
 	.news-and-blog-article h4 {
 		font-size: 2.604166667vw;
@@ -2156,17 +2145,6 @@
 		border-radius: 10vw;
 		margin-top: 11.5625vw;
 	}
-
-    .blog-menu-more-button > div {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 65.625vw;
-        height: 15.3125vw;
-        background: transparent;
-    }
 
 	.news-and-blog-article h4 {
 		font-size: 6.25vw;
