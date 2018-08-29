@@ -320,28 +320,28 @@ function true_load_posts(){
 	          	?>
 					
 					<div class="news-and-blog-article wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
-			          <a class="article-link" href="<?php the_permalink() ?>">
-			            <img src="<?php the_post_thumbnail_url(); ?>" alt="">
-			          </a>
-			          <div>
-			            <div class="article-date-bar">
-			              <span class="article-date"><?php the_date('d F Y'); ?></span> 
-			              <span class="article-reading-time">
-			                Читать <?= read_speed(get_the_content(), [' минута', ' минуты', ' минут']); ?>
-			              </span>
-			            </div>
-			            <h4><?php the_title(); ?></h4>
-			            <div class="news-and-blog-article-desc">
-			              <?= mb_strimwidth(get_the_content(), 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>
-			            </div>
-			            <a class="category-article"><?= get_the_tags()[0]->name ?></a>
-			          </div>
-			          <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>">
-			            <div>
-			              <?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?>
-			            </div>
-			          </div>
-			        </div>
+				      <a class="article-link" href="<?php the_permalink() ?>">
+				        <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+				      </a>
+				      <div>
+				        <div class="article-date-bar">
+				          <span class="article-date"><?php the_date('d F Y'); ?></span> 
+				          <span class="article-reading-time">
+				            Читать <?= read_speed(get_the_content(), [' минута', ' минуты', ' минут']); ?>
+				          </span>
+				        </div>
+				        <h4><?php the_title(); ?></h4>
+				        <div class="news-and-blog-article-desc">
+				          <?= mb_strimwidth(get_the_content(), 0, 259, $trimmarker = "...", $encoding = mb_internal_encoding()); ?>
+				        </div>
+				        <a class="category-article"><?= get_the_tags()[0]->name ?></a>
+				      </div>
+				      <div class="article-favorite-status <?php echo is_favorite(get_the_ID()) ? 'article-in-favorite' : 'add-article-in-favorite' ?> forGuest" id="<?php echo get_the_ID() ?>">
+				        <div>
+				          <?php echo is_favorite(get_the_ID()) ? 'Удалить из избранного' : 'Добавить в избранное' ?>
+				        </div>
+				      </div>
+				    </div>
 
 	          	<?php
 	            
