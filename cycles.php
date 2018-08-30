@@ -84,11 +84,11 @@ function get_news(array $args = []) {
       ?>
         <div class="news-and-blog-article wow fadeInRight" data-wow-offset="75" data-wow-duration="1.5s">
           <a class="article-link" href="<?php the_permalink() ?>">
-            <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+            <?php the_post_thumbnail('full'); ?>
           </a>
           <div>
             <div class="article-date-bar">
-              <span class="article-date"><?php the_date('d F Y'); ?></span> 
+              <span class="article-date"><?= get_the_date('d F Y'); ?></span> 
               <span class="article-reading-time">
                 Читать <?= read_speed(get_the_content(), [' минута', ' минуты', ' минут']); ?>
               </span>
