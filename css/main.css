@@ -1209,6 +1209,9 @@ float: right;
     position: absolute;
     top: 0;
     right: 0;
+    width: 23px;
+    height: 23px;
+    cursor: pointer;
 }
 .calendar-win-inner h2{
     font-size: 1.875vw;

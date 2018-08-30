@@ -85,7 +85,7 @@ include( dirname(__FILE__) . '/languages/' . $lang . '.php');
               	<?php get_search_form(); ?>
               </div>
           </div>
-          <a class="user-cabinet-trigger" <?php echo is_user_logged_in() ? 'href="/account"' : '' ?> >
+          <a class="user-cabinet-trigger" <?php echo is_user_logged_in() ? "href='" . home_url() . "/account'" : '' ?> >
             <svg viewBox="0 0 31.5 42.5">
                <!-- <style type="text/css">
                     .st0{fill:none;stroke:#000000;stroke-width:1.9412;stroke-miterlimit:10;}
