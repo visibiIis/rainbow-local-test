@@ -1,6 +1,28 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic');
 
 @font-face {
+    font-family: 'Conv_FuturaPTHeavy';
+    src: url('../resources/fonts/futuraPTHeavy/FuturaPTHeavy.eot');
+    src: url('../resources/fonts/futuraPTHeavy/FuturaPTHeavy.eot?#iefix') format('embedded-opentype'),
+    url('../resources/fonts/futuraPTHeavy/FuturaPTHeavy.woff') format('woff'),
+         url('../resources/fonts/futuraPTHeavy/FuturaPTHeavy.ttf') format('truetype'),
+         url('../resources/fonts/futuraPTHeavy/FuturaPTHeavy.svg#Conv_FuturaPTHeavy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Conv_FuturaPTBold';
+    src: url('../resources/fonts/futuraPTBold/FuturaPTBold.eot');
+    src: url('../resources/fonts/futuraPTBold/FuturaPTBold.eot?#iefix') format('embedded-opentype'),
+    url('../resources/fonts/futuraPTBold/FuturaPTBold.woff') format('woff'),
+         url('../resources/fonts/futuraPTBold/FuturaPTBold.ttf') format('truetype'),
+         url('../resources/fonts/futuraPTBold/FuturaPTBold.svg#Conv_FuturaPTBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Conv_FuturaPTLight';
     src: url('../resources/fonts/futuraPTLight/FuturaPTLight.eot');
     src: url('../resources/fonts/futuraPTLight/FuturaPTLight.eot?#iefix') format('embedded-opentype'),
@@ -10,7 +32,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
 
 @font-face {
     font-family: 'Conv_FuturaPTMedium';
@@ -1178,7 +1199,14 @@ float: right;
 #remindPass span:hover {
     border-color: transparent;
 }
-
+.closeCross {
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
 .user-login-close.closeCross {
     top: 3.125vw;
     right:  4.6875vw;
@@ -1566,7 +1594,10 @@ padding-bottom: 1.4%;
     margin: 2.86458333vw auto 0;
   }
   .teacher-slider-slide > div {
+    position: relative;
+    width: 29.4270833vw;
     box-shadow: 0 0 19.6px 0.4px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
   }
     .slick-slide.teacher-slider-slide {
       /*background: red;*/
@@ -1579,8 +1610,12 @@ padding-bottom: 1.4%;
       height: 100%;
     }
     .teacher-photo img {
-      width: 29.4270833vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      width: auto;
       height: 100%;
+      transform: translate(-50%, -50%);
     }
     .teacher-desc {
       margin-top: 1.5625vw;
@@ -1616,7 +1651,9 @@ padding-bottom: 1.4%;
 /*school program*/
 .school-programm,
 .about-school {
-    padding-bottom: 4.94791666vw;  
+    padding-bottom: 3.02083333333vw; 
+    background: white;
+    overflow: hidden;
 } 
 .school-programm-inner,
 .about-school-inner {
@@ -1627,15 +1664,28 @@ padding-bottom: 1.4%;
 .school-programm h3,
 .about-school h3 {
     color: #070707;
-/*font-family: FuturaPT;*/
-/*font-size: 36px;*/
-font-size: 1.875vw;
-/*font-weight: 300;*/
-line-height:1;
-margin: 0;
-text-transform: uppercase;
-text-align: center;
-margin: 3.02083vw 0;
+    font-family: Conv_FuturaPTHeavy;
+    /*font-size: 36px;*/
+    font-size: 1.875vw;
+    /*font-weight: 300;*/
+    line-height: 1.35416666667vw;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 5.46875vw 0 0 0;
+}
+
+.school-programm h3:after {
+    content: '';
+    display: block;
+    width: 5.20833333333vw;
+    height: 1px;
+    margin: .9375vw auto 0;
+    background: black;
+}
+
+.school-programm p:first-of-type {
+    margin: 2.55208333333vw auto 0;
+    font-size: 1.04166666667vw;
 }
 
 .about-school p {
@@ -1650,14 +1700,15 @@ text-align: justify;
 /* Text style for "╨Я╨╛╤Н╤В╨╛╨╝╤Г ╨╝╤Л ╤Б ╤Г" */
 .school-programm p:last-of-type,
 .about-school p:last-of-type {
-color: #222038;
-/*font-size: 22px;*/
-font-size: 1.1458333vw;
-/*font-weight: 500;*/
-font-weight: bold;
-/*line-height: 36px;*/
-line-height: 1.6363;
-text-align: center;
+    margin: .83333333333vw auto 0;
+    color: #222038;
+    /*font-size: 22px;*/
+    font-size: 1.35416666667vw;
+    /*font-weight: 500;*/
+    font-weight: bold;
+    /*line-height: 36px;*/
+    line-height: .9375vw;
+    text-align: center;
 }
 
 .program-category,
@@ -1701,18 +1752,18 @@ height: 9.4791666vw;
 .program-category li div,
 .training-category li div {
     /*width: 262px;*/
-/*height: 17px;*/
-color: #252525;
-/*font-family: FuturaPT;*/
-/*font-size: 25px;*/
-font-size: 1.302083vw;
-/*font-weight: 300;*/
-line-height: 1.12;
-text-transform: uppercase;
-text-align: center;
-font-weight: bold;
-/*margin-top: 36px;*/
-margin-top: 1.875vw;
+    /*height: 17px;*/
+    color: #252525;
+    font-family: Conv_FuturaPTHeavy;
+    /*font-size: 25px;*/
+    font-size: 1.30208333333vw;
+    /*font-weight: 300;*/
+    line-height: .83333333333vw;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    /*margin-top: 36px;*/
+    margin-top: 2.23958333333vw;
 }
 
 
@@ -2191,16 +2242,20 @@ margin: 0;
     position: relative;
   }
   .news-and-blog-article img {
-    width: 100%;
-    
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+    width: auto;
     height: 100%;
-    
+    transform: translate(-50%, -50%);
   }
 
 .news-and-blog-article .article-link {
-  display: block;
-   width: 19.791666vw;
-height: 17.96875vw;
+	position: relative;
+  	display: block;
+   	width: 19.791666vw;
+	height: 17.96875vw;
+	overflow: hidden;
 }
 .news-and-blog-article .article-link + div {
   /*padding: 30px 35px 35px;*/

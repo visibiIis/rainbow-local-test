@@ -517,26 +517,20 @@ function add_password_forgotten(){
 	$content = '<a href="'.home_url('/password-reset/').'" id="remindPass"><span>Напомнить парль?</span></a>';
 	return $content;
 }
-add_action( 'wp_enqueue_scripts', 'myajax_data', 99 );
-function myajax_data(){
-  wp_localize_script('twentysixteen-script', 'myajax',
-    array(
-      'url' => admin_url('admin-ajax.php')
-    )
-  );
 
-}
 add_action('wp_footer', 'my_action_javascript', 99);
 function my_action_javascript() {
+	
   ?>
   <script type="text/javascript" >
   jQuery(document).ready(function($) {
     jQuery('.wpum-login-form form').submit(function(e){
+		var myajax = "<?php echo admin_url( 'admin-ajax.php' );?>";
       var flag=true;
      // data = { action: 'login_action', log: jQuery('#user_login').val(), pwd: jQuery('#user_pass').val() };
       jQuery.ajax({
         method: "POST",
-        url: myajax.url,
+        url: myajax,
         data: { action: 'login_action', log: jQuery('#user_login').val(), pwd: jQuery('#user_pass').val() },
         async:false
       }).done(function(response){
@@ -569,14 +563,22 @@ function register_action_javascript() {
   <script type="text/javascript" >
   jQuery(document).ready(function($) {
     jQuery('.wpum-registration-form').submit(function(e){
+			console.log(jQuery('input[name="password_confirm"]').val(), jQuery('#password').val());
+			if(jQuery('input[name="password_confirm"]').val() != jQuery('#password').val()){
+				jQuery('input[name="password_confirm"]').addClass('invalidInput');
+				return false;
+			}
+			var myajax = "<?php echo admin_url( 'admin-ajax.php' );?>";
       var flag=true;
       jQuery.ajax({
         method: "POST",
-        url: myajax.url,
+        url: myajax,
         data: { action: 'register_action', r_email: jQuery('#user_email').val(), username: jQuery('#user_email').val()},
         async:false
       }).done(function(response){
-        if(response == 'error'){
+				jQuery('.wpum-registration-form input[type="email"]').removeClass('invalidInput');
+				if(response == 'error'){
+					jQuery('.wpum-registration-form input[type="email"]').addClass('invalidInput');
           jQuery('.wpum-registration-form').addClass('error-form');
           flag = false;
         }else{
@@ -591,13 +593,10 @@ function register_action_javascript() {
 }
 add_action( 'wp_ajax_register_action', 'register_action_callback' );
 add_action( 'wp_ajax_nopriv_register_action', 'register_action_callback' );
-function register_action_callback(){
-  $exists = email_exists($_POST['r_email']);
-  if ($exists){
-    echo 'error';
-  }else{
-
-  }
+function register_action_callback(){	
+	if ( $user = get_user_by( 'login', $_POST['r_email']) ) {
+		echo 'error';
+	}
   wp_die();
 }
 ?>

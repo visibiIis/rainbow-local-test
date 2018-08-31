@@ -1503,6 +1503,12 @@ profile-news-and-blog
 	width: 100%;
 	margin-top: 2.8125vw;
 	height: 8.17291666667vw;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.courst-info * {
 	text-align: center;
 }
 
@@ -1533,7 +1539,7 @@ profile-news-and-blog
 .course-info-quantity,
 .course-info-duration,
 .course-info-seats {
-	display: inline-table;
+	display: block;
 	width: auto;
 }
 
@@ -1544,12 +1550,6 @@ profile-news-and-blog
 	line-height: 1.04166666667vw;
 	max-width: 12.5520833333vw;
 	margin-top: .9375vw;
-}
-
-.course-info-cost,
-.course-info-quantity,
-.course-info-duration {
-	margin-right: 3.16145833333vw;
 }
 
 .course-feedback {

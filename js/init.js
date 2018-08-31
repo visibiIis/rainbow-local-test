@@ -518,7 +518,7 @@ jQuery('.school-relevance').parallax({
 
 
 // emailvalid
-jQuery('[type="email"]').blur(function() {
+jQuery('[type="email"], #user_login').blur(function() {
     if($(this).val() != '') {
         // if()
 
@@ -1134,6 +1134,8 @@ $(document).keyup(function(e){
     jQuery('.del-avatar-window-sure, .modal-win-shadow:visible').fadeOut();
 
     jQuery('.calendar-win:visible').fadeOut(800);
+
+    jQuery('.search-cont:visible').fadeOut(800);
   }
 });
 
@@ -1322,6 +1324,5 @@ jQuery("#user_avatar").change(function(){
 });
 jQuery('.wpum-uploaded-files label').click(function(){
 	readURL(jQuery(this).next().val());
-});
-
+});			
 // конец //

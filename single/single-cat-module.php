@@ -269,7 +269,7 @@
 
       <div class="teacher-slider-slide">
         <div class="teacher-photo">
-          <img src="<?php the_post_thumbnail_url(); ?>" alt="">
+          <?php the_post_thumbnail('full'); ?>
         </div>
         <div class="teacher-info">
           <div class="teacher-name"><?php the_title() ?></div>

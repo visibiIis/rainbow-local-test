@@ -15,7 +15,7 @@ border-radius: 50%;background: #FFF;top: 0;bottom: 0;margin: auto;}
 .login-submit{text-align: center;}
 .align-left{text-align: left;flex-basis: 100%;}
 #wpum-psw-footer{display: none;}
-.fieldset-username, .fieldset-user_email{margin-bottom: .9375vw;}
+.fieldset-username, .fieldset-user_email, .field-password{margin-bottom: .9375vw;}
 .align-center, .form_button{text-align: center;}
 #username{position: absolute;width: 0;height: 0;left:-99999em;opacity:0;}
 .logout_link{width: 11.3541666667vw;height: 2.72083333333vw;line-height: 2.72083333333vw;text-align: center;border: .15416666666vw solid #9fa7af;
@@ -54,3 +54,5 @@ span.wpum-required-star{content: '*';display: block;position: absolute;font-size
 .user-form:after{display: block;clear: both;content: '';}
 .wpum-submit{margin: 15px 0 0;}
 #wpum-form-profile .user-form{margin-bottom: 0;}
+.user-form .ac_fields .customCheckbox + label{margin:0;}
+.required-field{position: relative;}
